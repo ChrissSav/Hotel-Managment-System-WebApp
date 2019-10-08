@@ -1,9 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Asap:400,500,700");
+
 body{
     padding: 0;
     margin: 0;
-    display: table;
-    width: 100%;
     box-sizing: border-box;
+    
 }
 header{
     background-color: #76B7DD;
@@ -11,6 +12,7 @@ header{
     padding-top: 10px;
     padding-left: 20px;
     padding-bottom: 20px;
+
 }
 
 header  h1 {
@@ -18,38 +20,54 @@ header  h1 {
     text-decoration:  none;
     font-size: 70px;
     background-color: #76B7DD;
+    font-family: Asap, sans-serif;
 }
 
 .container{
-    clear: both;
-    margin-top: 20px;
-    display: block;
-    width: 50%;
+    margin: 50px 0;
+    text-align: center;
+   
+}
 
+
+.box{
+    padding: 140px 60px;
+    border: 4px;
+    font-size: 25px;
+    display: inline-block;
+    font-family: Asap, sans-serif;
+    transition: all 0.2s ease;  
+}
+.box img{
+    border-radius: 10%;
+}
+
+#admin:hover{
+    cursor: pointer;
+    content: url("./images/admin hoverd.png");
     
 }
 
-.container .box{
-    width: 50%;
-    text-align: center;
-    padding: 10px;
+
+#secretery:hover{
+    cursor: pointer;
+    content: url("./images/secret_hoverd.png");
 }
 
-.container .box img{
-    width:auto;
-    border-radius: 30px;
-}
+
+
+   
+    
+
 
 footer{
-    clear: both;
-    position: relative;
-    text-align: center;
-    padding:20px;
-    margin-top: 92px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 20px;
+    font-family: Asap, sans-serif;
+    width: 100%;
+    background-color:#76B7DD;
     color: white;
-    font-weight: 900;
-    background-color: #76B7DD;
-    
-    
-    
+    text-align: center;
 }
