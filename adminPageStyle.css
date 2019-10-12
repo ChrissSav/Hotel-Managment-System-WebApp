@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css?family=Asap:400,500,700");
+
+html { 
+    background: #F8F8F8;
+}
+
+
+body{
+    padding: 0;
+    margin: 0;
+    
+}
+nav{
+    margin: 0;
+    background: #ECECEC;
+    width: 100%;
+}
+ul{
+    padding: 0;
+    margin: 0;
+}
+ul li{
+    display:inline;
+    padding: 0;
+    margin: 0;
+}
+
+nav{
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+[data-tab-content] {
+    display: none;
+}
+
+.active[data-tab-content] {
+    display: block;
+}
+
+/*---------------------------Tab Reception----------------------------------*/
+
+/*---------------------------End Tab Rec------------------------------------*/

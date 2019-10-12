@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="adminPageStyle.css">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="script.js" defer></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <nav>
+            <ul class="tabs">
+                <li><button data-tab-target="#reception" class="active tab">Εγγραφή Γραμματέα</button></li>
+                <li><button data-tab-target="#rooms" class="active tab">Καταχώρηση Δωματίου</button></li>
+                <li><button data-tab-target="#receptiondb" class="tab">Β/Δ Υπαλλήλων</button></li>
+                <li><button data-tab-target="#roomsdb" class="tab">Β/Δ Δωματίων</button></li>
+                <li><button data-tab-target="#price" class="tab">Τιμολόγηση</button></li>
+            </ul>
+        </nav>
+        <div class="tab-content">
+<!---------------------------Tab Reception---------------------------------->
+
+            <div id="reception" data-tab-content class="active">
+                <h1>Εγγραφή Γραμματέα</h1>
+            </div>
+<!---------------------------End Tab Rec------------------------------------>
+
+            <div id="rooms" data-tab-content>
+                <h1>Καταχώρηση Δωματίου</h1>
+            </div>
+            <div id="receptiondb" data-tab-content>
+                <h1>Β/Δ Υπαλλήλων</h1>     
+            </div>
+            <div id="roomsdb" data-tab-content>
+                <h1>Β/Δ Δωματίων</h1>    
+            </div>
+            <div id="price" data-tab-content>
+                <h1>Τιμολόγηση</h1>   
+            </div>
+        </div>
+    </body>
+</html>
