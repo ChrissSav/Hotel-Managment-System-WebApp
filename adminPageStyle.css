@@ -42,3 +42,27 @@ nav{
 /*---------------------------Tab Reception----------------------------------*/
 
 /*---------------------------End Tab Rec------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 20px;
+    font-family: Asap, sans-serif;
+    width: 100%;
+    background-color:#76B7DD;
+    color: white;
+    text-align: center;
+}
