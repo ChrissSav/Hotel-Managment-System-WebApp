@@ -11,31 +11,166 @@
     <body>
         <nav>
             <ul class="tabs">
-                <li><button data-tab-target="#reception" class="active tab">Εγγραφή Γραμματέα</button></li>
-                <li><button data-tab-target="#rooms" class="active tab">Καταχώρηση Δωματίου</button></li>
+                <li><button data-tab-target="#reception" class="tab">Εγγραφή Γραμματέα</button></li>
+                <li><button data-tab-target="#rooms" class=" tab">Καταχώρηση Δωματίου</button></li>
                 <li><button data-tab-target="#receptiondb" class="tab">Β/Δ Υπαλλήλων</button></li>
                 <li><button data-tab-target="#roomsdb" class="tab">Β/Δ Δωματίων</button></li>
-                <li><button data-tab-target="#price" class="tab">Τιμολόγηση</button></li>
+                <li><button data-tab-target="#price" class="active tab">Τιμολόγηση</button></li>
             </ul>
         </nav>
         <div class="tab-content">
 <!---------------------------Tab Reception---------------------------------->
 
-            <div id="reception" data-tab-content class="active">
+            <div id="reception" data-tab-content >
                 <h1>Εγγραφή Γραμματέα</h1>
+
+                <table class="table1">
+                    <tr>
+                        <th align="left"><label>Όνομα</label></th>
+                        <th align="right"><input type="text" id="fname" name="firstname" readonly></th>
+                        <th align="left"><label>Επώνυμο</label></th>
+                        <th align="right"><input type="text" id="fname" name="firstname" readonly ></th>
+                    </tr>
+                    <tr>
+                        <th align="left"><label>Ημερ/νια γέννησης</label></th>
+                        <th align="right"><input type="text" id="fname" name="firstname"  readonly></th>
+                        <th align="left"><label>Φύλο </label></th>
+                        <th align="right"><select class="filo">
+                            <option value="NoDiet">Άνδρας</option>
+                            <option value="BreakfastOnly">Γυναίκα</option> </select></th>
+                    </tr>
+                    <tr>
+                        <th align="left"><label>Διεύθυνση</label></th>
+                        <th align="right"><input type="text" id="fname" name="firstname"  readonly></th>
+                        <th align="left"><label>Πόλη </label></th>
+                        <th align="right"><input type="text" id="fname" name="firstname"  readonly></th>
+                    </tr>
+                    <tr>
+                        <th align="left"><label>Τηλέφωνο</label></th>
+                        <th align="right"><input type="text" id="fname" name="firstname"  readonly></th>
+                        <th align="left"><label>Α.Μ.Κ.Α. </label></th>
+                        <th align="right"><input type="text" id="fname" name="firstname"  readonly></th>
+                    </tr>
+                    <tr>
+                        <th align="left"><label>Α.Δ.Τ.</label></th>
+                        <th align="right"><input type="text" id="fname" name="firstname"  readonly></th>
+                        <th align="left"><label>Α.Φ.Μ. </label></th>
+                        <th align="right"><input type="text" id="fname" name="firstname"  readonly></th>
+                    </tr>
+                </table>
+                <button class="btnAddEmploye">Καταχώρηση</button>
+
+                <table class="tableUserNamePass" >
+                    <tr><th><label>Όνομα χρήστη</label></th></tr>
+                    <tr><th><input type="text" id="fname" name="firstname"></th></tr>
+                    <tr><th><label>Κωδικός</label></th></tr>
+                    <tr><th><input type="text" id="fname" name="firstname"></th></tr>
+                    <tr><th><label class="check"><input type="checkbox" name="ac" value="ac">Εφμάνιση Κωδικού</label></th></tr>
+                </table>
             </div>
 <!---------------------------End Tab Rec------------------------------------>
-
-            <div id="rooms" data-tab-content>
+<!---------------------------Tab Rooms---------------------------------->
+            <div id="rooms" data-tab-content >
                 <h1>Καταχώρηση Δωματίου</h1>
-            </div>
+                <table class="AddRoom">
+                    <tr>
+                        <th align="left"><label>Κωδικός</label></th>
+                        <th align="right"><input type="text" id="fname" name="firstname"></th>
+                    </tr>
+                    <tr>
+                        <th align="left"><label>Τύπος</label></th>
+                        <th align="right"><select class="filo">
+                            <option value="NoDiet">Άνδρας</option>
+                            <option value="BreakfastOnly">Γυναίκα</option> </select></th>
+                    </tr>
+                    <tr>
+                        <th align="left"><label>Αρ. Κλινών</label></th>
+                        <th align="right"><input type="number" id="fname" name="firstname"></th>
+                    </tr>
+                    <tr>
+                        <th align="left"><label>Κλιματισμός</label></th>
+                        <th align="right"><select class="filo">
+                            <option value="NoDiet">Άνδρας</option>
+                            <option value="BreakfastOnly">Γυναίκα</option> </select></th>
+                    </tr>
+                    <tr>
+                        <th align="left"><label>Κλιματισμός</label></th>
+                        <th align="right"><select class="filo">
+                            <option value="NoDiet">Άνδρας</option>
+                            <option value="BreakfastOnly">Γυναίκα</option> </select></th>
+                    </tr>
+                    <tr>
+                        <th align="left"><label>WIFI</label></th>
+                        <th align="right"><select class="filo">
+                            <option value="NoDiet">Άνδρας</option>
+                            <option value="BreakfastOnly">Γυναίκα</option> </select></th>
+                    </tr>
+                    <tr>
+                        <th align="left"><label>Κόστος </label></th>
+                        <th align="right"><input type="text" id="fname" name="firstname" readonly></th>
+                    </tr>                
+                </table>
+                <button class="btnAddRoom">Καταχώρηση</button>
+            </div>        
+<!---------------------------Tab Rooms---------------------------------->
+<!---------------------------Tab DBReception ---------------------------------->
             <div id="receptiondb" data-tab-content>
-                <h1>Β/Δ Υπαλλήλων</h1>     
+                <h1>Β/Δ Υπαλλήλων</h1> 
+                <table class="CostumersDB">
+                    <thead>
+                        <tr>
+                            <th>ΟΝΟΜΑ</th>
+                            <th>ΕΠΩΝΥΜΟ</th>
+                            <th>ΗΜΕΡ/ΝΙΑ ΓΕΝΝΗΣΗΣ</th>
+                            <th>ΦΥΛΟ</th>
+                            <th>ΔΙΕΥΘΥΝΣΗ</th>
+                            <th>ΠΟΛΗ</th>
+                            <th>ΤΗΛΕΦΩΝΟ</th>
+                            <th>Α.Μ.Κ.Α.</th>
+                            <th>Α.Δ.Τ.</th>
+                            <th>Α.Φ.Μ.</th>
+                            <th>UserName</th>
+                            <th>Password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+                <div class="CostumerSearch">
+                    <label>Αναζήτηση με βάση Επώνυμο ή Α.Φ.Μ.</label>
+                    <br>
+                    
+                    <input type="text" id="fname" name="firstname">
+                </div>    
             </div>
+<!---------------------------End DBReception ---------------------------------->
             <div id="roomsdb" data-tab-content>
-                <h1>Β/Δ Δωματίων</h1>    
+                <h1>Β/Δ Δωματίων</h1>  
+                <table class="CostumersDB">
+                    <thead>
+                        <tr>
+                            <th>ΚΩΔΙΚΟΣ</th>
+                            <th>ΤΥΠΟΣ</th>
+                            <th>ΑΡ ΚΛΙΝΩΝ</th>
+                            <th>ΚΛΙΜΑΤΙΣΜΟΣ</th>
+                            <th>ΠΙΣΙΝΑ</th>
+                            <th>ΠΑΡΟΧΗ WIFI</th>
+                            <th>ΤΙΜΗ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+                <div class="CostumerSearch">
+                    <label>Αναζήτηση με βάση τον κωδικό του Δωματίου</label>
+                    <br>
+                    
+                    <input type="text" id="fname" name="firstname">
+                </div>  
             </div>
-            <div id="price" data-tab-content>
+            <div id="price" data-tab-content class="active">
                 <h1>Τιμολόγηση</h1>   
             </div>
         </div>
