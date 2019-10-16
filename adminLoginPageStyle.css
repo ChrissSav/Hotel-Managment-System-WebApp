@@ -6,6 +6,7 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+   
 }
 
 body{
@@ -81,6 +82,8 @@ h2{
     cursor: pointer;
     background-color: rgb(41, 99, 133);
 }
+
+
 
 
 
