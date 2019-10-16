@@ -227,6 +227,88 @@ nav{
 
 /*---------------------------End ReceptionDB------------------------------------*/
 
+/*---------------------------Tab AddRooms----------------------------------*/
+
+#AddRoom h1{
+    color: #767777;
+    margin: 10px 0px 20px 20px;
+    font-size: 45px;
+}
+
+/*#AddRoom{
+    background-image: url('./images/bed.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center right;;
+}*/
+
+
+#AddRoom table{
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#AddRoom input,select,button {
+    outline: none;
+}
+
+
+#AddRoom label {
+    font-size: 25px;
+    color: rgb(107, 183, 224);
+}
+
+#AddRoom input{
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid #76B7DD;
+    
+}
+#AddRoom  select{
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid #76B7DD;    
+}
+
+
+
+#AddRoom  input{
+    font-size: 25px;
+    margin-left: 55px;
+    width:  250px;
+}
+
+#AddRoom select{
+    font-size: 25px;
+    margin-left: 55px;
+    width:  250px;
+}
+
+.TableRoom {
+    border-spacing: 20px;
+}
+
+/*Buton*/
+.btnAddRoom{
+    display: block;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right:  auto;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #76B7DD;
+    padding: 10px 30px;
+    border: 0;
+    color: #fff;
+    font-size: 22px;
+    outline: none;
+}
+.btnAddRoom:hover{
+    cursor: pointer;
+    background-color: rgb(41, 99, 133);
+}
+/*---------------------------End AddRooms----------------------------------*/
 
 footer{
     position: fixed;
