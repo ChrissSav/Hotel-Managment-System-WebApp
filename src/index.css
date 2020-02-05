@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Asap:400,500,700");
+
+html {
+  background: rgb(71, 118, 145);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background-color: #76b7dd;
+  color: #fff;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+header h1 {
+  margin: 0;
+  text-decoration: none;
+  font-size: 70px;
+  background-color: #76b7dd;
+  font-family: Asap, sans-serif;
+}
+h2 {
+  color: black;
+  font-size: 50px;
+  font-family: Asap, sans-serif;
+}
+.btnLogin {
+  margin: 50px 0px;
+  border-radius: 12px;
+  background-color: #76b7dd;
+  padding: 10px 30px;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  outline: none;
+}
+.wrap {
+  display: block;
+  width: 800px;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 100px 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4%;
+  margin-bottom: auto;
+}
+
+.wrap input {
+  width: 350px;
+  padding: 20px 0px;
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid #76b7dd;
+  outline: none;
+  color: black;
+  font-size: 20px;
+}
+
+.wrap input:focus {
+  border-color: #76b7dd;
+  box-shadow: 0 0 8px 0 #76b7dd;
+}
+
+.btnLogin:hover {
+  cursor: pointer;
+  background-color: rgb(41, 99, 133);
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+  font-family: Asap, sans-serif;
+  width: 100%;
+  background-color: #76b7dd;
+  color: white;
+  text-align: center;
+}
