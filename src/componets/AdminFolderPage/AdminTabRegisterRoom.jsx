@@ -1,11 +1,18 @@
 import React, { Component } from "react";
+import "./AdminTabRegisterRoomStyle.css";
 
 class AdminTabDRegisterRoom extends Component {
   state = {};
   render() {
+    const mystyle = {
+      color: "white",
+      backgroundColor: "DodgerBlue",
+      padding: "10px",
+      fontFamily: "Arial"
+    };
     return (
       <div>
-        <h1>Καταχώρηση Δωματίου</h1>
+        <h1 style={mystyle}>Καταχώρηση Δωματίου</h1>
         <table className="TableRoom">
           <tr>
             <th align="left">

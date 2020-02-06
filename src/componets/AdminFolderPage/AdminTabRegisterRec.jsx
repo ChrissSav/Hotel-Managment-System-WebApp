@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./AdminTabRegisterRecStyle.css";
 
 class AdminTabRegisterRec extends Component {
   state = {};
