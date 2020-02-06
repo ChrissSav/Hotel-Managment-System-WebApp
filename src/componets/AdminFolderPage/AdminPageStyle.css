@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css?family=Asap:400,500,700");
+
+html {
+  background: #f8f8f8;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+nav {
+  margin: 0;
+  background: #ececec;
+  width: 100%;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+[data-tab-content] {
+  display: none;
+}
+
+.active[data-tab-content] {
+  display: block;
+}
+
+.tab {
+  margin: 0;
+  border-radius: 0px 35px 0px 0px;
+  background-color: #76b7dd;
+  padding: 10px 30px;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  text-align: center;
+  outline: none;
+}
+
+.tab {
+  cursor: pointer;
+}
+.tab:hover {
+  cursor: pointer;
+  background: #9ac4db;
+}
+.tab.active {
+  background: #f8f8f8;
+  color: #76b7dd;
+}
+
+/*---------------------------Tab Reception----------------------------------*/
+
+/*button*/
+.btnAddRoom {
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #76b7dd;
+  padding: 10px 30px;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  outline: none;
+}
+.btnAddRoom:hover {
+  cursor: pointer;
+  background-color: rgb(41, 99, 133);
+}
+/*header*/
+
+#AddRoom h1 {
+  color: #767777;
+  margin: 10px 0px 20px 20px;
+  font-size: 45px;
+}
+
+/*---------------------------End Tab Rec------------------------------------*/
+
+/*---------------------------DBRooms------------------------------------*/
+#RoomsDB h1 {
+  color: #767777;
+  margin: 10px 0px 20px 20px;
+  font-size: 45px;
+}
+
+#RoomsDB table {
+  background: #eeeeee;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+#RoomsDB table tr th {
+  width: 50px;
+}
+
+.RoomsDB thead tr th {
+  background: #eeeeee;
+  text-align: left;
+}
+
+.RoomsDB tbody tr th {
+  background: #d9d9d9;
+  text-align: left;
+}
+
+/*---------------input-----------------*/
+#RoomsDB input {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+  width: 600px;
+  text-align: center;
+}
+.RoomsSearch {
+  text-align: center;
+  position: fixed;
+  left: 50px;
+  right: 50px;
+  bottom: 100px;
+}
+
+.RoomsSearch label {
+  font-size: 25px;
+  color: #7d7e7e;
+  font-weight: 700;
+}
+
+.RoomsSearch input {
+  font-size: 25px;
+  margin-top: 30px;
+  outline: none;
+}
+
+/*---------------------------End DBRooms------------------------------------*/
+
+/*---------------------------ReceptionDB------------------------------------*/
+#ReceptionDB h1 {
+  color: #767777;
+  margin: 10px 0px 20px 20px;
+  font-size: 45px;
+}
+
+#ReceptionDB table {
+  background: #eeeeee;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+#ReceptionDB table tr th {
+}
+
+.EmployesDB thead tr th {
+  width: 20px;
+  background: #eeeeee;
+  text-align: left;
+}
+
+.EmployesDB tbody tr th {
+  background: #d9d9d9;
+  text-align: left;
+}
+
+/*---------------input-----------------*/
+#ReceptionDB input {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+  width: 600px;
+  text-align: center;
+}
+.EmployeSearch {
+  text-align: center;
+  position: fixed;
+  left: 50px;
+  right: 50px;
+  bottom: 100px;
+}
+
+.EmployeSearch label {
+  font-size: 25px;
+  color: #7d7e7e;
+  font-weight: 700;
+}
+
+.EmployeSearch input {
+  font-size: 25px;
+  margin-top: 30px;
+  outline: none;
+}
+
+/*---------------------------End ReceptionDB------------------------------------*/
+
+/*---------------------------Tab AddRooms----------------------------------*/
+
+#AddRoom h1 {
+  color: #767777;
+  margin: 10px 0px 20px 20px;
+  font-size: 45px;
+}
+
+/*#AddRoom{
+    background-image: url('./images/bed.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center right;;
+}*/
+
+#AddRoom table {
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#AddRoom input,
+select,
+button {
+  outline: none;
+}
+
+#AddRoom label {
+  font-size: 25px;
+  color: rgb(107, 183, 224);
+}
+
+#AddRoom input {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+}
+#AddRoom select {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+}
+
+#AddRoom input {
+  font-size: 25px;
+  margin-left: 55px;
+  width: 250px;
+}
+
+#AddRoom select {
+  font-size: 25px;
+  margin-left: 55px;
+  width: 250px;
+}
+
+.TableRoom {
+  border-spacing: 20px;
+}
+
+/*Buton*/
+.btnAddRoom {
+  display: block;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #76b7dd;
+  padding: 10px 30px;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  outline: none;
+}
+.btnAddRoom:hover {
+  cursor: pointer;
+  background-color: rgb(41, 99, 133);
+}
+/*---------------------------End AddRooms----------------------------------*/
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+  font-family: Asap, sans-serif;
+  width: 100%;
+  background-color: #76b7dd;
+  color: white;
+  text-align: center;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Login extends Component {
+class AdminLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,34 +31,39 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="wrap">
-        <h2>Admin Login</h2>
+      <div>
+        <header>
+          <h1>Hotel Managment System</h1>
+        </header>
+        <div className="wrap">
+          <h2>Admin Login</h2>
 
-        <div>
-          <input
-            type="email"
-            name="email"
-            placeholder="Όνομα Χρήστη"
-            value={this.state.email}
-            onChange={this.handleChange}
-          ></input>
-        </div>
-        <div>
-          <input
-            type="password"
-            name="password"
-            placeholder="Κωδικός"
-            value={this.state.password}
-            onChange={this.handleChange}
-          ></input>
-        </div>
+          <div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Όνομα Χρήστη"
+              value={this.state.email}
+              onChange={this.handleChange}
+            ></input>
+          </div>
+          <div>
+            <input
+              type="password"
+              name="password"
+              placeholder="Κωδικός"
+              value={this.state.password}
+              onChange={this.handleChange}
+            ></input>
+          </div>
 
-        <button class="btnLogin" onClick={this.handleSubmit}>
-          Είσοδος
-        </button>
+          <button class="btnLogin" onClick={this.handleSubmit}>
+            Είσοδος
+          </button>
+        </div>
       </div>
     );
   }
 }
 
-export default Login;
+export default AdminLogin;
