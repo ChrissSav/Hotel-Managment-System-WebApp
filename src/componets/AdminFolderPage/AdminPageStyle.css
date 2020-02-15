@@ -1,43 +1,37 @@
-@import url("https://fonts.googleapis.com/css?family=Asap:400,500,700");
-
-html {
-  background: #f8f8f8;
-}
-
-body {
+.AdminPage_container {
   padding: 0;
   margin: 0;
 }
-nav {
+.AdminPage_container nav {
   margin: 0;
   background: #ececec;
   width: 100%;
 }
-ul {
+.AdminPage_container ul {
   padding: 0;
   margin: 0;
 }
-ul li {
+.AdminPage_container ul li {
   display: inline;
   padding: 0;
   margin: 0;
 }
 
-nav {
+.AdminPage_container nav {
   padding: 0;
   margin: 0;
   text-align: left;
 }
 
-[data-tab-content] {
+.AdminPage_container [data-tab-content] {
   display: none;
 }
 
-.active[data-tab-content] {
+.AdminPage_container .active[data-tab-content] {
   display: block;
 }
 
-.tab {
+.AdminPage_container .tab {
   margin: 0;
   border-radius: 0px 35px 0px 0px;
   background-color: #76b7dd;
@@ -49,23 +43,19 @@ nav {
   outline: none;
 }
 
-.tab {
+.AdminPage_container .tab {
   cursor: pointer;
 }
-.tab:hover {
+.AdminPage_container .tab:hover {
   cursor: pointer;
   background: #9ac4db;
 }
-.tab.active {
+.AdminPage_container .tab.active {
   background: #f8f8f8;
   color: #76b7dd;
 }
 
-/*---------------------------Tab Reception----------------------------------*/
-
-/*button*/
-
-footer {
+.AdminPage_container footer {
   position: fixed;
   left: 0;
   bottom: 0;

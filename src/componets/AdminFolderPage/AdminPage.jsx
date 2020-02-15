@@ -31,7 +31,7 @@ class AdminPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="AdminPage_container">
         <nav>
           <ul className="tabs">
             <li>

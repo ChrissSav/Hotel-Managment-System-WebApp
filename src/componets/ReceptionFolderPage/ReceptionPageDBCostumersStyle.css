@@ -1,37 +1,39 @@
-.DBEmployees {
+.DBCostumers_container {
   text-align: center;
   width: 100%;
+  cursor: pointer;
 }
 
-.DBEmployees h1 {
+.DBCostumers_container h1 {
   color: #767777;
-  cursor: default;
   margin: 10px 0px 20px 20px;
   font-size: 45px;
+  cursor: default;
 }
 
-.DBEmployees .Table_EmployeesDB {
+.table_CostumersDB {
+  padding-left: 50px;
+  padding-right: 50px;
   table-layout: auto !important;
   width: 100%;
 }
 
-.DBEmployees .Table_EmployeesDB td {
+.table_CostumersDB td {
   border: 1px solid #000;
 }
 
-.DBEmployees .Table_EmployeesDB thead tr th {
+.table_CostumersDB thead tr th {
   background: #eeeeee;
   text-align: left;
   color: #000;
   font-size: 20px;
 }
-
-.DBEmployees .Table_EmployeesDB tr td:last-child {
+.table_CostumersDB tr td:last-child {
   width: 1%;
   white-space: nowrap;
 }
 
-.DBEmployees .EmployeeSearch {
+.CostumerSearch {
   text-align: center;
   position: fixed;
   left: 50px;
@@ -39,13 +41,13 @@
   bottom: 12%;
 }
 
-.EmployeeSearch label {
+.CostumerSearch label {
   font-size: 25px;
   color: #7d7e7e;
   font-weight: 700;
 }
 
-.EmployeeSearch input {
+.CostumerSearch input {
   background: transparent;
   border: none;
   border-bottom: 3px solid #76b7dd;

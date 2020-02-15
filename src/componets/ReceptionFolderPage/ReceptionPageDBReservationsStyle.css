@@ -1,37 +1,39 @@
-.DBEmployees {
+.DBReservations_container {
   text-align: center;
   width: 100%;
+  cursor: pointer;
 }
 
-.DBEmployees h1 {
+.DBReservations_container h1 {
   color: #767777;
-  cursor: default;
   margin: 10px 0px 20px 20px;
   font-size: 45px;
+  cursor: pointer;
 }
 
-.DBEmployees .Table_EmployeesDB {
+.table_DBReservations {
+  padding-left: 50px;
+  padding-right: 50px;
   table-layout: auto !important;
   width: 100%;
 }
 
-.DBEmployees .Table_EmployeesDB td {
+.table_DBReservations td {
   border: 1px solid #000;
 }
 
-.DBEmployees .Table_EmployeesDB thead tr th {
+.table_DBReservations thead tr th {
   background: #eeeeee;
   text-align: left;
   color: #000;
   font-size: 20px;
 }
-
-.DBEmployees .Table_EmployeesDB tr td:last-child {
+.table_DBReservations tr td:last-child {
   width: 1%;
   white-space: nowrap;
 }
 
-.DBEmployees .EmployeeSearch {
+.SearchReserverion {
   text-align: center;
   position: fixed;
   left: 50px;
@@ -39,13 +41,13 @@
   bottom: 12%;
 }
 
-.EmployeeSearch label {
+.SearchReserverion label {
   font-size: 25px;
   color: #7d7e7e;
   font-weight: 700;
 }
 
-.EmployeeSearch input {
+.SearchReserverion input {
   background: transparent;
   border: none;
   border-bottom: 3px solid #76b7dd;

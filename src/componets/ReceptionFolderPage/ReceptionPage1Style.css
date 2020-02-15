@@ -1,0 +1,55 @@
+.ReceptionPage_container {
+  padding: 0;
+  margin: 0;
+}
+.ReceptionPage_container nav {
+  margin: 0;
+  background: #ececec;
+  width: 100%;
+}
+.ReceptionPage_container ul {
+  padding: 0;
+  margin: 0;
+}
+.ReceptionPage_container ul li {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.ReceptionPage_container nav {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+.ReceptionPage_container .tabs .tab {
+  margin: 0;
+  border-radius: 0px 35px 0px 0px;
+  background-color: #76b7dd;
+  padding: 10px 30px;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  text-align: center;
+  outline: none;
+}
+
+.ReceptionPage_container .tabs .tab {
+  cursor: pointer;
+}
+.ReceptionPage_container .tabs .tab:hover {
+  cursor: pointer;
+  background: #9ac4db;
+}
+.ReceptionPage_container .tabs .tab.active {
+  background: #f8f8f8;
+  color: #76b7dd;
+}
+
+.ReceptionPage_container .Views .tab {
+  display: none;
+}
+
+.ReceptionPage_container .Views .tab.active {
+  display: block;
+}

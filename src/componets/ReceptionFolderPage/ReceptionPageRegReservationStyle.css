@@ -1,0 +1,76 @@
+.ReceptionRe_container table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.table_rec_info {
+  font-size: 27px;
+}
+.table_rec_info {
+  border: 4px solid #76b7dd;
+}
+
+.table_rec_info tr th input {
+  font-size: 27px;
+}
+
+.table_res_info tr th input {
+  font-size: 27px;
+}
+
+.table_cost_info tr th input {
+  font-size: 27px;
+}
+
+. ReceptionRe_container input,
+select,
+button {
+  outline: none;
+}
+
+. ReceptionRe_container input,
+select {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+}
+
+. ReceptionRe_container input[type="number"] {
+  margin-right: 50px;
+  font-size: 27px;
+  width: 337px;
+}
+
+. ReceptionRe_container input[type="text"] {
+  margin-right: 50px;
+  width: 337px;
+}
+
+. ReceptionRe_container input[type="date"] {
+  margin-right: 55px;
+  font-size: 27px;
+  width: 337px;
+}
+.table_res_info tr th select {
+  margin-right: 50px;
+  font-size: 25px;
+  width: 337px;
+}
+
+.btnregBook {
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #76b7dd;
+  padding: 10px 30px;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  outline: none;
+}
+.btnregBook:hover {
+  cursor: pointer;
+  background-color: rgb(41, 99, 133);
+}

@@ -21,13 +21,13 @@ class AdminTabRegisterRec extends Component {
                 <label>Όνομα</label>
               </th>
               <th align="right">
-                <input type="text" readOnly />
+                <input type="text" />
               </th>
               <th align="left">
                 <label>Επώνυμο</label>
               </th>
               <th align="right">
-                <input type="text" readOnly />
+                <input type="text" />
               </th>
             </tr>
             <tr>
@@ -35,7 +35,7 @@ class AdminTabRegisterRec extends Component {
                 <label>Ημερ/νια γέννησης</label>
               </th>
               <th align="right">
-                <input type="text" readOnly />
+                <input type="text" />
               </th>
               <th align="left">
                 <label>Φύλο </label>
@@ -52,13 +52,13 @@ class AdminTabRegisterRec extends Component {
                 <label>Διεύθυνση</label>
               </th>
               <th align="right">
-                <input type="text" readOnly />
+                <input type="text" />
               </th>
               <th align="left">
                 <label>Πόλη </label>
               </th>
               <th align="right">
-                <input type="text" readOnly />
+                <input type="text" />
               </th>
             </tr>
             <tr>
@@ -66,13 +66,13 @@ class AdminTabRegisterRec extends Component {
                 <label>Τηλέφωνο</label>
               </th>
               <th align="right">
-                <input type="text" readOnly />
+                <input type="text" />
               </th>
               <th align="left">
                 <label>Α.Μ.Κ.Α. </label>
               </th>
               <th align="right">
-                <input type="text" readOnly />
+                <input type="text" />
               </th>
             </tr>
             <tr>
@@ -80,13 +80,13 @@ class AdminTabRegisterRec extends Component {
                 <label>Α.Δ.Τ.</label>
               </th>
               <th align="right">
-                <input type="text" readOnly />
+                <input type="text" />
               </th>
               <th align="left">
                 <label>Α.Φ.Μ. </label>
               </th>
               <th align="right">
-                <input type="text" readOnly />
+                <input type="text" />
               </th>
             </tr>
           </table>

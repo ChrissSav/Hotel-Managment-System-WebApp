@@ -46,7 +46,7 @@
   padding-left: 7%;
 }
 
-.TabRegisterEmplo button {
+.btnAddEmploye {
   display: block;
   margin-top: 180px;
   margin-left: auto;
@@ -60,7 +60,7 @@
   outline: none;
 }
 
-.TabRegisterEmplo button:hover {
+.btnAddEmploye:hover {
   cursor: pointer;
   background-color: rgb(41, 99, 133);
 }
