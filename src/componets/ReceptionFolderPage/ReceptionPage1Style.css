@@ -1,6 +1,12 @@
 .ReceptionPage_container {
   padding: 0;
   margin: 0;
+  background-color: #f8f8f8;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .ReceptionPage_container nav {
   margin: 0;
