@@ -1,21 +1,22 @@
 import React, { Component } from "react";
+import "./AdminTabDBPricesStyle.css";
 
-class AdminTabDBPricing extends Component {
+class AdminTabDBPrices extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <div className="Prices">
         <h1>Τιμολόγηση</h1>
         <table className="tableParoxes">
           <tr>
             <th align="left">
-              <label>Παροχές Δωματίου</label>
+              <label className="title">Παροχές Δωματίου</label>
             </th>
             <th align="right">
               <label></label>
             </th>
             <th align="left">
-              <label>Διατροφή</label>>
+              <label className="title">Διατροφή</label>
             </th>
             <th align="right">
               <label></label>
@@ -65,13 +66,13 @@ class AdminTabDBPricing extends Component {
           </tr>
           <tr>
             <th align="left">
-              <label>Έξτρα Παροχές</label>
+              <label className="title">Έξτρα Παροχές</label>
             </th>
             <th align="right">
               <label></label>
             </th>
             <th align="left">
-              <label>Δωμάτιο</label>
+              <label className="title">Δωμάτιο</label>
             </th>
             <th align="right">
               <label></label>
@@ -93,7 +94,7 @@ class AdminTabDBPricing extends Component {
           </tr>
           <tr>
             <th align="left">
-              <label>Φόρος</label>
+              <label className="title">Φόρος</label>
             </th>
             <th align="right"></th>
             <th align="left">
@@ -118,10 +119,10 @@ class AdminTabDBPricing extends Component {
             </th>
           </tr>
         </table>
-        <button classNameName="btnregPrices">Καταχώρηση</button>
+        <button classNameName="btnrcegPrices">Καταχώρηση</button>
       </div>
     );
   }
 }
 
-export default AdminTabDBPricing;
+export default AdminTabDBPrices;

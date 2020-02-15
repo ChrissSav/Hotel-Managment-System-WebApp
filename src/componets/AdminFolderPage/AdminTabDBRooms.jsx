@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import "./AdminTabDBRoomsStyle.css";
 
 class AdminTabDBRooms extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <div className="DBRooms">
         <h1>Β/Δ Δωματίων</h1>
-        <table className="RoomsDB">
+        <table className="Table_RoomsDB">
           <thead>
             <tr>
               <th>ΚΩΔΙΚΟΣ</th>

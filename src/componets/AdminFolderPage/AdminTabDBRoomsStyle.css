@@ -1,0 +1,58 @@
+.DBRooms {
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.DBRooms h1 {
+  color: #767777;
+  margin: 10px 0px 20px 20px;
+  font-size: 45px;
+  cursor: pointer;
+}
+
+.Table_RoomsDB {
+  table-layout: auto !important;
+  width: 100%;
+}
+
+.Table_RoomsDB td {
+  border: 1px solid #000;
+}
+
+.Table_RoomsDB thead tr th {
+  background: #eeeeee;
+  text-align: left;
+  color: #000;
+  font-size: 20px;
+}
+.Table_RoomsDB tr td:last-child {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.RoomsSearch {
+  text-align: center;
+  position: fixed;
+  left: 50px;
+  right: 50px;
+  bottom: 12%;
+}
+
+.RoomsSearch label {
+  font-size: 25px;
+  color: #7d7e7e;
+  font-weight: 700;
+}
+
+.RoomsSearch input {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+  width: 600px;
+  margin-top: 10px;
+  height: 30px;
+  text-align: center;
+  font-size: 25px;
+  outline: none;
+}

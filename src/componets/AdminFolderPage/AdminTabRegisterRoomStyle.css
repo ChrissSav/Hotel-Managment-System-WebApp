@@ -1,7 +1,11 @@
+.TaBAddRoom {
+  cursor: default;
+}
 .TaBAddRoom h1 {
   color: #767777;
   margin: 10px 0px 20px 20px;
   font-size: 45px;
+  cursor: default;
 }
 
 .TaBAddRoom .TableRoom {

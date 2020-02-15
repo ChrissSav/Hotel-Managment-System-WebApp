@@ -2,7 +2,7 @@ import React, { Component, useEffect } from "react";
 import "./AdminPageStyle.css";
 import AdminTabDBEmployees from "./AdminTabDBEmployees";
 import AdminTabDBRooms from "./AdminTabDBRooms";
-import AdminTabDBPricing from "./AdminTabDBPricing";
+import AdminTabDBPrices from "./AdminTabDBPrices";
 import AdminTabRegisterRec from "./AdminTabRegisterRec";
 import AdminTabRegisterRoom from "./AdminTabRegisterRoom";
 
@@ -105,7 +105,7 @@ class AdminPage extends Component {
             <AdminTabDBRooms />
           </div>
           <div data-tab-content className={this.state.Prices}>
-            <AdminTabDBPricing />
+            <AdminTabDBPrices />
           </div>
         </div>
       </div>
