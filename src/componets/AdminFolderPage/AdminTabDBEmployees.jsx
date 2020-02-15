@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import "./AdminTabDBEmployeesStyle.css";
 
 class AdminTabDBEmployees extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <div className="DBEmployees">
         <h1>Β/Δ Υπαλλήλων</h1>
-        <table className="EmployesDB">
+        <table className="Table_EmployeesDB">
           <thead>
             <tr>
               <th>ΟΝΟΜΑ</th>
@@ -25,10 +26,9 @@ class AdminTabDBEmployees extends Component {
           </thead>
           <tbody></tbody>
         </table>
-        <div className="EmployeSearch">
+        <div className="EmployeeSearch">
           <label>Αναζήτηση με βάση Επώνυμο ή Α.Φ.Μ.</label>
           <br></br>
-
           <input type="text" id="fname" name="firstname" />
         </div>
       </div>

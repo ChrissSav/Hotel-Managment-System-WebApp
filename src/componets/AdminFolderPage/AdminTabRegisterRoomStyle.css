@@ -1,3 +1,70 @@
-h1 {
-  color: white;
+.TaBAddRoom h1 {
+  color: #767777;
+  margin: 10px 0px 20px 20px;
+  font-size: 45px;
+}
+
+.TaBAddRoom .TableRoom {
+  border-spacing: 20px;
+}
+
+/*button*/
+
+.TaBAddRoom table {
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.TaBAddRoom input,
+select,
+button {
+  outline: none;
+}
+
+.TaBAddRoom label {
+  font-size: 25px;
+  color: rgb(107, 183, 224);
+}
+
+.TaBAddRoom input {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+}
+.TaBAddRoom select {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+}
+
+.TaBAddRoom input {
+  font-size: 25px;
+  margin-left: 55px;
+  width: 250px;
+}
+
+.TaBAddRoom select {
+  font-size: 25px;
+  margin-left: 55px;
+  width: 250px;
+}
+
+.btnAddRoom {
+  display: block;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  background-color: #76b7dd;
+  padding: 20px 40px;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  outline: none;
+}
+
+.btnAddRoom:hover {
+  cursor: pointer;
+  background-color: rgb(41, 99, 133);
 }

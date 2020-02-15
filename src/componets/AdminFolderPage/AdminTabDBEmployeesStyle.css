@@ -1,0 +1,56 @@
+.DBEmployees {
+  text-align: center;
+  width: 100%;
+}
+
+.DBEmployees h1 {
+  color: #767777;
+  margin: 10px 0px 20px 20px;
+  font-size: 45px;
+}
+
+.Table_EmployeesDB {
+  table-layout: auto !important;
+  width: 100%;
+}
+
+.Table_EmployeesDB td {
+  border: 1px solid #000;
+}
+
+.Table_EmployeesDB thead tr th {
+  background: #eeeeee;
+  text-align: left;
+  color: #000;
+  font-size: 20px;
+}
+.Table_EmployeesDB tr td:last-child {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.EmployeeSearch {
+  text-align: center;
+  position: fixed;
+  left: 50px;
+  right: 50px;
+  bottom: 12%;
+}
+
+.EmployeeSearch label {
+  font-size: 25px;
+  color: #7d7e7e;
+  font-weight: 700;
+}
+
+.EmployeeSearch input {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+  width: 600px;
+  margin-top: 10px;
+  height: 30px;
+  text-align: center;
+  font-size: 25px;
+  outline: none;
+}
