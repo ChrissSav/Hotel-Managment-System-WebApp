@@ -1,0 +1,70 @@
+.TabRegisterEmplo {
+  cursor: default;
+}
+
+.TabRegisterEmplo h1 {
+  color: #767777;
+  margin: 10px 0px 20px 20px;
+  font-size: 45px;
+  cursor: default;
+}
+
+.table1 {
+  width: 70%;
+  float: left;
+}
+
+.table1 tr th,
+.table2 tr th {
+  padding-top: 15px;
+  padding-left: 20px;
+  font-size: 30px;
+}
+
+.table1 .table2 {
+  width: 30%;
+  float: right;
+}
+
+.table1 input,
+.filo,
+.table2 input[type="text"],
+.table2 input[type="password"] {
+  font-size: 20px;
+  width: 200px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+}
+
+.table1 label {
+  margin-left: 50px;
+}
+
+.table2 {
+  padding-left: 7%;
+}
+
+.TabRegisterEmplo button {
+  display: block;
+  margin-top: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  background-color: #76b7dd;
+  padding: 20px 40px;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  outline: none;
+}
+
+.TabRegisterEmplo button:hover {
+  cursor: pointer;
+  background-color: rgb(41, 99, 133);
+}
+
+.container {
+  padding-top: 5%;
+}

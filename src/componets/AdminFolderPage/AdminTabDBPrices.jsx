@@ -27,13 +27,13 @@ class AdminTabDBPrices extends Component {
               <label>Κλιματισμός</label>
             </th>
             <th align="right">
-              <input type="number" id="fname" name="firstname" readonly />
+              <input type="number" readOnly />
             </th>
             <th align="left">
               <label>Μόνο πρωινό</label>
             </th>
             <th align="right">
-              <input type="number" id="fname" name="firstname" readonly />
+              <input type="number" readOnly />
             </th>
           </tr>
           <tr>
@@ -41,13 +41,13 @@ class AdminTabDBPrices extends Component {
               <label>Πισίνα</label>
             </th>
             <th align="right">
-              <input type="number" id="fname" name="firstname" readonly />
+              <input type="number" readOnly />
             </th>
             <th align="left">
               <label>Ημιδιατροφή</label>
             </th>
             <th align="right">
-              <input type="number" id="fname" name="firstname" readonly />
+              <input type="number" readOnly />
             </th>
           </tr>
           <tr>
@@ -55,13 +55,13 @@ class AdminTabDBPrices extends Component {
               <label>Wifi</label>
             </th>
             <th align="right">
-              <input type="number" id="fname" name="firstname" readonly />
+              <input type="number" readOnly />
             </th>
             <th align="left">
               <label>Πλήρης διατροφή</label>
             </th>
             <th align="right">
-              <input type="number" id="fname" name="firstname" readonly />
+              <input type="number" readOnly />
             </th>
           </tr>
           <tr>
@@ -83,13 +83,13 @@ class AdminTabDBPrices extends Component {
               <label>Θέση στάθμευσης</label>
             </th>
             <th align="right">
-              <input type="number" id="fname" name="firstname" readonly />
+              <input type="number" readOnly />
             </th>
             <th align="left">
               <label>Κανονικό</label>
             </th>
             <th align="right">
-              <input type="number" id="fname" name="firstname" readonly />
+              <input type="number" readOnly />
             </th>
           </tr>
           <tr>
@@ -101,7 +101,7 @@ class AdminTabDBPrices extends Component {
               <label>Οικογενιακό</label>
             </th>
             <th align="right">
-              <input type="number" id="fname" name="firstname" readonly />
+              <input type="number" readOnly />
             </th>
           </tr>
           <tr>
@@ -109,17 +109,17 @@ class AdminTabDBPrices extends Component {
               <label>Φ.Π.Α.</label>
             </th>
             <th align="right">
-              <input type="number" id="fname" name="firstname" readonly />
+              <input type="number" readOnly />
             </th>
             <th align="left">
               <label>Τιμή κλίνας</label>
             </th>
             <th align="right">
-              <input type="number" id="fname" name="firstname" readonly />
+              <input type="number" readOnly />
             </th>
           </tr>
         </table>
-        <button classNameName="btnrcegPrices">Καταχώρηση</button>
+        <button className="btnrcegPrices">Καταχώρηση</button>
       </div>
     );
   }
