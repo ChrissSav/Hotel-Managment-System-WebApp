@@ -1,7 +1,7 @@
 .AdminPage_container {
   padding: 0;
   margin: 0;
-  background-color: #f8f8f8;
+  background-color: #fff;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -29,15 +29,7 @@
   text-align: left;
 }
 
-.AdminPage_container [data-tab-content] {
-  display: none;
-}
-
-.AdminPage_container .active[data-tab-content] {
-  display: block;
-}
-
-.AdminPage_container .tab {
+.AdminPage_container .tabs .tab {
   margin: 0;
   border-radius: 0px 35px 0px 0px;
   background-color: #76b7dd;
@@ -49,26 +41,28 @@
   outline: none;
 }
 
-.AdminPage_container .tab {
+.AdminPage_container .tabs .tab {
   cursor: pointer;
 }
-.AdminPage_container .tab:hover {
+.AdminPage_container .tabs .tab:hover {
   cursor: pointer;
   background: #9ac4db;
 }
-.AdminPage_container .tab.active {
-  background: #f8f8f8;
+
+.AdminPage_container .tabs .tab.tab.active:hover {
+  cursor: pointer;
+  background: #9ac4db;
+  color: #fff;
+}
+.AdminPage_container .tabs .tab.active {
+  background: #fff;
   color: #76b7dd;
 }
 
-.AdminPage_container footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  padding: 20px;
-  font-family: Asap, sans-serif;
-  width: 100%;
-  background-color: #76b7dd;
-  color: white;
-  text-align: center;
+.AdminPage_container .Views .tab {
+  display: none;
+}
+
+.AdminPage_container .Views .tab.active {
+  display: block;
 }

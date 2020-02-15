@@ -37,7 +37,6 @@ class AdminPage extends Component {
             <li>
               <button
                 id="AddReception"
-                data-tab-target="#AddReception"
                 className={this.state.AddReception}
                 onClick={this.ActiveTab}
               >
@@ -47,8 +46,6 @@ class AdminPage extends Component {
             <li>
               <button
                 id="AddRoom"
-                data-tab-target="#AddRoom"
-                className=" tab"
                 className={this.state.AddRoom}
                 onClick={this.ActiveTab}
               >
@@ -58,8 +55,6 @@ class AdminPage extends Component {
             <li>
               <button
                 id="ReceptionDB"
-                data-tab-target="#ReceptionDB"
-                className="tab"
                 className={this.state.ReceptionDB}
                 onClick={this.ActiveTab}
               >
@@ -69,8 +64,6 @@ class AdminPage extends Component {
             <li>
               <button
                 id="RoomsDB"
-                data-tab-target="#RoomsDB"
-                className="tab"
                 className={this.state.RoomsDB}
                 onClick={this.ActiveTab}
               >
@@ -81,8 +74,6 @@ class AdminPage extends Component {
             <li>
               <button
                 id="Prices"
-                data-tab-target="#Prices"
-                className="tab"
                 className={this.state.Prices}
                 onClick={this.ActiveTab}
               >
@@ -91,20 +82,20 @@ class AdminPage extends Component {
             </li>
           </ul>
         </nav>
-        <div>
-          <div data-tab-content className={this.state.AddReception}>
+        <div className="Views">
+          <div className={this.state.AddReception}>
             <AdminTabRegisterRec />
           </div>
-          <div data-tab-content className={this.state.AddRoom}>
+          <div className={this.state.AddRoom}>
             <AdminTabRegisterRoom />
           </div>
-          <div data-tab-content className={this.state.ReceptionDB}>
+          <div className={this.state.ReceptionDB}>
             <AdminTabDBEmployees />
           </div>
-          <div data-tab-content className={this.state.RoomsDB}>
+          <div className={this.state.RoomsDB}>
             <AdminTabDBRooms />
           </div>
-          <div data-tab-content className={this.state.Prices}>
+          <div className={this.state.Prices}>
             <AdminTabDBPrices />
           </div>
         </div>
