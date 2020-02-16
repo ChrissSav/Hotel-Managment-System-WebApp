@@ -10,15 +10,13 @@ class ReceptionPageDBCostumers extends Component {
         <table class="table_CostumersDB">
           <thead>
             <tr>
-              <th>ΟΝΟΜΑ</th>
-              <th>ΕΠΩΝΥΜΟ</th>
-              <th>ΗΜΕΡ/ΝΙΑ ΓΕΝΝΗΣΗΣ</th>
-              <th>ΦΥΛΟ</th>
-              <th>ΔΙΕΥΘΥΝΣΗ</th>
-              <th>ΠΟΛΗ</th>
-              <th>ΤΗΛΕΦΩΝΟ</th>
+              <th>Όνομα</th>
+              <th>Επώνυμο</th>
+              <th>Ημερ/νια γέννησης</th>
+              <th>Φύλο</th>
+              <th>Τηλέφωνο</th>
               <th>Α.Φ.Μ.</th>
-              <th>Α.Δ.Τ. / ΔΙΑΒΑΤΗΡΙΟ</th>
+              <th>Α.Δ.Τ. / Διαβατήριο</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -26,7 +24,6 @@ class ReceptionPageDBCostumers extends Component {
         <div class="CostumerSearch">
           <label>Αναζήτηση με βάση Επώνυμο ή Τηλέφωνο</label>
           <br></br>
-
           <input type="text" />
         </div>
       </div>

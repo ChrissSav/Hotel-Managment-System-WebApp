@@ -68,3 +68,7 @@
 .container {
   padding-top: 5%;
 }
+
+.TabRegisterEmplo input:focus {
+  outline: none;
+}

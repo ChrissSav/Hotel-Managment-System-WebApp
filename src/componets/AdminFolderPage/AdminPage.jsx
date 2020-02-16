@@ -40,7 +40,7 @@ class AdminPage extends Component {
                 className={this.state.AddReception}
                 onClick={this.ActiveTab}
               >
-                Εγγραφή Γραμματέα
+                Καταχώρηση Γραμματέα
               </button>
             </li>
             <li>

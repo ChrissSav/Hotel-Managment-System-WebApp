@@ -24,44 +24,44 @@ class AdminTabDBPrices extends Component {
           </tr>
           <tr>
             <th align="left">
-              <label>Κλιματισμός</label>
+              <label className="dec">Κλιματισμός</label>
             </th>
             <th align="right">
-              <input type="number" readOnly />
+              <input type="number" />
             </th>
             <th align="left">
-              <label>Μόνο πρωινό</label>
+              <label className="dec">Μόνο πρωινό</label>
             </th>
             <th align="right">
-              <input type="number" readOnly />
+              <input type="number" />
             </th>
           </tr>
           <tr>
             <th align="left">
-              <label>Πισίνα</label>
+              <label className="dec">Πισίνα</label>
             </th>
             <th align="right">
-              <input type="number" readOnly />
+              <input type="number" />
             </th>
             <th align="left">
-              <label>Ημιδιατροφή</label>
+              <label className="dec">Ημιδιατροφή</label>
             </th>
             <th align="right">
-              <input type="number" readOnly />
+              <input type="number" />
             </th>
           </tr>
           <tr>
             <th align="left">
-              <label>Wifi</label>
+              <label className="dec">Wifi</label>
             </th>
             <th align="right">
-              <input type="number" readOnly />
+              <input type="number" />
             </th>
             <th align="left">
-              <label>Πλήρης διατροφή</label>
+              <label className="dec">Πλήρης διατροφή</label>
             </th>
             <th align="right">
-              <input type="number" readOnly />
+              <input type="number" />
             </th>
           </tr>
           <tr>
@@ -80,16 +80,16 @@ class AdminTabDBPrices extends Component {
           </tr>
           <tr>
             <th align="left">
-              <label>Θέση στάθμευσης</label>
+              <label className="dec">Θέση στάθμευσης</label>
             </th>
             <th align="right">
-              <input type="number" readOnly />
+              <input type="number" />
             </th>
             <th align="left">
-              <label>Κανονικό</label>
+              <label className="dec">Κανονικό</label>
             </th>
             <th align="right">
-              <input type="number" readOnly />
+              <input type="number" />
             </th>
           </tr>
           <tr>
@@ -98,24 +98,24 @@ class AdminTabDBPrices extends Component {
             </th>
             <th align="right"></th>
             <th align="left">
-              <label>Οικογενιακό</label>
+              <label className="dec">Οικογενιακό</label>
             </th>
             <th align="right">
-              <input type="number" readOnly />
+              <input type="number" />
             </th>
           </tr>
           <tr>
             <th align="left">
-              <label>Φ.Π.Α.</label>
+              <label className="dec">Φ.Π.Α.</label>
             </th>
             <th align="right">
-              <input type="number" readOnly />
+              <input type="number" />
             </th>
             <th align="left">
-              <label>Τιμή κλίνας</label>
+              <label className="dec">Τιμή κλίνας</label>
             </th>
             <th align="right">
-              <input type="number" readOnly />
+              <input type="number" />
             </th>
           </tr>
         </table>

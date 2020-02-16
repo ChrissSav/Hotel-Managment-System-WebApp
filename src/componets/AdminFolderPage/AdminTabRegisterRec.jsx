@@ -13,7 +13,7 @@ class AdminTabRegisterRec extends Component {
   render() {
     return (
       <div className="TabRegisterEmplo">
-        <h1>Εγγραφή Γραμματέα</h1>
+        <h1>Καταχώρηση Γραμματέα</h1>
         <div className="container">
           <table className="table1">
             <tr>

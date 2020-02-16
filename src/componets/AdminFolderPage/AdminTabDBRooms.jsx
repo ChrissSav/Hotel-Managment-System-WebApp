@@ -10,13 +10,13 @@ class AdminTabDBRooms extends Component {
         <table className="Table_RoomsDB">
           <thead>
             <tr>
-              <th>ΚΩΔΙΚΟΣ</th>
-              <th>ΤΥΠΟΣ</th>
-              <th>ΑΡ ΚΛΙΝΩΝ</th>
-              <th>ΚΛΙΜΑΤΙΣΜΟΣ</th>
-              <th>ΠΙΣΙΝΑ</th>
-              <th>ΠΑΡΟΧΗ WIFI</th>
-              <th>ΤΙΜΗ</th>
+              <th>Κωδικός</th>
+              <th>Τύπος</th>
+              <th>Αρ κλινών</th>
+              <th>Κλιματισμός</th>
+              <th>Πρισίνα</th>
+              <th>Παροχή WIFI</th>
+              <th>Τιμή</th>
             </tr>
           </thead>
           <tbody></tbody>

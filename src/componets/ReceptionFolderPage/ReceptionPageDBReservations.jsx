@@ -10,18 +10,18 @@ class ReceptionPageDBReservations extends Component {
         <table class="table_DBReservations">
           <thead>
             <tr>
-              <th>ΚΩΔΙΚΟΣ</th>
-              <th>ΗΜΕΡ/ΝΙΑ</th>
-              <th>ΚΩΔ ΓΡΑΜΜΑΤΕΑ</th>
-              <th>ΚΩΔ ΠΕΛΑΤΗ</th>
-              <th>ΑΡ ΔΩΜΑΤΙΟΥ</th>
-              <th>ΑΦΙΞΗ</th>
-              <th>ΑΝΑΧΩΡΗΣΗ</th>
-              <th>ΑΡ ΕΝΗΛΙΚΩΝ</th>
-              <th>ΑΡ ΑΝΗΛΙΚΩΝ</th>
-              <th>ΘΕΣΗ ΣΤΑΘΜΥΣΗΣ</th>
-              <th>ΔΙΑΤΡΟΦΗ</th>
-              <th>ΚΟΣΤΟΣ</th>
+              <th>Κωδικός</th>
+              <th>Ημερ/νια</th>
+              <th>Κωδ Υπαλλήλου</th>
+              <th>Κωδ Πελάτη</th>
+              <th>Αρ Δωματίου</th>
+              <th>Άφιξη</th>
+              <th>Αναχώρηση</th>
+              <th>Αρ Ενηλίκων</th>
+              <th>Αρ Ανηλίκων</th>
+              <th>Θέση Στάθμευσης</th>
+              <th>Διατροφή</th>
+              <th>Κόστος</th>
             </tr>
           </thead>
           <tbody></tbody>

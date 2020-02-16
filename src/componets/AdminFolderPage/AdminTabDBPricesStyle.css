@@ -30,6 +30,10 @@
   border-bottom: 3px solid #76b7dd;
 }
 
+.tableParoxes input:focus {
+  outline: none;
+}
+
 .Prices button {
   display: block;
   margin-top: 80px;
@@ -47,4 +51,8 @@
 .Prices button:hover {
   cursor: pointer;
   background-color: rgb(41, 99, 133);
+}
+
+.Prices .dec {
+  color: #76b7dd;
 }

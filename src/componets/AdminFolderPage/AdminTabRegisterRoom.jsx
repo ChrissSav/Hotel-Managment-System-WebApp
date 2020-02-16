@@ -13,7 +13,7 @@ class AdminTabDRegisterRoom extends Component {
               <label>Κωδικός</label>
             </th>
             <th align="right">
-              <input type="number" id="fname" name="firstname" />
+              <input type="number" readOnly />
             </th>
           </tr>
           <tr>
@@ -22,8 +22,8 @@ class AdminTabDRegisterRoom extends Component {
             </th>
             <th align="right">
               <select className="filo">
-                <option value="NoDiet">Άνδρας</option>
-                <option value="BreakfastOnly">Γυναίκα</option>{" "}
+                <option value="NoDiet">type1</option>
+                <option value="BreakfastOnly">type2</option>{" "}
               </select>
             </th>
           </tr>
@@ -32,7 +32,7 @@ class AdminTabDRegisterRoom extends Component {
               <label>Αρ. Κλινών</label>
             </th>
             <th align="right">
-              <input type="number" id="fname" name="firstname" />
+              <input type="number" />
             </th>
           </tr>
           <tr>
@@ -41,19 +41,19 @@ class AdminTabDRegisterRoom extends Component {
             </th>
             <th align="right">
               <select className="filo">
-                <option value="NoDiet">Άνδρας</option>
-                <option value="BreakfastOnly">Γυναίκα</option>{" "}
+                <option value="NoDiet">Ναι</option>
+                <option value="BreakfastOnly">Οχι</option>{" "}
               </select>
             </th>
           </tr>
           <tr>
             <th align="left">
-              <label>Κλιματισμός</label>
+              <label>Πισίνα</label>
             </th>
             <th align="right">
               <select className="filo">
-                <option value="NoDiet">Άνδρας</option>
-                <option value="BreakfastOnly">Γυναίκα</option>{" "}
+                <option value="NoDiet">Ναι</option>
+                <option value="BreakfastOnly">Οχι</option>{" "}
               </select>
             </th>
           </tr>
@@ -63,8 +63,8 @@ class AdminTabDRegisterRoom extends Component {
             </th>
             <th align="right">
               <select className="filo">
-                <option value="NoDiet">Άνδρας</option>
-                <option value="BreakfastOnly">Γυναίκα</option>{" "}
+                <option value="NoDiet">Ναι</option>
+                <option value="BreakfastOnly">Οχι</option>{" "}
               </select>
             </th>
           </tr>
@@ -73,7 +73,7 @@ class AdminTabDRegisterRoom extends Component {
               <label>Κόστος </label>
             </th>
             <th align="right">
-              <input type="text" id="fname" name="firstname" readonly />
+              <input type="text" readOnly />
             </th>
           </tr>
         </table>

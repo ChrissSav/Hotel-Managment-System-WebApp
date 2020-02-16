@@ -10,13 +10,13 @@ class AdminTabDBEmployees extends Component {
         <table className="Table_EmployeesDB">
           <thead>
             <tr>
-              <th>ΟΝΟΜΑ</th>
-              <th>ΕΠΩΝΥΜΟ</th>
-              <th>ΗΜΕΡ/ΝΙΑ ΓΕΝΝ</th>
-              <th>ΦΥΛΟ</th>
-              <th>ΔΙΕΥΘΥΝΣΗ</th>
-              <th>ΠΟΛΗ</th>
-              <th>ΤΗΛΕΦΩΝΟ</th>
+              <th>Όνομα</th>
+              <th>Επώνυμο</th>
+              <th>Ημερ/νια γέννησης</th>
+              <th>Φύλο</th>
+              <th>Διεύθυνση</th>
+              <th>Πόλη</th>
+              <th>Τηλέφωνο</th>
               <th>Α.Μ.Κ.Α.</th>
               <th>Α.Δ.Τ.</th>
               <th>Α.Φ.Μ.</th>
