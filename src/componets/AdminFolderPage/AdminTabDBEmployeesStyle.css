@@ -10,27 +10,6 @@
   font-size: 45px;
 }
 
-.DBEmployees .Table_EmployeesDB {
-  table-layout: auto !important;
-  width: 100%;
-}
-
-.DBEmployees .Table_EmployeesDB td {
-  border: 1px solid #000;
-}
-
-.DBEmployees .Table_EmployeesDB thead tr th {
-  background: #eeeeee;
-  text-align: left;
-  color: #000;
-  font-size: 20px;
-}
-
-.DBEmployees .Table_EmployeesDB tr td:last-child {
-  width: 1%;
-  white-space: nowrap;
-}
-
 .DBEmployees .EmployeeSearch {
   text-align: center;
   position: fixed;
@@ -55,4 +34,46 @@
   text-align: center;
   font-size: 25px;
   outline: none;
+}
+
+.DBEmployees .Table_EmployeesDB {
+  border-collapse: collapse;
+  margin: 25px 0px;
+  font-size: 1.2em;
+  border-radius: 5px 5px 0xp 0px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1em 1em 0 0;
+  font-family: Bradley Hand, cursive;
+}
+.DBEmployees .Table_EmployeesDB thead {
+  border-radius: 6px 6px 6px 6px;
+  background-color: black;
+}
+
+.DBEmployees .Table_EmployeesDB thead tr {
+  background: #76b7dd;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.DBEmployees .Table_EmployeesDB th,
+.DBEmployees .Table_EmployeesDB td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.DBEmployees .Table_EmployeesDB tbody tr {
+  border-bottom: 1px solid #76b7dd;
+  cursor: pointer;
+}
+
+.DBEmployees .Table_EmployeesDB tbody tr.active_row {
+  font-weight: bold;
+  color: #76b7dd;
+}
+.DBEmployees .Table_EmployeesDB tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
 }
