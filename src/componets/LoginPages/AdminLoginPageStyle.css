@@ -1,0 +1,72 @@
+.Admin_log_container {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100%;
+}
+
+.Admin_log_container .header_con {
+  background-color: #76b7dd;
+  color: #fff;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.Admin_log_container .header_con h1 {
+  font-family: Bradley Hand, cursive;
+  margin: 0;
+  text-decoration: none;
+  font-size: 60px;
+  background-color: #76b7dd;
+  color: white;
+  cursor: default;
+}
+.Admin_log_container h3 {
+  color: rgb(94, 71, 71);
+  font-size: 50px;
+  font-weight: bold;
+  font-family: Asap, sans-serif;
+}
+.Admin_log_container .btnLogin {
+  margin: 50px 0px;
+  border-radius: 12px;
+  background-color: #76b7dd;
+  padding: 10px 30px;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  outline: none;
+}
+.Admin_log_container .container {
+  display: block;
+  width: 800px;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 100px 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4%;
+  margin-bottom: auto;
+}
+
+.Admin_log_container .container input {
+  width: 350px;
+  padding: 20px 0px;
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid #76b7dd;
+  outline: none;
+  color: black;
+  font-size: 20px;
+}
+
+.Admin_log_container .container input:focus {
+  border-color: #76b7dd;
+  box-shadow: 0 0 8px 0 #76b7dd;
+}
+
+.Admin_log_container .btnLogin:hover {
+  cursor: pointer;
+  background-color: rgb(41, 99, 133);
+}

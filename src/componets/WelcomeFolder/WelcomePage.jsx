@@ -14,14 +14,14 @@ class WelcomePage extends Component {
         </div>
         <div class="container">
           <div class="box">
-            <h3>Γραμματεία</h3>
-            <Link to="/reclogin">
+            <h3>Διαχειριστής</h3>
+            <Link to="/adminlogin">
               <img src={admin_img} />
             </Link>
           </div>
           <div class="box">
-            <h3>Διαχειριστής</h3>
-            <Link to="/adminlogin">
+            <h3>Γραμματεία</h3>
+            <Link to="/reclogin">
               <img src={secreraty_img} />
             </Link>
           </div>
