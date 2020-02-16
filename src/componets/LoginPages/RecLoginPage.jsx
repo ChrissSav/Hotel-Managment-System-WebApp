@@ -1,13 +1,13 @@
 import React, { Component } from "react";
+import "./RecLoginPageStyle.css";
 
-class AdminLogin extends Component {
+class RecLoginPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      user_name: "",
       password: ""
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -19,31 +19,27 @@ class AdminLogin extends Component {
   }
 
   handleSubmit(event) {
-    const { email, password } = this.state;
-    console.log(email, password);
-    if (email === "email") {
-      window.open(
-        "https://react-bootstrap.github.io/getting-started/introduction/",
-        "_blank"
-      );
+    const { user_name, password } = this.state;
+    console.log(user_name, password);
+    if (user_name === "") {
+      this.props.history.push("/receptionpage");
     }
   }
 
   render() {
     return (
-      <div>
-        <header>
+      <div className="Rec_container">
+        <div className="header_con">
           <h1>Hotel Managment System</h1>
-        </header>
-        <div className="wrap">
-          <h2>Admin Login</h2>
-
+        </div>
+        <div className="container">
+          <h3>Reception Login</h3>
           <div>
             <input
-              type="email"
-              name="email"
+              type="text"
+              name="user_name"
               placeholder="Όνομα Χρήστη"
-              value={this.state.email}
+              value={this.state.user_name}
               onChange={this.handleChange}
             ></input>
           </div>
@@ -56,7 +52,6 @@ class AdminLogin extends Component {
               onChange={this.handleChange}
             ></input>
           </div>
-
           <button class="btnLogin" onClick={this.handleSubmit}>
             Είσοδος
           </button>
@@ -66,4 +61,4 @@ class AdminLogin extends Component {
   }
 }
 
-export default AdminLogin;
+export default RecLoginPage;

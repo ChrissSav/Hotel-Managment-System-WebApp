@@ -15,13 +15,13 @@ class WelcomePage extends Component {
         <div class="container">
           <div class="box">
             <h3>Γραμματεία</h3>
-            <Link to="/receptionpage">
+            <Link to="/reclogin">
               <img src={admin_img} />
             </Link>
           </div>
           <div class="box">
             <h3>Διαχειριστής</h3>
-            <Link to="/adminpage">
+            <Link to="/adminlogin">
               <img src={secreraty_img} />
             </Link>
           </div>
