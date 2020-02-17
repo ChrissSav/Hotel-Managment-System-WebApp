@@ -36,20 +36,34 @@
   outline: none;
 }
 
-.DBEmployees .Table_EmployeesDB {
-  width: 98%;
-  border-collapse: collapse;
+.DBEmployees .wrap_table {
+  width: auto;
+  margin-top: 0;
+  padding-top: 0;
+  height: 600px;
+  margin-left: 20px;
+  margin-right: 20px;
+  overflow: auto;
   margin-top: 25px;
-  font-size: 1.2em;
+}
+.DBEmployees .Table_EmployeesDB {
+  width: 100%;
+  padding-top: 0;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 1em;
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
   border-radius: 1em 1em 0 0;
   font-family: Bradley Hand, cursive;
+  table-layout: fixed;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
 }
 .DBEmployees .Table_EmployeesDB thead {
   border-radius: 6px 6px 6px 6px;
-  background-color: black;
 }
 
 .DBEmployees .Table_EmployeesDB thead tr {
@@ -76,4 +90,23 @@
 }
 .DBEmployees .Table_EmployeesDB tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
+}
+
+.DBEmployees ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.DBEmployees ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.DBEmployees ::-webkit-scrollbar-thumb {
+  background: #76b7dd;
+}
+
+/* Handle on hover */
+.DBEmployees ::-webkit-scrollbar-thumb:hover {
+  background: #5789a7;
 }

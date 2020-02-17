@@ -49,25 +49,27 @@ class AdminTabDBEmployees extends Component {
     return (
       <div className="DBEmployees">
         <h1>Β/Δ Υπαλλήλων</h1>
-        <table className="Table_EmployeesDB">
-          <thead>
-            <tr>
-              <th>Όνομα</th>
-              <th>Επώνυμο</th>
-              <th>Ημερ/νια γέννησης</th>
-              <th>Φύλο</th>
-              <th>Διεύθυνση</th>
-              <th>Πόλη</th>
-              <th>Τηλέφωνο</th>
-              <th>Α.Μ.Κ.Α.</th>
-              <th>Α.Δ.Τ.</th>
-              <th>Α.Φ.Μ.</th>
-              <th>UserName</th>
-              <th>Password</th>
-            </tr>
-          </thead>
-          <tbody>{costumersList}</tbody>
-        </table>
+        <div className="wrap_table">
+          <table className="Table_EmployeesDB">
+            <thead>
+              <tr>
+                <th>Όνομα</th>
+                <th>Επώνυμο</th>
+                <th>Ημερ/νια γέννησης</th>
+                <th>Φύλο</th>
+                <th>Διεύθυνση</th>
+                <th>Πόλη</th>
+                <th>Τηλέφωνο</th>
+                <th>Α.Μ.Κ.Α.</th>
+                <th>Α.Δ.Τ.</th>
+                <th>Α.Φ.Μ.</th>
+                <th>UserName</th>
+                <th>Password</th>
+              </tr>
+            </thead>
+            <tbody>{costumersList}</tbody>
+          </table>
+        </div>
         <div
           className="EmployeeSearch"
           onClick={() => this.setState({ active: 0 })}

@@ -50,12 +50,13 @@
   margin-left: 20px;
   margin-right: 20px;
   overflow: auto;
+  margin-top: 25px;
 }
 .DBRooms .Table_RoomsDB {
   width: 100%;
+  padding-top: 0;
   padding-left: 50px;
   padding-right: 50px;
-  margin-top: 20px;
   font-size: 1.2em;
   overflow: hidden;
   margin-left: auto;
@@ -95,4 +96,23 @@
 }
 .DBRooms .Table_RoomsDB tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
+}
+
+.DBRooms ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.DBRooms ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.DBRooms ::-webkit-scrollbar-thumb {
+  background: #76b7dd;
+}
+
+/* Handle on hover */
+.DBRooms ::-webkit-scrollbar-thumb:hover {
+  background: #5789a7;
 }
