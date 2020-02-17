@@ -37,10 +37,10 @@
 }
 
 .DBEmployees .Table_EmployeesDB {
+  width: 98%;
   border-collapse: collapse;
-  margin: 25px 0px;
+  margin-top: 25px;
   font-size: 1.2em;
-  border-radius: 5px 5px 0xp 0px;
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;

@@ -13,22 +13,7 @@
 
 .Table_RoomsDB {
   table-layout: auto !important;
-  width: 100%;
-}
-
-.Table_RoomsDB td {
-  border: 1px solid #000;
-}
-
-.Table_RoomsDB thead tr th {
-  background: #eeeeee;
-  text-align: left;
-  color: #000;
-  font-size: 20px;
-}
-.Table_RoomsDB tr td:last-child {
-  width: 1%;
-  white-space: nowrap;
+  width: 90%;
 }
 
 .RoomsSearch {
@@ -55,4 +40,59 @@
   text-align: center;
   font-size: 25px;
   outline: none;
+}
+
+.DBRooms .wrap_table {
+  width: auto;
+  margin-top: 0;
+  padding-top: 0;
+  height: 600px;
+  margin-left: 20px;
+  margin-right: 20px;
+  overflow: auto;
+}
+.DBRooms .Table_RoomsDB {
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 20px;
+  font-size: 1.2em;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1em 1em 0 0;
+  font-family: Bradley Hand, cursive;
+  table-layout: fixed;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+.DBRooms .Table_RoomsDB thead {
+  border-radius: 6px 6px 6px 6px;
+}
+
+.DBRooms .Table_RoomsDB thead tr {
+  background: #76b7dd;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.DBRooms .Table_RoomsDB th,
+.DBRooms .Table_RoomsDB td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.DBRooms .Table_RoomsDB tbody tr {
+  border-bottom: 1px solid #76b7dd;
+  cursor: pointer;
+}
+
+.DBRooms .Table_RoomsDB tbody tr.active_row {
+  font-weight: bold;
+  color: #76b7dd;
+}
+.DBRooms .Table_RoomsDB tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
 }
