@@ -1,6 +1,8 @@
 
+Το παρόν προτζεκτ αποτελεί την παραλλαγή του [Hotel Management System](https://github.com/ChrissSav/Hotel-Management-System) το οποίο είναι γραμμένο σε Java , δηλαδή είναι η διδακτική μορφή του. Για την υλοποίηση του θα χρησιμοποιηθεί η βιβλιοθήκη της JavaScript η React και σαν Backend θα υπαρχει ένας [server](https://github.com/ChrissSav/Hotel-Managment-System-WebApp-BackEnd) που θα είναι γραμμένος και αυτός σε  JavaScript συγκείμενα σε Node JS.
+<br/><br/><br/>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+<br/>
 ## Available Scripts
 
 In the project directory, you can run:
