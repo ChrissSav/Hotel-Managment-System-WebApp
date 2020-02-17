@@ -8,8 +8,22 @@ class AdminTabDBRooms extends Component {
     active: 0
   };
 
+  getRooms = e => {
+    console.log("e.target.value", e.target.value);
+    var id = e.target.value;
+    if (e.target.value == "") {
+      id = 0;
+    }
+    axios.get("http://localhost:5023/room/" + id).then(res => {
+      // console.log(res.data);
+      this.setState({
+        rooms: res.data
+      });
+    });
+  };
+
   componentDidMount() {
-    axios.get("http://localhost:5023/rooms").then(res => {
+    axios.get("http://localhost:5023/room/0").then(res => {
       // console.log(res.data);
       this.setState({
         rooms: res.data
@@ -45,27 +59,26 @@ class AdminTabDBRooms extends Component {
       <div className="DBRooms">
         <h1>Β/Δ Δωματίων</h1>
         <div className="wrap_table">
-        <table className="Table_RoomsDB">
-          
+          <table className="Table_RoomsDB">
             <thead>
               <tr>
                 <th>Κωδικός</th>
                 <th>Τύπος</th>
                 <th>Αρ κλινών</th>
                 <th>Κλιματισμός</th>
-                <th>Πρισίνα</th>
-                <th>Παροχή WIFI</th>
+                <th>Πισίνα</th>
+                <th>Παροχή WiFi</th>
                 <th>Τιμή</th>
               </tr>
             </thead>
             <tbody>{ListofRooms}</tbody>
           </table>
-          </div>
+        </div>
         <div className="RoomsSearch">
           <label>Αναζήτηση με βάση τον κωδικό του Δωματίου</label>
           <br></br>
 
-          <input type="text" id="fname" name="firstname" />
+          <input type="text" input={this.state.text} onInput={this.getRooms} />
         </div>
       </div>
     );
