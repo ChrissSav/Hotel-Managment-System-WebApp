@@ -4,41 +4,52 @@ import axios from "axios";
 
 class AdminTabDBEmployees extends Component {
   state = {
-    costumers: [],
+    employees: [],
     active: 0
   };
-
-  componentDidMount() {
-    axios.get("http://localhost:5023/employees").then(res => {
-      console.log(res.data);
+  getEmployee = e => {
+    var id = e.target.value;
+    if (e.target.value == "") {
+      id = "!";
+    }
+    axios.get("http://localhost:5023/employee/" + id).then(res => {
+      // console.log(res.data);
       this.setState({
-        costumers: res.data
+        employees: res.data
+      });
+    });
+  };
+  componentDidMount() {
+    axios.get("http://localhost:5023/employee/!").then(res => {
+      //console.log(res.data);
+      this.setState({
+        employees: res.data
       });
     });
   }
   // ? true : false
   render() {
-    const { costumers } = this.state;
-    const costumersList = costumers.length ? (
-      costumers.map(costumer => {
+    const { employees } = this.state;
+    const List_of_Employees = employees.length ? (
+      employees.map(employee => {
         return (
           <tr
-            id={costumer.id}
-            className={this.state.active === costumer.id ? "active_row" : ""}
-            onClick={() => this.setState({ active: costumer.id })}
+            id={employee.id}
+            className={this.state.active === employee.id ? "active_row" : ""}
+            onClick={() => this.setState({ active: employee.id })}
           >
-            <td>{costumer.first_name}</td>
-            <td>{costumer.last_name}</td>
-            <td>{costumer.brithday}</td>
-            <td>{costumer.sex}</td>
-            <td>{costumer.address}</td>
-            <td>{costumer.city}</td>
-            <td>{costumer.phone}</td>
-            <td>{costumer.amka}</td>
-            <td>{costumer.adt}</td>
-            <td>{costumer.afm}</td>
-            <td>{costumer.username}</td>
-            <td>{costumer.password}</td>
+            <td>{employee.first_name}</td>
+            <td>{employee.last_name}</td>
+            <td>{employee.brithday}</td>
+            <td>{employee.sex}</td>
+            <td>{employee.address}</td>
+            <td>{employee.city}</td>
+            <td>{employee.phone}</td>
+            <td>{employee.amka}</td>
+            <td>{employee.adt}</td>
+            <td>{employee.afm}</td>
+            <td>{employee.username}</td>
+            <td>{employee.password}</td>
           </tr>
         );
       })
@@ -67,7 +78,7 @@ class AdminTabDBEmployees extends Component {
                 <th>Password</th>
               </tr>
             </thead>
-            <tbody>{costumersList}</tbody>
+            <tbody>{List_of_Employees}</tbody>
           </table>
         </div>
         <div
@@ -76,7 +87,7 @@ class AdminTabDBEmployees extends Component {
         >
           <label>Αναζήτηση με βάση Επώνυμο ή Α.Φ.Μ.</label>
           <br></br>
-          <input type="text" />
+          <input type="text" onInput={this.getEmployee} />
         </div>
       </div>
     );

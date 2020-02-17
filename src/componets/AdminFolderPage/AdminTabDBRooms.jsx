@@ -78,7 +78,7 @@ class AdminTabDBRooms extends Component {
           <label>Αναζήτηση με βάση τον κωδικό του Δωματίου</label>
           <br></br>
 
-          <input type="text" input={this.state.text} onInput={this.getRooms} />
+          <input type="text" onInput={this.getRooms} />
         </div>
       </div>
     );
