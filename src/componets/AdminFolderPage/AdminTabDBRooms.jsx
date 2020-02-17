@@ -11,7 +11,7 @@ class AdminTabDBRooms extends Component {
   getRooms = e => {
     console.log("e.target.value", e.target.value);
     var id = e.target.value;
-    if (e.target.value == "") {
+    if (e.target.value === "") {
       id = 0;
     }
     axios.get("http://localhost:5023/room/" + id).then(res => {
@@ -46,7 +46,7 @@ class AdminTabDBRooms extends Component {
             <td>{room.num_of_beds}</td>
             <td>{room.air_condition}</td>
             <td>{room.pool}</td>
-            <td>{room.wifi} WIFI</td>
+            <td>{room.wifi}</td>
             <td>{room.price} €</td>
           </tr>
         );

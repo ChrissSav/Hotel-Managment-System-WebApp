@@ -1,5 +1,4 @@
 .DBRooms {
-  text-align: center;
   width: 100%;
   cursor: pointer;
 }
@@ -8,7 +7,7 @@
   color: #767777;
   margin: 10px 0px 20px 20px;
   font-size: 45px;
-  cursor: pointer;
+  cursor: default;
 }
 
 .Table_RoomsDB {

@@ -9,7 +9,7 @@ class AdminTabDBEmployees extends Component {
   };
   getEmployee = e => {
     var id = e.target.value;
-    if (e.target.value == "") {
+    if (e.target.value === "") {
       id = "!";
     }
     axios.get("http://localhost:5023/employee/" + id).then(res => {
