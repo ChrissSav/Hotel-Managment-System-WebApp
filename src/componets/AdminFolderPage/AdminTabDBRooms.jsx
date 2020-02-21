@@ -37,6 +37,7 @@ class AdminTabDBRooms extends Component {
       rooms.map(room => {
         return (
           <tr
+            key={room.id}
             id={room.id}
             className={this.state.active === room.id ? "active_row" : ""}
             onClick={() => this.setState({ active: room.id })}

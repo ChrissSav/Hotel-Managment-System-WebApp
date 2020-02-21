@@ -1,8 +1,49 @@
 import React, { Component } from "react";
 import "./AdminTabRegisterRoomStyle.css";
+import axios from "axios";
 
 class AdminTabDRegisterRoom extends Component {
-  state = {};
+  constructor() {
+    super();
+    this.state = {
+      id: 1,
+      type: "normal",
+      num_of_beds: 1,
+      air_condition: "no",
+      pool: "no",
+      wifi: "no",
+      price: 0
+    };
+
+    this.handleChangeInput = this.handleChangeInput.bind(this);
+    this.SendDataToAPi = this.SendDataToAPi.bind(this);
+    this.CleanFields = this.CleanFields.bind(this);
+  }
+  handleChangeInput(event) {
+    console.log(event.target.id, event.target.value);
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+  }
+
+  CleanFields() {
+    this.setState({
+      id: 1,
+      type: "normal",
+      num_of_beds: 1,
+      air_condition: "no",
+      pool: "no",
+      wifi: "no",
+      price: 0
+    });
+  }
+  SendDataToAPi() {
+    const room = this.state;
+    axios.post("http://localhost:5023/room", { room }).then(res => {
+      console.log(res.data);
+      this.CleanFields();
+    });
+  }
   render() {
     return (
       <div className="TaBAddRoom">
@@ -13,7 +54,13 @@ class AdminTabDRegisterRoom extends Component {
               <label>Κωδικός</label>
             </th>
             <th align="right">
-              <input type="number" readOnly />
+              <input
+                id="id"
+                type="number"
+                min="0"
+                onChange={this.handleChangeInput}
+                value={this.state.id}
+              />
             </th>
           </tr>
           <tr>
@@ -21,9 +68,13 @@ class AdminTabDRegisterRoom extends Component {
               <label>Τύπος</label>
             </th>
             <th align="right">
-              <select className="filo">
-                <option value="NoDiet">type1</option>
-                <option value="BreakfastOnly">type2</option>{" "}
+              <select
+                id="type"
+                onChange={this.handleChangeInput}
+                value={this.state.type}
+              >
+                <option value="normal">Κανονικό</option>
+                <option value="family">Οικογενιακό</option>
               </select>
             </th>
           </tr>
@@ -32,7 +83,13 @@ class AdminTabDRegisterRoom extends Component {
               <label>Αρ. Κλινών</label>
             </th>
             <th align="right">
-              <input type="number" />
+              <input
+                id="num_of_beds"
+                type="number"
+                min="1"
+                value={this.state.num_of_beds}
+                onChange={this.handleChangeInput}
+              />
             </th>
           </tr>
           <tr>
@@ -40,9 +97,13 @@ class AdminTabDRegisterRoom extends Component {
               <label>Κλιματισμός</label>
             </th>
             <th align="right">
-              <select className="filo">
-                <option value="NoDiet">Ναι</option>
-                <option value="BreakfastOnly">Οχι</option>{" "}
+              <select
+                id="air_condition"
+                onChange={this.handleChangeInput}
+                value={this.state.air_condition}
+              >
+                <option value="no">Οχι</option>
+                <option value="yes">Ναι</option>
               </select>
             </th>
           </tr>
@@ -51,20 +112,28 @@ class AdminTabDRegisterRoom extends Component {
               <label>Πισίνα</label>
             </th>
             <th align="right">
-              <select className="filo">
-                <option value="NoDiet">Ναι</option>
-                <option value="BreakfastOnly">Οχι</option>{" "}
+              <select
+                id="pool"
+                onChange={this.handleChangeInput}
+                value={this.state.pool}
+              >
+                <option value="no">Οχι</option>
+                <option value="yes">Ναι</option>
               </select>
             </th>
           </tr>
           <tr>
             <th align="left">
-              <label>WIFI</label>
+              <label>WiFi</label>
             </th>
             <th align="right">
-              <select className="filo">
-                <option value="NoDiet">Ναι</option>
-                <option value="BreakfastOnly">Οχι</option>{" "}
+              <select
+                id="wifi"
+                onChange={this.handleChangeInput}
+                value={this.state.wifi}
+              >
+                <option value="no">Οχι</option>
+                <option value="yes">Ναι</option>
               </select>
             </th>
           </tr>
@@ -73,11 +142,19 @@ class AdminTabDRegisterRoom extends Component {
               <label>Κόστος </label>
             </th>
             <th align="right">
-              <input type="text" readOnly />
+              <input
+                onChange={this.handleChangeInput}
+                id="price"
+                type="text"
+                readOnly
+                value={this.state.price + "  €"}
+              />
             </th>
           </tr>
         </table>
-        <button className="btnAddRoom">Καταχώρηση</button>
+        <button className="btnAddRoom" onClick={this.SendDataToAPi}>
+          Καταχώρηση
+        </button>
       </div>
     );
   }

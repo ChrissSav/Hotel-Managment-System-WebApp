@@ -6,17 +6,17 @@ class AdminTabDBPrices extends Component {
   constructor() {
     super();
     this.state = {
-      air_condition: null,
-      pool: null,
-      wifi: null,
-      only_breakfast: null,
-      half_board: null,
-      full_diet: null,
-      parking: null,
-      normal: null,
-      family: null,
-      price_of_bed: null,
-      tax: null
+      air_condition: 0,
+      pool: 0,
+      wifi: 0,
+      only_breakfast: 0,
+      half_board: 0,
+      full_diet: 0,
+      parking: 0,
+      normal: 0,
+      family: 0,
+      price_of_bed: 0,
+      tax: 0
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,9 +34,6 @@ class AdminTabDBPrices extends Component {
     this.updatePrices();
   }
 
-  componentWillMount() {
-    //console.log("First this called");
-  }
   updatePrices() {
     const prices = this.state;
     axios.put("http://localhost:5023/prices", { prices }).then(res => {
@@ -46,7 +43,7 @@ class AdminTabDBPrices extends Component {
 
   getData() {
     axios.get("http://localhost:5023/prices").then(res => {
-      console.log(res.data);
+      //console.log(res.data);
       this.setState({
         air_condition: res.data.air_condition,
         pool: res.data.pool,

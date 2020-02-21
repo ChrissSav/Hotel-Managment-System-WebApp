@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { Component } from "react";
 import "./AdminPageStyle.css";
 import AdminTabDBEmployees from "./AdminTabDBEmployees";
 import AdminTabDBRooms from "./AdminTabDBRooms";
@@ -10,12 +10,12 @@ class AdminPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      AddReception: "active tab",
-      AddRoom: " tab",
+      AddReception: " tab",
+      AddRoom: "active tab",
       ReceptionDB: " tab",
       RoomsDB: " tab",
       Prices: " tab",
-      active_tab: "AddReception"
+      active_tab: "AddRoom"
     };
 
     this.ActiveTab = this.ActiveTab.bind(this);

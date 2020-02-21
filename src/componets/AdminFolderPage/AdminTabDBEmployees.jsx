@@ -34,6 +34,7 @@ class AdminTabDBEmployees extends Component {
       employees.map(employee => {
         return (
           <tr
+            key={employee.id}
             id={employee.id}
             className={this.state.active === employee.id ? "active_row" : ""}
             onClick={() => this.setState({ active: employee.id })}
