@@ -6,13 +6,14 @@ class AdminTabDRegisterRoom extends Component {
   constructor() {
     super();
     this.state = {
-      id: 1,
-      type: "normal",
+      id: 0,
+      type: "Κανονικό",
       num_of_beds: 1,
-      air_condition: "no",
-      pool: "no",
-      wifi: "no",
-      price: 0
+      air_condition: "ΟΧΙ",
+      pool: "ΟΧΙ",
+      wifi: "ΟΧΙ",
+      price: 0,
+      min_value: 0
     };
 
     this.handleChangeInput = this.handleChangeInput.bind(this);
@@ -20,7 +21,7 @@ class AdminTabDRegisterRoom extends Component {
     this.CleanFields = this.CleanFields.bind(this);
   }
   handleChangeInput(event) {
-    console.log(event.target.id, event.target.value);
+    //console.log(event.target.id, event.target.value);
     this.setState({
       [event.target.id]: event.target.value
     });
@@ -28,20 +29,38 @@ class AdminTabDRegisterRoom extends Component {
 
   CleanFields() {
     this.setState({
-      id: 1,
-      type: "normal",
+      id: 0,
+      type: "Κανονικό",
       num_of_beds: 1,
-      air_condition: "no",
-      pool: "no",
-      wifi: "no",
-      price: 0
+      air_condition: "ΟΧΙ",
+      pool: "ΟΧΙ",
+      wifi: "ΟΧΙ",
+      price: 0,
+      min_value: 0
+    });
+  }
+
+  componentDidMount() {
+    axios.get("http://localhost:5023/room_max_id").then(res => {
+      //console.log(res.data);
+      this.setState({
+        min_value: res.data.msg,
+        id: res.data.msg
+      });
     });
   }
   SendDataToAPi() {
     const room = this.state;
     axios.post("http://localhost:5023/room", { room }).then(res => {
       console.log(res.data);
-      this.CleanFields();
+
+      if (res.data.status === "success") {
+        alert("Επιτυχής καταχώρηση");
+        this.CleanFields();
+      } else {
+        alert("Ανεπιτυχής καταχώρηση");
+        //window.confirm("sometext");
+      }
     });
   }
   render() {
@@ -57,7 +76,7 @@ class AdminTabDRegisterRoom extends Component {
               <input
                 id="id"
                 type="number"
-                min="0"
+                min={this.state.min_value}
                 onChange={this.handleChangeInput}
                 value={this.state.id}
               />
@@ -73,8 +92,8 @@ class AdminTabDRegisterRoom extends Component {
                 onChange={this.handleChangeInput}
                 value={this.state.type}
               >
-                <option value="normal">Κανονικό</option>
-                <option value="family">Οικογενιακό</option>
+                <option value="Κανονικό">Κανονικό</option>
+                <option value="Οικογενιακό">Οικογενιακό</option>
               </select>
             </th>
           </tr>
@@ -102,8 +121,8 @@ class AdminTabDRegisterRoom extends Component {
                 onChange={this.handleChangeInput}
                 value={this.state.air_condition}
               >
-                <option value="no">Οχι</option>
-                <option value="yes">Ναι</option>
+                <option value="ΟΧΙ">ΟΧΙ</option>
+                <option value="ΝΑΙ">ΝΑΙ</option>
               </select>
             </th>
           </tr>
@@ -117,8 +136,8 @@ class AdminTabDRegisterRoom extends Component {
                 onChange={this.handleChangeInput}
                 value={this.state.pool}
               >
-                <option value="no">Οχι</option>
-                <option value="yes">Ναι</option>
+                <option value="ΟΧΙ">ΟΧΙ</option>
+                <option value="ΝΑΙ">ΝΑΙ</option>
               </select>
             </th>
           </tr>
@@ -132,8 +151,8 @@ class AdminTabDRegisterRoom extends Component {
                 onChange={this.handleChangeInput}
                 value={this.state.wifi}
               >
-                <option value="no">Οχι</option>
-                <option value="yes">Ναι</option>
+                <option value="ΟΧΙ">ΟΧΙ</option>
+                <option value="ΝΑΙ">ΝΑΙ</option>
               </select>
             </th>
           </tr>
