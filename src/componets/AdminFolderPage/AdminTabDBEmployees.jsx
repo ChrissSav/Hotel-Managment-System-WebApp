@@ -41,7 +41,7 @@ class AdminTabDBEmployees extends Component {
           >
             <td>{employee.first_name}</td>
             <td>{employee.last_name}</td>
-            <td>{employee.brithday}</td>
+            <td>{employee.birthday}</td>
             <td>{employee.sex}</td>
             <td>{employee.address}</td>
             <td>{employee.city}</td>

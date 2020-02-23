@@ -65,10 +65,17 @@
   background-color: rgb(41, 99, 133);
 }
 
-.container {
+.TabRegisterEmplo .container {
   padding-top: 5%;
 }
 
 .TabRegisterEmplo input:focus {
+  outline: none;
+}
+
+.TabRegisterEmplo .password_handl {
+  width: 30px;
+  height: 30px;
+  border: none;
   outline: none;
 }

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./AdminTabRegisterRecStyle.css";
 import axios from "axios";
+import password_show from "../SVG/password_show.svg";
+import password_hide from "../SVG/password_hide.svg";
 
 class AdminTabRegisterRec extends Component {
   constructor() {
@@ -8,7 +10,7 @@ class AdminTabRegisterRec extends Component {
     this.state = {
       first_name: "",
       last_name: "",
-      brithday: "",
+      birthday: "",
       sex: "Άνδρας",
       address: "",
       city: "",
@@ -18,7 +20,8 @@ class AdminTabRegisterRec extends Component {
       afm: "",
       username: "",
       password: "",
-      type: "password"
+      type: "password",
+      background_Image: password_show
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -31,10 +34,19 @@ class AdminTabRegisterRec extends Component {
     this.AcountCheck = this.AcountCheck.bind(this);
   }
 
-  handleClick() {
-    this.setState(({ type }) => ({
-      type: type === "text" ? "password" : "text"
-    }));
+  handleClick(e) {
+    console.log(e.target.id);
+    if (this.state.type === "password") {
+      this.setState({
+        type: "text",
+        background_Image: password_hide
+      });
+    } else {
+      this.setState({
+        type: "password",
+        background_Image: password_show
+      });
+    }
   }
   handleChangeInput(event) {
     // console.log(this.state);
@@ -66,8 +78,6 @@ class AdminTabRegisterRec extends Component {
           alert("Ανεπιτυχής καταχώρηση");
         }
       });
-    } else {
-      //alert("false");
     }
   }
 
@@ -75,7 +85,7 @@ class AdminTabRegisterRec extends Component {
     this.setState({
       firts_name: "",
       last_name: "",
-      brithday: "",
+      birthday: "",
       sex: "Άνδρας",
       address: "",
       city: "",
@@ -102,7 +112,7 @@ class AdminTabRegisterRec extends Component {
 
   ΑΜΚΑValidation() {
     const amka = this.state.amka;
-    const date = this.state.brithday;
+    const date = this.state.birthday;
     //console.log(amka, date);
     const year = date.substring(2, 4);
     const month = date.substring(5, 7);
@@ -147,7 +157,7 @@ class AdminTabRegisterRec extends Component {
     const last_name = this.state.last_name;
     const address = this.state.address;
     const city = this.state.city;
-    const date = this.state.brithday;
+    const date = this.state.birthday;
     const adt = this.state.adt;
 
     //console.log(first_name);
@@ -224,10 +234,10 @@ class AdminTabRegisterRec extends Component {
                 </th>
                 <th align="right">
                   <input
-                    id="brithday"
+                    id="birthday"
                     type="date"
                     onChange={this.handleChangeInput}
-                    value={this.state.brithday}
+                    value={this.state.birthday}
                   />
                 </th>
                 <th align="left">
@@ -354,14 +364,16 @@ class AdminTabRegisterRec extends Component {
                     onChange={this.handleChangeInput}
                     value={this.state.password}
                   />
-                </th>
-              </tr>
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" onClick={this.handleClick} />
-                    Εφμάνιση Κωδικού
-                  </label>
+                  <button
+                    className="password_handl"
+                    onClick={this.handleClick}
+                    style={{
+                      backgroundImage:
+                        "url(" + this.state.background_Image + ")",
+                      backgroundRepeat: "no-repeat",
+                      overflow: "hidden"
+                    }}
+                  />
                 </th>
               </tr>
             </tbody>
