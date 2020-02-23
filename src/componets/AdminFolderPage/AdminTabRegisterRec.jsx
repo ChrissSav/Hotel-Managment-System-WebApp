@@ -25,6 +25,10 @@ class AdminTabRegisterRec extends Component {
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.RegisetEmployee = this.RegisetEmployee.bind(this);
     this.CleanFields = this.CleanFields.bind(this);
+    this.PhoneValidation = this.PhoneValidation.bind(this);
+    this.ΑΜΚΑValidation = this.ΑΜΚΑValidation.bind(this);
+    this.AFMValidation = this.AFMValidation.bind(this);
+    this.AcountCheck = this.AcountCheck.bind(this);
   }
 
   handleClick() {
@@ -33,7 +37,7 @@ class AdminTabRegisterRec extends Component {
     }));
   }
   handleChangeInput(event) {
-    console.log(this.state);
+    // console.log(this.state);
     //console.log(event.target.id, event.target.value);
     this.setState({
       [event.target.id]: event.target.value
@@ -42,16 +46,29 @@ class AdminTabRegisterRec extends Component {
   RegisetEmployee() {
     let data = Object.assign({}, this.state);
     delete data.type;
-    axios.post("http://localhost:5023/employee", { data }).then(res => {
-      //console.log(res.data);
-      const result = res.data;
-      if (result.status == "success") {
-        alert("Επιτυχής καταχώρηση");
-        this.CleanFields();
-      } else {
-        alert("Ανεπιτυχής καταχώρηση");
-      }
-    });
+    //console.log("RegisetEmployee");
+    if (
+      this.CheckIfIsEmpty() &&
+      this.PhoneValidation() &&
+      this.ΑΜΚΑValidation() &&
+      this.AFMValidation() &&
+      this.PhoneValidation() &&
+      this.AcountCheck()
+    ) {
+      //console.log("true");
+      axios.post("http://localhost:5023/employee", { data }).then(res => {
+        //console.log(res.data);
+        const result = res.data;
+        if (result.status == "success") {
+          alert("Επιτυχής καταχώρηση");
+          this.CleanFields();
+        } else {
+          alert("Ανεπιτυχής καταχώρηση");
+        }
+      });
+    } else {
+      //alert("false");
+    }
   }
 
   CleanFields() {
@@ -71,6 +88,105 @@ class AdminTabRegisterRec extends Component {
       type: "password"
     });
   }
+
+  PhoneValidation() {
+    const phone = this.state.phone;
+    var patt = /[6][9]\d{8}/;
+    if (patt.test(phone)) {
+      return true;
+    } else {
+      alert("Ελγεξε τον αριθμο τηλεφώνου!");
+      return false;
+    }
+  }
+
+  ΑΜΚΑValidation() {
+    const amka = this.state.amka;
+    const date = this.state.brithday;
+    //console.log(amka, date);
+    const year = date.substring(2, 4);
+    const month = date.substring(5, 7);
+    const day = date.substring(date.length - 2, date.length);
+    //console.log(day, month, year);
+    var patt = new RegExp(
+      "[" +
+        day[0] +
+        "][" +
+        day[1] +
+        "][" +
+        month[0] +
+        "][" +
+        month[1] +
+        "][" +
+        year[0] +
+        "][" +
+        year[1] +
+        "]\\d{5}"
+    );
+    //console.log(patt);
+    if (patt.test(amka)) {
+      return true;
+    } else {
+      alert("Ελεγξε τον ΑΜΚΑ");
+      return false;
+    }
+  }
+
+  AFMValidation() {
+    const afm = this.state.afm;
+    const patt = /\d{9}/;
+    if (patt.test(afm)) {
+      return true;
+    } else {
+      alert("Ελεγξε τον ΑΦΜ");
+      return false;
+    }
+  }
+  CheckIfIsEmpty() {
+    const first_name = this.state.first_name;
+    const last_name = this.state.last_name;
+    const address = this.state.address;
+    const city = this.state.city;
+    const date = this.state.brithday;
+    const adt = this.state.adt;
+
+    //console.log(first_name);
+    if (first_name.length <= 1) {
+      alert("Ελεγξε το όνομα");
+      return false;
+    } else if (last_name.length <= 1) {
+      alert("Ελεγξε το επίθετο");
+      return false;
+    } else if (address.length <= 1) {
+      alert("Ελεγξε την Διεύθυνση");
+      return false;
+    } else if (city.length <= 1) {
+      alert("Ελεγξε την Πόλη");
+      return false;
+    } else if (date.length <= 1) {
+      alert("Ελεγξε την Ημερ/νια γέννησης");
+      return false;
+    } else if (adt.length <= 1) {
+      alert("Ελεγξε τον ΑΔΤ");
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  AcountCheck() {
+    const username = this.state.username;
+    const password = this.state.password;
+    if (username.length <= 1) {
+      alert("Ελεγξε το όνομα χρηστη");
+      return false;
+    } else if (password.length <= 1) {
+      alert("Ελεγξε τον κωδικο");
+      return false;
+    } else {
+      return true;
+    }
+  }
   render() {
     return (
       <div className="TabRegisterEmplo">
@@ -84,10 +200,10 @@ class AdminTabRegisterRec extends Component {
                 </th>
                 <th align="right">
                   <input
-                    id="firts_name"
+                    id="first_name"
                     type="text"
                     onChange={this.handleChangeInput}
-                    value={this.state.firts_name}
+                    value={this.state.first_name}
                   />
                 </th>
                 <th align="left">
@@ -160,7 +276,7 @@ class AdminTabRegisterRec extends Component {
                 <th align="right">
                   <input
                     id="phone"
-                    type="number"
+                    type="text"
                     maxlength="10"
                     onChange={this.handleChangeInput}
                     value={this.state.phone}
@@ -172,7 +288,7 @@ class AdminTabRegisterRec extends Component {
                 <th align="right">
                   <input
                     id="amka"
-                    type="number"
+                    type="text"
                     maxlength="11"
                     onChange={this.handleChangeInput}
                     value={this.state.amka}
@@ -187,6 +303,7 @@ class AdminTabRegisterRec extends Component {
                   <input
                     type="text"
                     id="adt"
+                    maxlength="9"
                     onChange={this.handleChangeInput}
                     value={this.state.adt}
                   />
@@ -196,7 +313,7 @@ class AdminTabRegisterRec extends Component {
                 </th>
                 <th align="right">
                   <input
-                    type="number"
+                    type="text"
                     id="afm"
                     maxlength="9"
                     onChange={this.handleChangeInput}
