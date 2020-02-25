@@ -9,9 +9,9 @@ class ReceptionPage extends Component {
     super(props);
     this.state = {
       RegReservation: " tab",
-      DBCostumers: "active tab",
-      DBReservations: "tab",
-      active_tab: "DBCostumers"
+      DBCostumers: " tab",
+      DBReservations: "active tab",
+      active_tab: "DBReservations"
     };
 
     this.ActiveTab = this.ActiveTab.bind(this);
