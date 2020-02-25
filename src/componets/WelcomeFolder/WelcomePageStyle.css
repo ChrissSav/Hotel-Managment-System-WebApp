@@ -23,18 +23,17 @@
 }
 
 .WelcomePage_container .container {
-  margin: 35px 0;
+  margin: 100px 0;
   text-align: center;
   color: #76b7dd;
 }
 
-
-.box h3 {
+.WelcomePage_container .box h3 {
   padding: 10px 0px 0px 0px;
   margin: 0px;
   font-size: 40px;
 }
-.box {
+.WelcomePage_container .box {
   padding: 0px 60px;
   border: 4px;
   border-radius: 10%;
@@ -43,7 +42,7 @@
   font-family: Asap, sans-serif;
   transition: all 0.2s ease;
 }
-.box img {
+.WelcomePage_container .box img {
   padding-top: 0px;
   margin-left: 0px;
   margin-top: 30px;
@@ -52,7 +51,7 @@
   border-radius: 20%;
 }
 
-.box img:hover {
+.WelcomePage_container .box img:hover {
   cursor: pointer;
   -o-transition: 0.5s;
   -ms-transition: 0.5s;

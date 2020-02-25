@@ -1,5 +1,4 @@
 .DBCostumers_container {
-  text-align: center;
   width: 100%;
   cursor: pointer;
 }
@@ -12,25 +11,8 @@
 }
 
 .table_CostumersDB {
-  padding-left: 50px;
-  padding-right: 50px;
   table-layout: auto !important;
-  width: 100%;
-}
-
-.table_CostumersDB td {
-  border: 1px solid #000;
-}
-
-.table_CostumersDB thead tr th {
-  background: #eeeeee;
-  text-align: left;
-  color: #000;
-  font-size: 20px;
-}
-.table_CostumersDB tr td:last-child {
-  width: 1%;
-  white-space: nowrap;
+  width: 90%;
 }
 
 .CostumerSearch {
@@ -57,4 +39,79 @@
   text-align: center;
   font-size: 25px;
   outline: none;
+}
+
+.DBCostumers_container .wrap_table {
+  width: auto;
+  margin-top: 0;
+  padding-top: 0;
+  height: 600px;
+  margin-left: 20px;
+  margin-right: 20px;
+  overflow: auto;
+  margin-top: 25px;
+}
+.DBCostumers_container .table_CostumersDB {
+  width: 100%;
+  padding-top: 0;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 1.2em;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1em 1em 0 0;
+  font-family: Bradley Hand, cursive;
+  table-layout: fixed;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+.DBCostumers_container .table_CostumersDB thead {
+  border-radius: 6px 6px 6px 6px;
+}
+
+.DBCostumers_container .table_CostumersDB thead tr {
+  background: #76b7dd;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.DBCostumers_container .table_CostumersDB th,
+.DBCostumers_container .table_CostumersDB td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.DBCostumers_container .table_CostumersDB tbody tr {
+  border-bottom: 1px solid #76b7dd;
+  cursor: pointer;
+}
+
+.DBCostumers_container .table_CostumersDB tbody tr.active_row {
+  font-weight: bold;
+  color: #76b7dd;
+}
+.DBCostumers_container .table_CostumersDB tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.DBCostumers_container ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.DBCostumers_container ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.DBCostumers_container ::-webkit-scrollbar-thumb {
+  background: #76b7dd;
+}
+
+/* Handle on hover */
+.DBCostumers_container ::-webkit-scrollbar-thumb:hover {
+  background: #5789a7;
 }
