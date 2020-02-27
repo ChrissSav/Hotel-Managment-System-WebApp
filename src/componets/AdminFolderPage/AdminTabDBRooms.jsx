@@ -1,15 +1,29 @@
 import React, { Component } from "react";
 import "./AdminTabDBRoomsStyle.css";
 import axios from "axios";
+import CostumMenu from "../CostumMenu/Menu";
 
 class AdminTabDBRooms extends Component {
-  state = {
-    rooms: [],
-    active: 0
-  };
+  constructor(props) {
+    super(props);
+    //console.log(props);
+    this.state = {
+      rooms: [],
+      active: 0,
+      top_dist: 0,
+      left_dist: 0,
+      display: "block",
+      show: false
+    };
 
-  getRooms = e => {
-    console.log("e.target.value", e.target.value);
+    this.getRooms = this.getRooms.bind(this);
+    this.Clear_Check = this.Clear_Check.bind(this);
+    this.Show_Menu = this.Show_Menu.bind(this);
+    this._handleClckRigth = this._handleClckRigth.bind(this);
+  }
+
+  getRooms(e) {
+    //console.log("e.target.value", e.target.value);
     var id = e.target.value;
     if (e.target.value === "") {
       id = 0;
@@ -20,17 +34,41 @@ class AdminTabDBRooms extends Component {
         rooms: res.data
       });
     });
-  };
+  }
 
   componentDidMount() {
+    window.addEventListener("contextmenu", this._handleClckRigth);
     axios.get("http://localhost:5023/room/0").then(res => {
-      // console.log(res.data);
+      //console.log(res.data);
       this.setState({
         rooms: res.data
       });
     });
   }
+  _handleClckRigth(e) {
+    e.preventDefault();
+  }
+  Clear_Check(e) {
+    this.setState({
+      active: 0,
+      show: false
+    });
+  }
 
+  Show_Menu(e) {
+    if (e.type === "contextmenu") {
+      // console.log("Right click");
+      console.log(e.nativeEvent);
+      const y = e.nativeEvent.pageY;
+      const x = e.nativeEvent.pageX;
+      const { show } = this.state;
+      this.setState({
+        show: true,
+        top_dist: y,
+        left_dist: x
+      });
+    }
+  }
   render() {
     const { rooms } = this.state;
     const ListofRooms = rooms.length ? (
@@ -40,7 +78,8 @@ class AdminTabDBRooms extends Component {
             key={room.id}
             id={room.id}
             className={this.state.active === room.id ? "active_row" : ""}
-            onClick={() => this.setState({ active: room.id })}
+            onClick={() => this.setState({ active: room.id, show: false })}
+            onContextMenu={this.Show_Menu}
           >
             <td>{room.id}</td>
             <td>{room.type}</td>
@@ -79,8 +118,19 @@ class AdminTabDBRooms extends Component {
           <label>Αναζήτηση με βάση τον κωδικό του Δωματίου</label>
           <br></br>
 
-          <input type="text" onInput={this.getRooms} />
+          <input
+            type="text"
+            onInput={this.getRooms}
+            onClick={this.Clear_Check}
+          />
         </div>
+        {this.state.show && (
+          <CostumMenu
+            top_dist={this.state.top_dist}
+            left_dist={this.state.left_dist}
+          />
+        )}
+        ;
       </div>
     );
   }

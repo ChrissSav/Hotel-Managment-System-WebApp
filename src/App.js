@@ -9,6 +9,9 @@ import RecLoginPage from "./componets/LoginPages/RecLoginPage";
 import CostumMenu from "./componets/CostumMenu/Menu";
 
 function App() {
+  const top_dist = 0;
+  const left_dist = 0;
+
   useEffect(() => {
     //console.log("jbhuguihgtg");
   });
@@ -21,7 +24,12 @@ function App() {
           <Route path="/adminlogin" component={AdminLogin} />
           <Route path="/reclogin" component={RecLoginPage} />
           <Route path="/receptionpage" component={ReceptionPage} />
-          <Route path="/menu" component={CostumMenu} />
+          <Route
+            path="/menu"
+            component={() => (
+              <CostumMenu top_dist={0} left_dist={0} display={"block"} />
+            )}
+          />
           <Route path="" component={WelcomePage} />
         </Switch>
       </div>

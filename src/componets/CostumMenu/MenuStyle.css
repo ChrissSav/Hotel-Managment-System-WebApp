@@ -1,6 +1,14 @@
-.Costum_Menu {
+/* .Costum_Menu {
+  position: absolute;
+  top: 50px;
+  left: 100vh;
   margin: 0;
   padding: 0;
+  display: block;
+} */
+
+.Costum_Menu {
+  background-color: #fff;
 }
 
 .Costum_Menu img {
