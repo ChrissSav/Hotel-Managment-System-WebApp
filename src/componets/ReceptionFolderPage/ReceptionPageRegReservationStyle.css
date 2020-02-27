@@ -5,64 +5,6 @@
   cursor: default;
 }
 
-.ReceptionRe_container table {
-  margin-left: auto;
-  margin-right: auto;
-}
-.table_rec_info {
-  font-size: 27px;
-}
-.table_rec_info {
-  border: 4px solid #76b7dd;
-}
-
-.table_rec_info tr th input {
-  font-size: 27px;
-}
-
-.table_res_info tr th input {
-  font-size: 27px;
-}
-
-.table_cost_info tr th input {
-  font-size: 27px;
-}
-
-. ReceptionRe_container input,
-select,
-button {
-  outline: none;
-}
-
-. ReceptionRe_container input,
-select {
-  background: transparent;
-  border: none;
-  border-bottom: 3px solid #76b7dd;
-}
-
-. ReceptionRe_container input[type="number"] {
-  margin-right: 50px;
-  font-size: 27px;
-  width: 337px;
-}
-
-. ReceptionRe_container input[type="text"] {
-  margin-right: 50px;
-  width: 337px;
-}
-
-. ReceptionRe_container input[type="date"] {
-  margin-right: 55px;
-  font-size: 27px;
-  width: 337px;
-}
-.table_res_info tr th select {
-  margin-right: 50px;
-  font-size: 25px;
-  width: 337px;
-}
-
 .btnregBook {
   display: block;
   margin-top: 20px;
@@ -77,7 +19,101 @@ select {
   font-size: 22px;
   outline: none;
 }
-.btnregBook:hover {
+.ReceptionRe_container .btnregBook:hover {
   cursor: pointer;
   background-color: rgb(41, 99, 133);
+}
+
+.ReceptionRe_container table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ReceptionRe_container th {
+  width: 400px;
+  height: 65px;
+  overflow: hidden;
+}
+
+.ReceptionRe_container input,
+select {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+}
+
+.ReceptionRe_container input[type="number"] {
+  margin-right: 50px;
+  font-size: 27px;
+  width: 337px;
+}
+
+.ReceptionRe_container input[type="text"] {
+  margin-right: 50px;
+  width: 337px;
+}
+
+.ReceptionRe_container input[type="date"] {
+  margin-right: 55px;
+  font-size: 27px;
+  width: 337px;
+}
+
+.ReceptionRe_container input,
+select,
+button {
+  outline: none;
+}
+
+/*------------------table 1-----------------*/
+
+.table_reception_info {
+  border: 4px solid #76b7dd;
+  font-size: 27px;
+}
+
+.table_cost_info {
+  border-top: 4px solid #76b7dd;
+  font-size: 27px;
+}
+
+.table_reservation_info {
+  font-size: 27px;
+}
+
+.table_reception_info tr th label {
+  margin-left: 20px;
+}
+
+.table_reservation_info tr th label {
+  margin-left: 20px;
+}
+.table_cost_info tr th label {
+  margin-left: 20px;
+}
+
+.table_reception_info tr th input {
+  font-size: 27px;
+}
+
+.table_reservation_info tr th input {
+  font-size: 27px;
+}
+
+.table_cost_info tr th input {
+  font-size: 27px;
+}
+
+#cc1 {
+  margin-right: 190px;
+}
+
+#cc2 {
+  margin-right: 166px;
+}
+
+.table_reservation_info tr th select {
+  margin-right: 50px;
+  font-size: 25px;
+  width: 337px;
 }

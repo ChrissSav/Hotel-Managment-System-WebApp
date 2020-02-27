@@ -6,37 +6,39 @@ class ReceptionPageRegReservation extends Component {
     return (
       <div className="ReceptionRe_container">
         <h1>Καταχώρηση Κράτησης</h1>
-        <table className="table_rec_info">
-          <tr>
-            <th align="left">
-              <label>Κωδικός κράτησης</label>
-            </th>
-            <th align="right">
-              <input type="text" readonly />
-            </th>
-            <th align="left">
-              <label>Κωδικός Γραμματέα</label>
-            </th>
-            <th align="right">
-              <input type="text" readonly />
-            </th>
-          </tr>
-          <tr>
-            <th align="left">
-              <label>Ημερ/νια κράτησης</label>
-            </th>
-            <th align="right">
-              <input type="text" readonly />
-            </th>
-            <th align="left">
-              <label></label>
-            </th>
-            <th align="right">
-              <label></label>
-            </th>
-          </tr>
+        <table className="table_reception_info">
+          <tbody>
+            <tr>
+              <th align="left">
+                <label>Κωδικός κράτησης</label>
+              </th>
+              <th align="right">
+                <input type="text" readonly />
+              </th>
+              <th align="left">
+                <label>Κωδικός Γραμματέα</label>
+              </th>
+              <th align="right">
+                <input type="text" readonly />
+              </th>
+            </tr>
+            <tr>
+              <th align="left">
+                <label>Ημερ/νια κράτησης</label>
+              </th>
+              <th align="right">
+                <input type="text" readonly />
+              </th>
+              <th align="left">
+                <label></label>
+              </th>
+              <th align="right">
+                <label></label>
+              </th>
+            </tr>
+          </tbody>
         </table>
-        <table className="table_res_info">
+        <table className="table_reservation_info">
           <tr>
             <th align="left">
               <label>Άφιξη</label>
@@ -119,8 +121,8 @@ class ReceptionPageRegReservation extends Component {
             <th align="left">
               <label>Κωδικός Πελάτη</label>
             </th>
-            <th align="right" className="fff">
-              <input type="text" id="fname" name="fff" readonly />
+            <th align="right">
+              <input type="text" readonly />
             </th>
             <th align="left">
               <label>Αριθ. Δωματίου</label>

@@ -16,7 +16,6 @@ class ReceptionPageDBCostumers extends Component {
                 <th>Ημερ/νια γέννησης</th>
                 <th>Φύλο</th>
                 <th>Τηλέφωνο</th>
-                <th>Α.Φ.Μ.</th>
                 <th>Α.Δ.Τ. / Διαβατήριο</th>
               </tr>
             </thead>
