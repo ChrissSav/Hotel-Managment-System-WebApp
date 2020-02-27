@@ -13,13 +13,13 @@ class ReceptionPageRegReservation extends Component {
                 <label>Κωδικός κράτησης</label>
               </th>
               <th align="right">
-                <input type="text" readonly />
+                <input type="text" readOnly />
               </th>
               <th align="left">
                 <label>Κωδικός Γραμματέα</label>
               </th>
               <th align="right">
-                <input type="text" readonly />
+                <input type="text" readOnly />
               </th>
             </tr>
             <tr>
@@ -27,7 +27,7 @@ class ReceptionPageRegReservation extends Component {
                 <label>Ημερ/νια κράτησης</label>
               </th>
               <th align="right">
-                <input type="text" readonly />
+                <input type="text" readOnly />
               </th>
               <th align="left">
                 <label></label>
@@ -67,8 +67,7 @@ class ReceptionPageRegReservation extends Component {
             </th>
             <th align="left">
               <label className="check">
-                <input type="checkbox" />
-                Κλιματισμός
+                <input type="checkbox" /> Κλιματισμός
               </label>
             </th>
             <th align="right">
@@ -82,18 +81,17 @@ class ReceptionPageRegReservation extends Component {
               <label>Αρ. Ενηλίκων</label>
             </th>
             <th align="right">
-              <input type="number" />
+              <input type="number" min="0" />
             </th>
             <th align="left">
               <label className="check">
-                <input type="checkbox" name="checkbox" value="pool" />
-                Πισίνα
+                <input type="checkbox" name="checkbox" value="pool" /> Πισίνα
               </label>
             </th>
             <th align="right">
               <label className="check" id="cc2">
-                <input type="checkbox" name="parking" value="parking" />
-                Θέση στάθμεσης
+                <input type="checkbox" name="parking" value="parking" /> Θέση
+                στάθμεσης
               </label>
             </th>
           </tr>
@@ -102,8 +100,7 @@ class ReceptionPageRegReservation extends Component {
               <label>Αρ. Ανηλίκων</label>
             </th>
             <th align="right">
-              {" "}
-              <input type="number" />
+              <input type="number" min="0" />
             </th>
             <th align="left">
               <label>Τύπος δωματίου</label>
@@ -122,13 +119,13 @@ class ReceptionPageRegReservation extends Component {
               <label>Κωδικός Πελάτη</label>
             </th>
             <th align="right">
-              <input type="text" readonly />
+              <input type="text" readOnly />
             </th>
             <th align="left">
               <label>Αριθ. Δωματίου</label>
             </th>
             <th align="right">
-              <input type="text" readonly />
+              <input type="text" readOnly />
             </th>
           </tr>
         </table>
@@ -138,13 +135,13 @@ class ReceptionPageRegReservation extends Component {
               <label>Κόστος δωματίου</label>
             </th>
             <th align="right">
-              <input type="text" readonly />
+              <input type="text" readOnly />
             </th>
             <th align="left">
               <label>Φ.Π.Α.</label>
             </th>
             <th align="right">
-              <input type="text" readonly />
+              <input type="text" readOnly />
             </th>
           </tr>
           <tr>
@@ -152,13 +149,13 @@ class ReceptionPageRegReservation extends Component {
               <label>Κόστος παροχών</label>
             </th>
             <th align="right">
-              <input type="text" readonly />
+              <input type="text" readOnly />
             </th>
             <th align="left">
               <label>Τελικό Κόστος</label>{" "}
             </th>
             <th align="right">
-              <input type="text" readonly />
+              <input type="text" readOnly />
             </th>
           </tr>
         </table>

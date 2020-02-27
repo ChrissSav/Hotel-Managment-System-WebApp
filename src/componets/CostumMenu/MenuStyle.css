@@ -1,0 +1,34 @@
+.Costum_Menu {
+  margin: 0;
+  padding: 0;
+}
+
+.Costum_Menu img {
+  width: 25px;
+  vertical-align: middle;
+}
+
+.Costum_Menu {
+  display: table-cell;
+  vertical-align: middle;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.Costum_Menu label {
+  vertical-align: middle;
+  margin: 0px 5px;
+  padding: 0px;
+}
+
+.Costum_Menu .box {
+  margin: 0px 0px 0px 0px;
+  padding: 5px 10px;
+}
+
+.Costum_Menu .box:hover,
+.Costum_Menu label:hover {
+  cursor: pointer;
+  background-color: #b7e4ff;
+}
