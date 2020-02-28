@@ -1,60 +1,60 @@
-.TaBAddRoom {
+.Edit_Room {
   cursor: default;
 }
-.TaBAddRoom h1 {
+.Edit_Room h1 {
   color: #767777;
   margin: 10px 0px 20px 20px;
   font-size: 45px;
   cursor: default;
 }
 
-.TaBAddRoom .TableRoom {
+.Edit_Room .TableRoom {
   border-spacing: 20px;
 }
 
 /*button*/
 
-.TaBAddRoom table {
+.Edit_Room table {
   margin-top: 80px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.TaBAddRoom input,
-.TaBAddRoom select,
-.TaBAddRoom button {
+.Edit_Room input,
+.Edit_Room select,
+.Edit_Room button {
   outline: none;
 }
 
-.TaBAddRoom label {
+.Edit_Room label {
   font-size: 25px;
   color: rgb(107, 183, 224);
 }
 
-.TaBAddRoom input {
+.Edit_Room input {
   background: transparent;
   border: none;
   border-bottom: 3px solid #76b7dd;
 }
-.TaBAddRoom select {
+.Edit_Room select {
   background: transparent;
   border: none;
   border-bottom: 3px solid #76b7dd;
 }
 
-.TaBAddRoom input {
+.Edit_Room input {
   font-size: 25px;
   margin-left: 55px;
   width: 250px;
 }
 
-.TaBAddRoom select {
+.Edit_Room select {
   font-size: 25px;
   margin-left: 55px;
   width: 250px;
 }
 
-.TaBAddRoom .btnAddRoom {
+.Edit_Room .btnAddRoom {
   display: block;
   margin-top: 80px;
   margin-left: auto;
@@ -68,7 +68,7 @@
   outline: none;
 }
 
-.TaBAddRoom .btnAddRoom:hover {
+.Edit_Room .btnAddRoom:hover {
   cursor: pointer;
   background-color: rgb(41, 99, 133);
 }

@@ -12,14 +12,14 @@ class WelcomePage extends Component {
         <div className="wrap">
           <h1>Hotel Managment System</h1>
         </div>
-        <div class="container">
-          <div class="box">
+        <div className="container">
+          <div className="box">
             <h3>Διαχειριστής</h3>
             <Link to="/adminlogin">
               <img src={admin_img} />
             </Link>
           </div>
-          <div class="box">
+          <div className="box">
             <h3>Γραμματεία</h3>
             <Link to="/reclogin">
               <img src={secreraty_img} />

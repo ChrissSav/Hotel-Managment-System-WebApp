@@ -8,7 +8,7 @@ class ReceptionPageDBReservations extends Component {
       <div className="DBReservations_container">
         <h1>Κατάλογος Κρατήσεων</h1>
         <div className="wrap_table">
-          <table class="table_DBReservations">
+          <table className="table_DBReservations">
             <thead>
               <tr>
                 <th>Κωδικός</th>
@@ -28,7 +28,7 @@ class ReceptionPageDBReservations extends Component {
             <tbody></tbody>
           </table>
         </div>
-        <div class="SearchReserverion">
+        <div className="SearchReserverion">
           <label>Αναζήτηση με βάση τον κωδικό κράτησης ή πελάτη</label>
           <br></br>
 

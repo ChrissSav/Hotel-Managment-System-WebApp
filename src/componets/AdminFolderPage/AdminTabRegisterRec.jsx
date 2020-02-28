@@ -287,7 +287,7 @@ class AdminTabRegisterRec extends Component {
                   <input
                     id="phone"
                     type="text"
-                    maxlength="10"
+                    maxLength="10"
                     onChange={this.handleChangeInput}
                     value={this.state.phone}
                   />
@@ -299,7 +299,7 @@ class AdminTabRegisterRec extends Component {
                   <input
                     id="amka"
                     type="text"
-                    maxlength="11"
+                    maxLength="11"
                     onChange={this.handleChangeInput}
                     value={this.state.amka}
                   />
@@ -313,7 +313,7 @@ class AdminTabRegisterRec extends Component {
                   <input
                     type="text"
                     id="adt"
-                    maxlength="9"
+                    maxLength="9"
                     onChange={this.handleChangeInput}
                     value={this.state.adt}
                   />
@@ -325,7 +325,7 @@ class AdminTabRegisterRec extends Component {
                   <input
                     type="text"
                     id="afm"
-                    maxlength="9"
+                    maxLength="9"
                     onChange={this.handleChangeInput}
                     value={this.state.afm}
                   />

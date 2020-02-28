@@ -9,27 +9,27 @@
   cursor: default;
 }
 
-.table1 {
+.TabRegisterEmplo .table1 {
   width: 70%;
   float: left;
 }
 
-.table1 tr th,
-.table2 tr th {
+.TabRegisterEmplo .table1 tr th,
+.TabRegisterEmplo .table2 tr th {
   padding-top: 15px;
   padding-left: 20px;
   font-size: 30px;
 }
 
-.table1 .table2 {
+.TabRegisterEmplo .table1 .table2 {
   width: 30%;
   float: right;
 }
 
-.table1 input,
-.filo,
-.table2 input[type="text"],
-.table2 input[type="password"] {
+.TabRegisterEmplo .table1 input,
+.TabRegisterEmplo .filo,
+.TabRegisterEmplo .table2 input[type="text"],
+.TabRegisterEmplo .table2 input[type="password"] {
   font-size: 20px;
   width: 200px;
   text-align: center;
@@ -38,15 +38,15 @@
   border-bottom: 3px solid #76b7dd;
 }
 
-.table1 label {
+.TabRegisterEmplo .table1 label {
   margin-left: 50px;
 }
 
-.table2 {
+.TabRegisterEmplo .table2 {
   padding-left: 7%;
 }
 
-.btnAddEmploye {
+.TabRegisterEmplo .btnAddEmploye {
   display: block;
   margin-top: 180px;
   margin-left: auto;
@@ -60,20 +60,20 @@
   outline: none;
 }
 
-.btnAddEmploye:hover {
+.TabRegisterEmplo .btnAddEmploye:hover {
   cursor: pointer;
   background-color: rgb(41, 99, 133);
 }
 
-.TabRegisterEmplo .container {
+.TabRegisterEmplo .TabRegisterEmplo .container {
   padding-top: 5%;
 }
 
-.TabRegisterEmplo input:focus {
+.TabRegisterEmplo .TabRegisterEmplo input:focus {
   outline: none;
 }
 
-.TabRegisterEmplo .password_handl {
+.TabRegisterEmplo .TabRegisterEmplo .password_handl {
   width: 30px;
   height: 30px;
   border: none;

@@ -7,6 +7,7 @@ import WelcomePage from "./componets/WelcomeFolder/WelcomePage";
 import AdminLogin from "./componets/LoginPages/AdminLoginPage";
 import RecLoginPage from "./componets/LoginPages/RecLoginPage";
 import CostumMenu from "./componets/CostumMenu/Menu";
+import Edit_Room from "./componets/Edit_Components/Edit_Room";
 
 function App() {
   const top_dist = 0;
@@ -24,6 +25,7 @@ function App() {
           <Route path="/adminlogin" component={AdminLogin} />
           <Route path="/reclogin" component={RecLoginPage} />
           <Route path="/receptionpage" component={ReceptionPage} />
+          <Route path="/edit_room" component={Edit_Room} />
           <Route
             path="/menu"
             component={() => (

@@ -12,13 +12,12 @@ class AdminTabDBRooms extends Component {
       active: 0,
       top_dist: 0,
       left_dist: 0,
-      display: "block",
       show: false
     };
 
     this.getRooms = this.getRooms.bind(this);
     this.Clear_Check = this.Clear_Check.bind(this);
-    this.Show_Menu = this.Show_Menu.bind(this);
+    //  this.Show_Menu = this.Show_Menu.bind(this);
     this._handleClckRigth = this._handleClckRigth.bind(this);
   }
 
@@ -55,45 +54,68 @@ class AdminTabDBRooms extends Component {
     });
   }
 
-  Show_Menu(e) {
-    if (e.type === "contextmenu") {
-      // console.log("Right click");
-      console.log(e.nativeEvent);
-      const y = e.nativeEvent.pageY;
-      const x = e.nativeEvent.pageX;
-      const { show } = this.state;
-      this.setState({
-        show: true,
-        top_dist: y,
-        left_dist: x
-      });
-    }
-  }
+  // Show_Menu(e) {
+  //   if (e.type === "contextmenu") {
+  //     // console.log("Right click");
+  //     console.log(e.nativeEvent);
+  //     const y = e.nativeEvent.pageY;
+  //     const x = e.nativeEvent.pageX;
+  //     const { show } = this.state;
+  //     this.setState({
+  //       show: true,
+  //       top_dist: y,
+  //       left_dist: x
+  //     });
+  //   }
+  // }
   render() {
+    const display_menu = this.state.show ? (
+      <CostumMenu
+        top_dist={this.state.top_dist}
+        left_dist={this.state.left_dist}
+      />
+    ) : null;
     const { rooms } = this.state;
-    const ListofRooms = rooms.length ? (
-      rooms.map(room => {
-        return (
-          <tr
-            key={room.id}
-            id={room.id}
-            className={this.state.active === room.id ? "active_row" : ""}
-            onClick={() => this.setState({ active: room.id, show: false })}
-            onContextMenu={this.Show_Menu}
-          >
-            <td>{room.id}</td>
-            <td>{room.type}</td>
-            <td>{room.num_of_beds}</td>
-            <td>{room.air_condition}</td>
-            <td>{room.pool}</td>
-            <td>{room.wifi}</td>
-            <td>{room.price} €</td>
-          </tr>
-        );
-      })
-    ) : (
-      <tr></tr>
-    );
+    const ListofRooms = rooms.length
+      ? rooms.map(room => {
+          return (
+            <tr
+              key={room.id}
+              id={room.id}
+              className={this.state.active === room.id ? "active_row" : ""}
+              onClick={() => this.setState({ active: 0, show: false })}
+              onContextMenu={e => {
+                //console.log("------before------------");
+                //console.log(this.state.active, this.state.show);
+                if (e.type === "contextmenu") {
+                  //console.log("Right click");
+                  //console.log(e.nativeEvent);
+                  const y = e.nativeEvent.pageY;
+                  const x = e.nativeEvent.pageX;
+                  console.log(x, y);
+                  this.setState({
+                    show: true,
+                    top_dist: y,
+                    left_dist: x,
+                    active: room.id
+                  });
+                }
+                // console.log("------after------------");
+                // console.log(this.state.active, this.state.show);
+                // console.log("\n\n");
+              }}
+            >
+              <td>{room.id}</td>
+              <td>{room.type}</td>
+              <td>{room.num_of_beds}</td>
+              <td>{room.air_condition}</td>
+              <td>{room.pool}</td>
+              <td>{room.wifi}</td>
+              <td>{room.price} €</td>
+            </tr>
+          );
+        })
+      : null;
 
     return (
       <div className="DBRooms">
@@ -124,13 +146,7 @@ class AdminTabDBRooms extends Component {
             onClick={this.Clear_Check}
           />
         </div>
-        {this.state.show && (
-          <CostumMenu
-            top_dist={this.state.top_dist}
-            left_dist={this.state.left_dist}
-          />
-        )}
-        ;
+        {display_menu}
       </div>
     );
   }

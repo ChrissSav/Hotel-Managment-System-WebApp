@@ -8,7 +8,7 @@ class ReceptionPageDBCostumers extends Component {
       <div className="DBCostumers_container">
         <h1>Κατάλογος Πελατών</h1>
         <div className="wrap_table">
-          <table class="table_CostumersDB">
+          <table className="table_CostumersDB">
             <thead>
               <tr>
                 <th>Όνομα</th>
@@ -22,7 +22,7 @@ class ReceptionPageDBCostumers extends Component {
             <tbody></tbody>
           </table>
         </div>
-        <div class="CostumerSearch">
+        <div className="CostumerSearch">
           <label>Αναζήτηση με βάση Επώνυμο ή Τηλέφωνο</label>
           <br></br>
           <input type="text" />

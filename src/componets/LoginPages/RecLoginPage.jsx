@@ -52,7 +52,7 @@ class RecLoginPage extends Component {
               onChange={this.handleChange}
             ></input>
           </div>
-          <button class="btnLogin" onClick={this.handleSubmit}>
+          <button className="btnLogin" onClick={this.handleSubmit}>
             Είσοδος
           </button>
         </div>

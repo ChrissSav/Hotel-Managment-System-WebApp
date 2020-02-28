@@ -13,6 +13,7 @@
 .Table_RoomsDB {
   table-layout: auto !important;
   width: 90%;
+  cursor: default;
 }
 
 .RoomsSearch {
@@ -21,6 +22,7 @@
   left: 50px;
   right: 50px;
   bottom: 12%;
+  cursor: default;
 }
 
 .RoomsSearch label {
