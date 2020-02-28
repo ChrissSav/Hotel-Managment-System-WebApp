@@ -88,11 +88,10 @@
 
 .DBRooms .Table_RoomsDB tbody tr {
   border-bottom: 1px solid #76b7dd;
-  cursor: pointer;
+  cursor: default;
 }
 
 .DBRooms .Table_RoomsDB tbody tr.active_row {
-  font-weight: bold;
   color: #76b7dd;
 }
 .DBRooms .Table_RoomsDB tbody tr:nth-of-type(even) {

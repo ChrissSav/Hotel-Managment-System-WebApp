@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import "./AdminTabDBEmployeesStyle.css";
+import CostumMenu from "../CostumMenu/Menu";
 
 import axios from "axios";
 
 class AdminTabDBEmployees extends Component {
   state = {
     employees: [],
-    active: 0
+    active: 0,
+    top_dist: 0,
+    left_dist: 0,
+    show: false
   };
   getEmployee = e => {
     var id = e.target.value;
@@ -28,8 +32,18 @@ class AdminTabDBEmployees extends Component {
       });
     });
   }
+  Get_Selected_Action(id) {
+    console.log("Selected : " + id);
+  }
   // ? true : false
   render() {
+    const display_menu = this.state.show ? (
+      <CostumMenu
+        top_dist={this.state.top_dist}
+        left_dist={this.state.left_dist}
+        select_action={this.Get_Selected_Action}
+      />
+    ) : null;
     const { employees } = this.state;
     const List_of_Employees = employees.length ? (
       employees.map(employee => {
@@ -38,7 +52,20 @@ class AdminTabDBEmployees extends Component {
             key={employee.id}
             id={employee.id}
             className={this.state.active === employee.id ? "active_row" : ""}
-            onClick={() => this.setState({ active: employee.id })}
+            onClick={() => this.setState({ active: 0, show: false })}
+            onContextMenu={async e => {
+              if (e.type === "contextmenu") {
+                const y = e.nativeEvent.pageY;
+                const x = e.nativeEvent.pageX;
+                await this.setState({ active: 0, show: false });
+                await this.setState({
+                  show: true,
+                  top_dist: y,
+                  left_dist: x,
+                  active: employee.id
+                });
+              }
+            }}
           >
             <td>{employee.first_name}</td>
             <td>{employee.last_name}</td>
@@ -60,7 +87,10 @@ class AdminTabDBEmployees extends Component {
     );
 
     return (
-      <div className="DBEmployees">
+      <div
+        className="DBEmployees"
+        onClick={() => this.setState({ active: 0, show: false })}
+      >
         <h1>Β/Δ Υπαλλήλων</h1>
         <div className="wrap_table">
           <table className="Table_EmployeesDB">
@@ -91,6 +121,7 @@ class AdminTabDBEmployees extends Component {
           <br></br>
           <input type="text" onInput={this.getEmployee} />
         </div>
+        {display_menu}
       </div>
     );
   }

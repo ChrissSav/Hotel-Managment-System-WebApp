@@ -14,22 +14,27 @@ class Menu extends Component {
       padding: "0",
       display: "block"
     };
-
-    this.handleClick = this.handleClick.bind(this);
+    this.Select_Action = this.Select_Action.bind(this);
   }
-  handleClick() {
-    //console.log("this trhtrhrthtrhtrhtrhrthis:", this);
+  Select_Action(e) {
+    //console.log(e);
+    //console.log(e.target.id);
+    this.props.select_action(e.target.id);
   }
   render() {
     return (
       <div className="Costum_Menu" style={this.state}>
-        <div className="box" onClick={this.handleClick}>
-          <img src={edit_svg} />
-          <label>Επεξεργασια</label>
+        <div id="edit" className="box" onClick={this.Select_Action.bind(this)}>
+          <img id="edit" src={edit_svg} />
+          <label id="edit">Επεξεργασία</label>
         </div>
-        <div className="box" onClick={this.handleClick}>
-          <img src={delete_svg} />
-          <label>Διαγραφή</label>
+        <div
+          id="delete"
+          className="box"
+          onClick={this.Select_Action.bind(this)}
+        >
+          <img id="delete" src={delete_svg} />
+          <label id="delete">Διαγραφή</label>
         </div>
       </div>
     );

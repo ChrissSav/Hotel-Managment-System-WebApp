@@ -84,7 +84,6 @@
 }
 
 .DBEmployees .Table_EmployeesDB tbody tr.active_row {
-  font-weight: bold;
   color: #76b7dd;
 }
 .DBEmployees .Table_EmployeesDB tbody tr:nth-of-type(even) {

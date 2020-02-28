@@ -54,25 +54,16 @@ class AdminTabDBRooms extends Component {
     });
   }
 
-  // Show_Menu(e) {
-  //   if (e.type === "contextmenu") {
-  //     // console.log("Right click");
-  //     console.log(e.nativeEvent);
-  //     const y = e.nativeEvent.pageY;
-  //     const x = e.nativeEvent.pageX;
-  //     const { show } = this.state;
-  //     this.setState({
-  //       show: true,
-  //       top_dist: y,
-  //       left_dist: x
-  //     });
-  //   }
-  // }
+  Get_Selected_Action(id) {
+    console.log("Selected : " + id);
+  }
+
   render() {
     const display_menu = this.state.show ? (
       <CostumMenu
         top_dist={this.state.top_dist}
         left_dist={this.state.left_dist}
+        select_action={this.Get_Selected_Action}
       />
     ) : null;
     const { rooms } = this.state;
@@ -85,14 +76,9 @@ class AdminTabDBRooms extends Component {
               className={this.state.active === room.id ? "active_row" : ""}
               onClick={() => this.setState({ active: 0, show: false })}
               onContextMenu={async e => {
-                //console.log("------before------------");
-                //console.log(this.state.active, this.state.show);
                 if (e.type === "contextmenu") {
-                  //console.log("Right click");
-                  //console.log(e.nativeEvent);
                   const y = e.nativeEvent.pageY;
                   const x = e.nativeEvent.pageX;
-                  console.log(x, y);
                   await this.setState({ active: 0, show: false });
                   await this.setState({
                     show: true,
@@ -101,9 +87,6 @@ class AdminTabDBRooms extends Component {
                     active: room.id
                   });
                 }
-                // console.log("------after------------");
-                // console.log(this.state.active, this.state.show);
-                // console.log("\n\n");
               }}
             >
               <td>{room.id}</td>
