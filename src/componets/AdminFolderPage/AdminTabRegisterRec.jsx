@@ -71,7 +71,7 @@ class AdminTabRegisterRec extends Component {
       axios.post("http://localhost:5023/employee", { data }).then(res => {
         //console.log(res.data);
         const result = res.data;
-        if (result.status == "success") {
+        if (result.status === "success") {
           alert("Επιτυχής καταχώρηση");
           this.CleanFields();
         } else {

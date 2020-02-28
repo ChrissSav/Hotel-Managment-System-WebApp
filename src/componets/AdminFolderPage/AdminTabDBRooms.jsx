@@ -84,7 +84,7 @@ class AdminTabDBRooms extends Component {
               id={room.id}
               className={this.state.active === room.id ? "active_row" : ""}
               onClick={() => this.setState({ active: 0, show: false })}
-              onContextMenu={e => {
+              onContextMenu={async e => {
                 //console.log("------before------------");
                 //console.log(this.state.active, this.state.show);
                 if (e.type === "contextmenu") {
@@ -93,7 +93,8 @@ class AdminTabDBRooms extends Component {
                   const y = e.nativeEvent.pageY;
                   const x = e.nativeEvent.pageX;
                   console.log(x, y);
-                  this.setState({
+                  await this.setState({ active: 0, show: false });
+                  await this.setState({
                     show: true,
                     top_dist: y,
                     left_dist: x,
@@ -118,7 +119,10 @@ class AdminTabDBRooms extends Component {
       : null;
 
     return (
-      <div className="DBRooms">
+      <div
+        className="DBRooms"
+        onClick={() => this.setState({ active: 0, show: false })}
+      >
         <h1>Β/Δ Δωματίων</h1>
         <div className="wrap_table">
           <table className="Table_RoomsDB">
