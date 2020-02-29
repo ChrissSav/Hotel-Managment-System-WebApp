@@ -10,9 +10,6 @@ import CostumMenu from "./componets/CostumMenu/Menu";
 import Edit_Room from "./componets/Edit_Components/Edit_Room";
 
 function App() {
-  const top_dist = 0;
-  const left_dist = 0;
-
   useEffect(() => {
     //console.log("jbhuguihgtg");
   });

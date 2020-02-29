@@ -1,5 +1,29 @@
-.Edit_Room {
+.Wrap_Edit_Room {
+  margin: 0;
+  z-index: 10;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
   cursor: default;
+}
+
+.Edit_Room {
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 10;
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 10%;
+  left: 15%;
+  right: 1%;
 }
 .Edit_Room h1 {
   color: #767777;
@@ -15,7 +39,7 @@
 /*button*/
 
 .Edit_Room table {
-  margin-top: 80px;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
 }

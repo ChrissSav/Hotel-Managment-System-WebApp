@@ -80,7 +80,7 @@
 
 .DBEmployees .Table_EmployeesDB tbody tr {
   border-bottom: 1px solid #76b7dd;
-  cursor: pointer;
+  cursor: default;
 }
 
 .DBEmployees .Table_EmployeesDB tbody tr.active_row {

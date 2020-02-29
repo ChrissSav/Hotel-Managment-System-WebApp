@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./AdminTabDBRoomsStyle.css";
 import axios from "axios";
 import CostumMenu from "../CostumMenu/Menu";
+import UpdateRoom from "../Edit_Components/Edit_Room";
 
 class AdminTabDBRooms extends Component {
   constructor(props) {
@@ -12,13 +13,16 @@ class AdminTabDBRooms extends Component {
       active: 0,
       top_dist: 0,
       left_dist: 0,
-      show: false
+      show: false,
+      show_edit_room: false,
+      curren_room: []
     };
 
     this.getRooms = this.getRooms.bind(this);
     this.Clear_Check = this.Clear_Check.bind(this);
-    //  this.Show_Menu = this.Show_Menu.bind(this);
+    this.Get_Selected_Action = this.Get_Selected_Action.bind(this);
     this._handleClckRigth = this._handleClckRigth.bind(this);
+    this.Close_Dialog_Edit_Room = this.Close_Dialog_Edit_Room.bind(this);
   }
 
   getRooms(e) {
@@ -56,14 +60,30 @@ class AdminTabDBRooms extends Component {
 
   Get_Selected_Action(id) {
     console.log("Selected : " + id);
+    if (id === "edit") {
+      this.setState({
+        show_edit_room: true
+      });
+    }
   }
-
+  Close_Dialog_Edit_Room(e) {
+    console.log("epistrofi", e);
+    this.setState({
+      show_edit_room: false
+    });
+  }
   render() {
     const display_menu = this.state.show ? (
       <CostumMenu
         top_dist={this.state.top_dist}
         left_dist={this.state.left_dist}
         select_action={this.Get_Selected_Action}
+      />
+    ) : null;
+    const display_update_room = this.state.show_edit_room ? (
+      <UpdateRoom
+        room={this.state.curren_room}
+        close_dialog={this.Close_Dialog_Edit_Room}
       />
     ) : null;
     const { rooms } = this.state;
@@ -84,7 +104,8 @@ class AdminTabDBRooms extends Component {
                     show: true,
                     top_dist: y,
                     left_dist: x,
-                    active: room.id
+                    active: room.id,
+                    curren_room: room
                   });
                 }
               }}
@@ -134,6 +155,7 @@ class AdminTabDBRooms extends Component {
           />
         </div>
         {display_menu}
+        {display_update_room}
       </div>
     );
   }

@@ -12,10 +12,10 @@ class AdminPage extends Component {
     this.state = {
       AddReception: " tab",
       AddRoom: " tab",
-      ReceptionDB: "active tab",
-      RoomsDB: " tab",
+      ReceptionDB: " tab",
+      RoomsDB: "active tab",
       Prices: " tab",
-      active_tab: "ReceptionDB"
+      active_tab: "RoomsDB"
     };
 
     this.ActiveTab = this.ActiveTab.bind(this);
@@ -24,9 +24,9 @@ class AdminPage extends Component {
   ActiveTab(event) {
     this.setState({
       [this.state.active_tab]: "tab",
-      [event.target.id]: "active tab"
+      [event.target.id]: "active tab",
+      active_tab: event.target.id
     });
-    this.state.active_tab = event.target.id;
   }
 
   render() {

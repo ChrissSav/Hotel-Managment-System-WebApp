@@ -19,9 +19,9 @@ class ReceptionPage extends Component {
   ActiveTab(event) {
     this.setState({
       [this.state.active_tab]: "tab",
-      [event.target.id]: "active tab"
+      [event.target.id]: "active tab",
+      active_tab: event.target.id
     });
-    this.state.active_tab = event.target.id;
   }
   render() {
     return (
