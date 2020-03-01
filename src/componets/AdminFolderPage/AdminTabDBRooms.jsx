@@ -68,6 +68,14 @@ class AdminTabDBRooms extends Component {
   }
   Close_Dialog_Edit_Room(e) {
     console.log("epistrofi", e);
+    if (e === 2) {
+      axios.get("http://localhost:5023/room/0").then(res => {
+        //console.log(res.data);
+        this.setState({
+          rooms: res.data
+        });
+      });
+    }
     this.setState({
       show_edit_room: false
     });

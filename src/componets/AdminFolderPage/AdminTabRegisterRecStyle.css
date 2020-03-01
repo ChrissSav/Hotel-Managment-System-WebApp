@@ -16,7 +16,7 @@
 
 .TabRegisterEmplo .table1 tr th,
 .TabRegisterEmplo .table2 tr th {
-  padding-top: 15px;
+  padding-top: 25px;
   padding-left: 20px;
   font-size: 30px;
 }
@@ -48,7 +48,7 @@
 
 .TabRegisterEmplo .btnAddEmploye {
   display: block;
-  margin-top: 180px;
+  margin-top: 280px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
@@ -65,8 +65,8 @@
   background-color: rgb(41, 99, 133);
 }
 
-.TabRegisterEmplo .TabRegisterEmplo .container {
-  padding-top: 5%;
+.TabRegisterEmplo .container {
+  padding-top: 4%;
 }
 
 .TabRegisterEmplo .TabRegisterEmplo input:focus {

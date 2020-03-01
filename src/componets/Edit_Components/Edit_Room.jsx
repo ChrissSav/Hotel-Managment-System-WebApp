@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Edit_RoomStyle.css";
+import axios from "axios";
 
 class Edit_Room extends Component {
   constructor(prop) {
@@ -15,6 +16,7 @@ class Edit_Room extends Component {
     };
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.onKeyPressed = this.onKeyPressed.bind(this);
+    this.SendDataToAPi = this.SendDataToAPi.bind(this);
   }
   onKeyPressed(e) {
     if (e.key === "Escape") {
@@ -27,6 +29,21 @@ class Edit_Room extends Component {
     //console.log(event.target.id, event.target.value);
     this.setState({
       [event.target.id]: event.target.value
+    });
+  }
+  SendDataToAPi() {
+    let room = this.state;
+    //room.price = room.price.replace("  €", "");
+    axios.put("http://localhost:5023/room", { room }).then(res => {
+      // console.log(res.data);
+
+      if (res.data.status === "success") {
+        alert("Επιτυχής καταχώρηση");
+        this.onKeyPressed("exit");
+      } else {
+        alert("Ανεπιτυχής καταχώρηση");
+        //window.confirm("sometext");
+      }
     });
   }
   render() {
@@ -52,6 +69,7 @@ class Edit_Room extends Component {
                     onChange={this.handleChangeInput}
                     value={this.state.id}
                     readOnly
+                    autoFocus
                   />
                 </th>
               </tr>
@@ -67,6 +85,7 @@ class Edit_Room extends Component {
                   >
                     <option value="Κανονικό">Κανονικό</option>
                     <option value="Οικογενιακό">Οικογενιακό</option>
+                    <option value="Τυπικό">Τυπικό</option>
                   </select>
                 </th>
               </tr>
@@ -145,12 +164,7 @@ class Edit_Room extends Component {
               </tr>
             </tbody>
           </table>
-          <button
-            className="btnAddRoom"
-            onClick={() => {
-              this.onKeyPressed("exit");
-            }}
-          >
+          <button className="btnAddRoom" onClick={this.SendDataToAPi}>
             Ενημέρωση
           </button>
         </div>

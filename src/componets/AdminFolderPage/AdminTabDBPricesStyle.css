@@ -8,11 +8,11 @@
 .tableParoxes {
   width: 60%;
   height: 50%;
-  margin: 0 auto;
+  margin: 25px auto;
 }
 
 .tableParoxes tr th {
-  padding-top: 15px;
+  padding-top: 20px;
   padding-left: 20px;
   font-size: 30px;
 }
@@ -36,7 +36,7 @@
 
 .Prices button {
   display: block;
-  margin-top: 80px;
+  margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
