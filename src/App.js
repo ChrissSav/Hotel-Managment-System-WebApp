@@ -8,6 +8,7 @@ import AdminLogin from "./componets/LoginPages/AdminLoginPage";
 import RecLoginPage from "./componets/LoginPages/RecLoginPage";
 import CostumMenu from "./componets/CostumMenu/Menu";
 import Edit_Room from "./componets/Edit_Components/Edit_Room";
+import Edit_Employee from "./componets/Edit_Components/Edit_Employee";
 
 function App() {
   useEffect(() => {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/reclogin" component={RecLoginPage} />
           <Route path="/receptionpage" component={ReceptionPage} />
           <Route path="/edit_room" component={Edit_Room} />
+          <Route path="/edit_employee" component={Edit_Employee} />
           <Route
             path="/menu"
             component={() => (

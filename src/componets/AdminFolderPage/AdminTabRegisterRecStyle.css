@@ -69,11 +69,11 @@
   padding-top: 4%;
 }
 
-.TabRegisterEmplo .TabRegisterEmplo input:focus {
+.TabRegisterEmplo input:focus {
   outline: none;
 }
 
-.TabRegisterEmplo .TabRegisterEmplo .password_handl {
+.TabRegisterEmplo .password_handl {
   width: 30px;
   height: 30px;
   border: none;

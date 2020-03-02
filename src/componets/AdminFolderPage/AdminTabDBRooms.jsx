@@ -59,7 +59,7 @@ class AdminTabDBRooms extends Component {
   }
 
   Get_Selected_Action(id) {
-    console.log("Selected : " + id);
+    //console.log("Selected : " + id);
     if (id === "edit") {
       this.setState({
         show_edit_room: true
@@ -67,7 +67,7 @@ class AdminTabDBRooms extends Component {
     }
   }
   Close_Dialog_Edit_Room(e) {
-    console.log("epistrofi", e);
+    //console.log("epistrofi", e);
     if (e === 2) {
       axios.get("http://localhost:5023/room/0").then(res => {
         //console.log(res.data);

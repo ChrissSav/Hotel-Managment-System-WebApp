@@ -1,0 +1,117 @@
+.Wrap_Edit_Employee {
+  margin: 0;
+  z-index: 10;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: default;
+}
+
+.Edit_Employee {
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 10;
+  position: absolute;
+  width: 80%;
+  height: 70%;
+  top: 10%;
+  left: 10%;
+  right: 1%;
+}
+.Edit_Employee {
+  cursor: default;
+}
+
+.Edit_Employee h1 {
+  color: #767777;
+  margin: 10px 0px 20px 20px;
+  font-size: 45px;
+  cursor: default;
+}
+
+.Edit_Employee .table1 {
+  width: 70%;
+  float: left;
+}
+
+.Edit_Employee .table1 tr th,
+.Edit_Employee .table2 tr th {
+  padding-top: 25px;
+  padding-left: 20px;
+  font-size: 30px;
+}
+
+.Edit_Employee .table1 .table2 {
+  width: 30%;
+  float: right;
+}
+
+.Edit_Employee .table1 input,
+.Edit_Employee .filo {
+  font-size: 20px;
+  width: 200px;
+  text-align: left;
+  background: transparent;
+  padding-left: 5px;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+}
+
+.Edit_Employee .table2 input[type="text"],
+.Edit_Employee .table2 input[type="password"] {
+  font-size: 20px;
+  width: 200px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+}
+
+.Edit_Employee .table1 label {
+  margin-left: 50px;
+}
+
+.Edit_Employee .table2 {
+  padding-left: 7%;
+}
+
+.Edit_Employee .btnAddEmploye {
+  display: block;
+  margin-top: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  background-color: #76b7dd;
+  padding: 20px 40px;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  outline: none;
+}
+
+.Edit_Employee .btnAddEmploye:hover {
+  cursor: pointer;
+  background-color: rgb(41, 99, 133);
+}
+
+.Edit_Employee .container {
+  padding-top: 4%;
+}
+
+.Edit_Employee input:focus {
+  outline: none;
+}
+
+.Edit_Employee .password_handl {
+  width: 30px;
+  height: 30px;
+  border: none;
+  outline: none;
+}

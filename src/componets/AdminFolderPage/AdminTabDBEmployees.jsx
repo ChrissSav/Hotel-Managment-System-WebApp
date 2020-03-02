@@ -1,18 +1,31 @@
 import React, { Component } from "react";
 import "./AdminTabDBEmployeesStyle.css";
 import CostumMenu from "../CostumMenu/Menu";
-
+import UpdateEmployee from "../Edit_Components/Edit_Employee";
 import axios from "axios";
 
 class AdminTabDBEmployees extends Component {
-  state = {
-    employees: [],
-    active: 0,
-    top_dist: 0,
-    left_dist: 0,
-    show: false
-  };
-  getEmployee = e => {
+  constructor(props) {
+    super(props);
+    //console.log(props);
+    this.state = {
+      employees: [],
+      active: 0,
+      top_dist: 0,
+      left_dist: 0,
+      show: false,
+      show_edit_employee: false,
+      curren_employee: []
+    };
+
+    this.getEmployee = this.getEmployee.bind(this);
+    this.Clear_Check = this.Clear_Check.bind(this);
+    this.Get_Selected_Action = this.Get_Selected_Action.bind(this);
+    this.Close_Dialog_Edit_Employee = this.Close_Dialog_Edit_Employee.bind(
+      this
+    );
+  }
+  getEmployee(e) {
     var id = e.target.value;
     if (e.target.value === "") {
       id = "!";
@@ -23,7 +36,7 @@ class AdminTabDBEmployees extends Component {
         employees: res.data
       });
     });
-  };
+  }
   componentDidMount() {
     axios.get("http://localhost:5023/employee/!").then(res => {
       //console.log(res.data);
@@ -32,8 +45,36 @@ class AdminTabDBEmployees extends Component {
       });
     });
   }
+  //=================================
   Get_Selected_Action(id) {
-    console.log("Selected : " + id);
+    //console.log("Selectedd : " + id);
+    if (id === "edit") {
+      this.setState({
+        show_edit_employee: true
+      });
+    }
+  }
+
+  Close_Dialog_Edit_Employee(e) {
+    // console.log("epistrofi", e);
+    if (e === 2) {
+      axios.get("http://localhost:5023/employee/!").then(res => {
+        //console.log(res.data);
+        this.setState({
+          employees: res.data
+        });
+      });
+    }
+    this.setState({
+      show_edit_employee: false
+    });
+  }
+
+  Clear_Check() {
+    this.setState({
+      active: 0,
+      show: false
+    });
   }
   // ? true : false
   render() {
@@ -42,6 +83,12 @@ class AdminTabDBEmployees extends Component {
         top_dist={this.state.top_dist}
         left_dist={this.state.left_dist}
         select_action={this.Get_Selected_Action}
+      />
+    ) : null;
+    const display_update_employee = this.state.show_edit_employee ? (
+      <UpdateEmployee
+        employee={this.state.curren_employee}
+        close_dialog={this.Close_Dialog_Edit_Employee}
       />
     ) : null;
     const { employees } = this.state;
@@ -62,7 +109,8 @@ class AdminTabDBEmployees extends Component {
                   show: true,
                   top_dist: y,
                   left_dist: x,
-                  active: employee.id
+                  active: employee.id,
+                  curren_employee: employee
                 });
               }
             }}
@@ -119,9 +167,14 @@ class AdminTabDBEmployees extends Component {
         >
           <label>Αναζήτηση με βάση Επώνυμο ή Α.Φ.Μ.</label>
           <br></br>
-          <input type="text" onInput={this.getEmployee} />
+          <input
+            type="text"
+            onInput={this.getEmployee}
+            onClick={this.Clear_Check}
+          />
         </div>
         {display_menu}
+        {display_update_employee}
       </div>
     );
   }

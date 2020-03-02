@@ -198,6 +198,7 @@ class AdminTabRegisterRec extends Component {
     }
   }
   render() {
+    console.log("password_hide", password_hide);
     return (
       <div className="TabRegisterEmplo">
         <h1>Καταχώρηση Γραμματέα</h1>
