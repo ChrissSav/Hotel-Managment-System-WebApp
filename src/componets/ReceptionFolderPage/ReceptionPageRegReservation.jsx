@@ -52,10 +52,10 @@ class ReceptionPageRegReservation extends Component {
               </th>
               <th align="right">
                 <select className="diet">
-                  <option value="NoDiet">Χωρίς διατροφή</option>
-                  <option value="BreakfastOnly">Μόνο πρωινό</option>
-                  <option value="HalfBoard">Ημιδιατροφή</option>
-                  <option value="FullDiet">Πλήρης διατροφή</option>
+                  <option value="Χωρίς διατροφή">Χωρίς διατροφή</option>
+                  <option value="Μόνο πρωινό">Μόνο πρωινό</option>
+                  <option value="Ημιδιατροφή">Ημιδιατροφή</option>
+                  <option value="Πλήρης διατροφή">Πλήρης διατροφή</option>
                 </select>
               </th>
             </tr>
@@ -73,7 +73,7 @@ class ReceptionPageRegReservation extends Component {
               </th>
               <th align="right">
                 <label className="check" id="cc1">
-                  <input type="checkbox" /> Παροχή WIFI
+                  <input type="checkbox" /> Παροχή Wifi
                 </label>
               </th>
             </tr>
@@ -125,8 +125,9 @@ class ReceptionPageRegReservation extends Component {
               <th align="left">
                 <label>Αριθ. Δωματίου</label>
               </th>
-              <th align="right">
-                <input type="text" readOnly />
+              <th align="right" className="wrap_room">
+                <input type="text" readOnly className="makis" />
+                <button className="Search_room"></button>
               </th>
             </tr>
           </tbody>
@@ -138,13 +139,13 @@ class ReceptionPageRegReservation extends Component {
                 <label>Κόστος δωματίου</label>
               </th>
               <th align="right">
-                <input type="text" readOnly />
+                <input type="number" readOnly />
               </th>
               <th align="left">
                 <label>Φ.Π.Α.</label>
               </th>
               <th align="right">
-                <input type="text" readOnly />
+                <input type="number" readOnly />
               </th>
             </tr>
             <tr>
@@ -152,13 +153,13 @@ class ReceptionPageRegReservation extends Component {
                 <label>Κόστος παροχών</label>
               </th>
               <th align="right">
-                <input type="text" readOnly />
+                <input type="number" readOnly />
               </th>
               <th align="left">
-                <label>Τελικό Κόστος</label>{" "}
+                <label>Τελικό Κόστος</label>
               </th>
               <th align="right">
-                <input type="text" readOnly />
+                <input type="number" readOnly />
               </th>
             </tr>
           </tbody>

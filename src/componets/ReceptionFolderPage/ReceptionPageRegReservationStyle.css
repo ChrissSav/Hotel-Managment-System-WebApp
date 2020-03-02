@@ -10,10 +10,9 @@
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
-  border-radius: 12px;
+  border-radius: 20px;
   background-color: #76b7dd;
-  padding: 10px 30px;
+  padding: 20px 35px;
   border: 0;
   color: #fff;
   font-size: 22px;
@@ -49,7 +48,7 @@ select {
 }
 
 .ReceptionRe_container input[type="text"] {
-  margin-right: 50px;
+  margin-right: 20px;
   width: 337px;
 }
 
@@ -116,4 +115,23 @@ button {
   margin-right: 50px;
   font-size: 25px;
   width: 337px;
+}
+.wrap_room {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.Search_room {
+  outline: none;
+  border: none;
+  zoom: 80%;
+  background: url(../SVG/search_icon.svg) no-repeat;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+.Search_room:hover {
+  background-color: rgba(118, 183, 221, 0.4);
+  border-radius: 10px;
 }
