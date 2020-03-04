@@ -13,7 +13,7 @@ class ReceptionPage extends Component {
       DBReservations: " tab",
       active_tab: "RegReservation"
     };
-
+    this._handleClckRigth = this._handleClckRigth.bind(this);
     this.ActiveTab = this.ActiveTab.bind(this);
   }
   ActiveTab(event) {
@@ -22,6 +22,12 @@ class ReceptionPage extends Component {
       [event.target.id]: "active tab",
       active_tab: event.target.id
     });
+  }
+  componentDidMount() {
+    window.addEventListener("contextmenu", this._handleClckRigth);
+  }
+  _handleClckRigth(e) {
+    e.preventDefault();
   }
   render() {
     return (

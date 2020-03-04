@@ -1,6 +1,6 @@
 .DBCostumers_container {
   width: 100%;
-  cursor: pointer;
+  cursor: default;
 }
 
 .DBCostumers_container h1 {
@@ -86,7 +86,7 @@
 
 .DBCostumers_container .table_CostumersDB tbody tr {
   border-bottom: 1px solid #76b7dd;
-  cursor: pointer;
+  cursor: default;
 }
 
 .DBCostumers_container .table_CostumersDB tbody tr.active_row {
