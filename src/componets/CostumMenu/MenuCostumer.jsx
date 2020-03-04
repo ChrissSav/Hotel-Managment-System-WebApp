@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import "./Menu1Style.css";
-import edit_svg from "../SVG/edit.svg";
-import delete_svg from "../SVG/delete.svg";
-class Menu extends Component {
+import "./MenuCostumerStyle.css";
+import edit_svg from "../SVG/select.svg";
+import add_svg from "../SVG/plus.svg";
+
+class MenuCostumer extends Component {
   constructor(props) {
     super(props);
     //console.log(props);
@@ -23,22 +24,22 @@ class Menu extends Component {
   }
   render() {
     return (
-      <div className="Costum_Menu" style={this.state}>
-        <div id="edit" className="box" onClick={this.Select_Action.bind(this)}>
-          <img id="edit" src={edit_svg} />
-          <label id="edit">Επεξεργασία</label>
-        </div>
+      <div className="MenuCostumer" style={this.state}>
         <div
-          id="delete"
+          id="select"
           className="box"
           onClick={this.Select_Action.bind(this)}
         >
-          <img id="delete" src={delete_svg} />
-          <label id="delete">Διαγραφή</label>
+          <img id="select" src={edit_svg} />
+          <label id="select">Επιλογή</label>
+        </div>
+        <div id="add" className="box" onClick={this.Select_Action.bind(this)}>
+          <img id="add" src={add_svg} />
+          <label id="add">Προσθήκη</label>
         </div>
       </div>
     );
   }
 }
 
-export default Menu;
+export default MenuCostumer;

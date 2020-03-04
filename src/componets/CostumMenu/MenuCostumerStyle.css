@@ -1,0 +1,42 @@
+/* .MenuCostumer {
+  position: absolute;
+  top: 50px;
+  left: 100vh;
+  margin: 0;
+  padding: 0;
+  display: block;
+} */
+
+.MenuCostumer {
+  background-color: #fff;
+}
+
+.MenuCostumer img {
+  width: 25px;
+  vertical-align: middle;
+}
+
+.MenuCostumer {
+  display: table-cell;
+  vertical-align: middle;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.MenuCostumer label {
+  vertical-align: middle;
+  margin: 0px 15px;
+  padding: 0px;
+}
+
+.MenuCostumer .box {
+  margin: 0px 0px 0px 0px;
+  padding: 5px 10px 5px 15px;
+}
+
+.MenuCostumer .box:hover,
+.MenuCostumer label:hover {
+  cursor: pointer;
+  background-color: #b7e4ff;
+}

@@ -35,7 +35,7 @@ class ReceptionPageRegReservation extends Component {
   handleChangeInput(event) {
     // console.log(event.target, event.target.value);
     //console.log(event.target.type);
-    if (event.target.type == "checkbox") {
+    if (event.target.type === "checkbox") {
       //console.log("1");
       this.setState({
         [event.target.id]: event.target.checked ? "yes" : "no"
