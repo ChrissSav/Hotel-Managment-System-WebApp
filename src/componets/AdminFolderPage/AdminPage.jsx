@@ -10,12 +10,12 @@ class AdminPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      AddReception: " tab",
+      AddReception: "active tab",
       AddRoom: " tab",
-      ReceptionDB: "active tab",
+      ReceptionDB: " tab",
       RoomsDB: " tab",
       Prices: " tab",
-      active_tab: "ReceptionDB"
+      active_tab: "AddReception"
     };
 
     this.ActiveTab = this.ActiveTab.bind(this);

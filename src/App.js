@@ -10,6 +10,7 @@ import CostumMenu from "./componets/CostumMenu/Menu";
 import Edit_Room from "./componets/Edit_Components/Edit_Room";
 import Edit_Employee from "./componets/Edit_Components/Edit_Employee";
 import CostumMenu2 from "./componets/CostumMenu/MenuCostumer";
+import add_cotumer from "./componets/Costumer/AddCostumer";
 
 function App() {
   useEffect(() => {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/receptionpage" component={ReceptionPage} />
           <Route path="/edit_room" component={Edit_Room} />
           <Route path="/edit_employee" component={Edit_Employee} />
+          <Route path="/add_cotumer" component={add_cotumer} />
           <Route
             path="/menu2"
             component={() => (

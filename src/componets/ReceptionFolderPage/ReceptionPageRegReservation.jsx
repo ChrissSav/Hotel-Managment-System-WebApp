@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./ReceptionPageRegReservationStyle.css";
+import MenuCostumer from "../CostumMenu/MenuCostumer";
 
 class ReceptionPageRegReservation extends Component {
   constructor(props) {
@@ -23,13 +24,22 @@ class ReceptionPageRegReservation extends Component {
       tax: "",
       cost_of_benefits: "",
       cost_total: "",
-
+      parking_cost: 20,
+      diet_cost: 0,
       //for room
       wifi: "",
       pool: "",
-      a_c: ""
+      a_c: "",
+
+      //costum menus
+      show_context_menu: false,
+      top_dist: 0,
+      left_dist: 0,
+      show_select_costumer: false,
+      show_add_costumer: false
     };
     this.handleChangeInput = this.handleChangeInput.bind(this);
+    this.Get_Selected_Costumer = this.Get_Selected_Costumer.bind(this);
   }
 
   handleChangeInput(event) {
@@ -37,6 +47,7 @@ class ReceptionPageRegReservation extends Component {
     //console.log(event.target.type);
     if (event.target.type === "checkbox") {
       //console.log("1");
+
       this.setState({
         [event.target.id]: event.target.checked ? "yes" : "no"
       });
@@ -47,9 +58,27 @@ class ReceptionPageRegReservation extends Component {
       });
     }
   }
+  Get_Selected_Costumer(e) {
+    console.log(e);
+    if (e === "select") {
+    } else if (e === "add") {
+    }
+  }
   render() {
+    const display_context_menu = this.state.show_context_menu ? (
+      <MenuCostumer
+        top_dist={this.state.top_dist}
+        left_dist={this.state.left_dist}
+        select_action={this.Get_Selected_Costumer}
+      />
+    ) : null;
     return (
-      <div className="ReceptionRe_container">
+      <div
+        className="ReceptionRe_container"
+        onClick={() => {
+          this.setState({ show_context_menu: false });
+        }}
+      >
         <h1>Καταχώρηση Κράτησης</h1>
         <table className="table_reception_info">
           <tbody>
@@ -232,6 +261,16 @@ class ReceptionPageRegReservation extends Component {
                   readOnly
                   onChange={this.handleChangeInput}
                   value={this.state.costumer_id}
+                  onContextMenu={async e => {
+                    const y = e.nativeEvent.pageY;
+                    const x = e.nativeEvent.pageX;
+                    await this.setState({ show_context_menu: false });
+                    await this.setState({
+                      show_context_menu: true,
+                      top_dist: y,
+                      left_dist: x
+                    });
+                  }}
                 />
               </th>
               <th align="left">
@@ -308,6 +347,7 @@ class ReceptionPageRegReservation extends Component {
         >
           Καταχώρηση
         </button>
+        {display_context_menu}
       </div>
     );
   }

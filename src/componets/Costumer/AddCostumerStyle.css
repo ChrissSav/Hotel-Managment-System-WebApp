@@ -1,0 +1,99 @@
+.Wrap_AddCostumer {
+  margin: 0;
+  z-index: 10;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: default;
+}
+
+.AddCostumer {
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 10;
+  position: absolute;
+  width: 80%;
+  height: 65%;
+  top: 15%;
+  left: 10%;
+  right: 1%;
+}
+
+.AddCostumer h1 {
+  color: #767777;
+  margin: 15px 0px 20px 20px;
+  font-size: 45px;
+  cursor: default;
+}
+
+.AddCostumer .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.AddCostumer .table1 {
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 400px;
+  width: 100%;
+}
+
+.AddCostumer .table1 tr th {
+  padding-top: 25px;
+  padding-left: 55px;
+  font-size: 30px;
+}
+
+.AddCostumer label {
+  padding-left: 130px;
+}
+.AddCostumer .table1 input {
+  font-size: 20px;
+  width: 200px;
+  text-align: left;
+  padding-left: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+}
+.AddCostumer .filo {
+  font-size: 20px;
+  width: 210px;
+  text-align: left;
+  padding-left: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #76b7dd;
+}
+.AddCostumer .btnAddCostumer {
+  display: block;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  background-color: #76b7dd;
+  padding: 20px 40px;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  outline: none;
+}
+
+.AddCostumer .btnAddCostumer:hover {
+  cursor: pointer;
+  background-color: rgb(41, 99, 133);
+}
+
+.AddCostumer input:focus {
+  outline: none;
+}
