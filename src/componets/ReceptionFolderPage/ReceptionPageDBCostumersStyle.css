@@ -10,12 +10,12 @@
   cursor: default;
 }
 
-.table_CostumersDB {
+.DBCostumers_container .table_CostumersDB {
   table-layout: auto !important;
   width: 90%;
 }
 
-.CostumerSearch {
+.DBCostumers_container .CostumerSearch {
   text-align: center;
   position: fixed;
   left: 50px;
@@ -23,13 +23,13 @@
   bottom: 12%;
 }
 
-.CostumerSearch label {
+.DBCostumers_container .CostumerSearch label {
   font-size: 25px;
   color: #7d7e7e;
   font-weight: 700;
 }
 
-.CostumerSearch input {
+.DBCostumers_container .CostumerSearch input {
   background: transparent;
   border: none;
   border-bottom: 3px solid #76b7dd;

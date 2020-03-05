@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./ReceptionPageRegReservationStyle.css";
 import MenuCostumer from "../CostumMenu/MenuCostumer";
+import AddCostumer from "../Costumer/AddCostumer";
 
 class ReceptionPageRegReservation extends Component {
   constructor(props) {
@@ -40,8 +41,17 @@ class ReceptionPageRegReservation extends Component {
     };
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.Get_Selected_Costumer = this.Get_Selected_Costumer.bind(this);
+    this.Close_Dialog_Edit_Employee = this.Close_Dialog_Edit_Employee.bind(
+      this
+    );
   }
-
+  Close_Dialog_Edit_Employee(e) {
+    console.log("epistrofi", e);
+    this.setState({
+      show_add_costumer: false,
+      costumer_id: e
+    });
+  }
   handleChangeInput(event) {
     // console.log(event.target, event.target.value);
     //console.log(event.target.type);
@@ -62,6 +72,7 @@ class ReceptionPageRegReservation extends Component {
     console.log(e);
     if (e === "select") {
     } else if (e === "add") {
+      this.setState({ show_add_costumer: true });
     }
   }
   render() {
@@ -71,6 +82,10 @@ class ReceptionPageRegReservation extends Component {
         left_dist={this.state.left_dist}
         select_action={this.Get_Selected_Costumer}
       />
+    ) : null;
+
+    const display_add_costumer = this.state.show_add_costumer ? (
+      <AddCostumer get_costumer={this.Close_Dialog_Edit_Employee} />
     ) : null;
     return (
       <div
@@ -348,6 +363,7 @@ class ReceptionPageRegReservation extends Component {
           Καταχώρηση
         </button>
         {display_context_menu}
+        {display_add_costumer}
       </div>
     );
   }

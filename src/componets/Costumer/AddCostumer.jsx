@@ -2,22 +2,24 @@ import React, { Component } from "react";
 import "./AddCostumerStyle.css";
 import axios from "axios";
 class AddCostumer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       first_name: "",
       last_name: "",
       birthday: "",
-      sex: "Άνδρας",
+      sex: "",
       phone: "",
       adt: ""
     };
-
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.PhoneValidation = this.PhoneValidation.bind(this);
     this.CheckIfIsEmpty = this.CheckIfIsEmpty.bind(this);
     this.RegisetCostumer = this.RegisetCostumer.bind(this);
+    this.onKeyPressed = this.onKeyPressed.bind(this);
+    this.Get_Costumer_id = this.Get_Costumer_id.bind(this);
   }
+
   handleChangeInput(event) {
     // console.log(this.state);
     //console.log(event.target.id, event.target.value);
@@ -35,16 +37,32 @@ class AddCostumer extends Component {
       return false;
     }
   }
+  Get_Costumer_id() {
+    const id = this.state.phone;
+
+    axios.get("http://localhost:5023/costumer_auth/" + id).then(res => {
+      const result = res.data;
+
+      if (result.status === "success") {
+        console.log(result);
+        this.props.get_costumer(result.msg[0].id);
+      } else {
+        alert("Ανεπιτυχής καταχώρηση");
+      }
+    });
+  }
+
   RegisetCostumer() {
     let data = Object.assign({}, this.state);
     //console.log("RegisetEmployee");
-    if (this.CheckIfIsEmpty() && this.PhoneValidation()) {
+    if (this.CheckIfIsEmpty()) {
       axios.post("http://localhost:5023/costumer", { data }).then(res => {
         //console.log(res.data);
         const result = res.data;
         if (result.status === "success") {
           alert("Επιτυχής καταχώρηση");
-          this.onKeyPressed("exit");
+          this.Get_Costumer_id();
+          // this.onKeyPressed("exit");
         } else {
           alert("Ανεπιτυχής καταχώρηση");
         }
@@ -67,6 +85,8 @@ class AddCostumer extends Component {
     } else if (date.length <= 1) {
       alert("Ελεγξε την Ημερ/νια γέννησης");
       return false;
+    } else if (!this.PhoneValidation()) {
+      return false;
     } else if (adt.length <= 1) {
       alert("Ελεγξε τον ΑΔΤ");
       return false;
@@ -74,13 +94,28 @@ class AddCostumer extends Component {
       return true;
     }
   }
+
+  onKeyPressed(e) {
+    if (e.key === "Escape") {
+      console.log("Escape");
+      this.props.get_costumer("");
+    } //else if (e === "exit") {
+    //this.props.close_dialog(this.state);
+    // }
+  }
   render() {
     return (
-      <div className="Wrap_AddCostumer">
+      <div
+        className="Wrap_AddCostumer"
+        onKeyDown={e => {
+          // console.log("jh");
+          this.onKeyPressed(e);
+        }}
+      >
         <div className="AddCostumer">
           <h1>Καταχώρηση Πελάτη</h1>
           <div className="container">
-            <table className="table1">
+            <table className="container_table">
               <tbody>
                 <tr>
                   <th align="left">
@@ -92,6 +127,7 @@ class AddCostumer extends Component {
                       type="text"
                       onChange={this.handleChangeInput}
                       value={this.state.first_name}
+                      autoFocus
                     />
                   </th>
                   <th align="left">

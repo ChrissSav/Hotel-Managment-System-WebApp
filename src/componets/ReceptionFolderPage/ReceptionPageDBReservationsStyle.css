@@ -10,12 +10,12 @@
   cursor: default;
 }
 
-.table_DBReservations {
+.DBReservations_container .table_DBReservations {
   table-layout: auto !important;
   width: 90%;
 }
 
-.SearchReserverion {
+.DBReservations_container .SearchReserverion {
   text-align: center;
   position: fixed;
   left: 50px;
@@ -23,13 +23,13 @@
   bottom: 12%;
 }
 
-.SearchReserverion label {
+.DBReservations_container .SearchReserverion label {
   font-size: 25px;
   color: #7d7e7e;
   font-weight: 700;
 }
 
-.SearchReserverion input {
+.DBReservations_container .SearchReserverion input {
   background: transparent;
   border: none;
   border-bottom: 3px solid #76b7dd;

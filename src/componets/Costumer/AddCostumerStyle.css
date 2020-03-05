@@ -19,16 +19,16 @@
   background-color: #fff;
   z-index: 10;
   position: absolute;
-  width: 80%;
-  height: 65%;
+  width: 70%;
+  height: 60%;
   top: 15%;
-  left: 10%;
+  left: 15%;
   right: 1%;
 }
 
 .AddCostumer h1 {
   color: #767777;
-  margin: 15px 0px 20px 20px;
+  margin: 35px 0px 20px 20px;
   font-size: 45px;
   cursor: default;
 }
@@ -39,25 +39,24 @@
   align-items: center;
   overflow: hidden;
 }
-.AddCostumer .table1 {
-  margin-top: 0;
+.AddCostumer .container_table {
+  margin-top: 60px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 400px;
   width: 100%;
 }
 
-.AddCostumer .table1 tr th {
+.AddCostumer .container_table tr th {
   padding-top: 25px;
-  padding-left: 55px;
+  padding-left: 25px;
   font-size: 30px;
 }
 
 .AddCostumer label {
   padding-left: 130px;
 }
-.AddCostumer .table1 input {
+.AddCostumer .container_table input {
   font-size: 20px;
   width: 200px;
   text-align: left;
@@ -77,7 +76,7 @@
 }
 .AddCostumer .btnAddCostumer {
   display: block;
-  margin-top: 30px;
+  margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
