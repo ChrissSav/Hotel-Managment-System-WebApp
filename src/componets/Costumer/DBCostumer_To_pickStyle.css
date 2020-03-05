@@ -1,0 +1,127 @@
+.Wrap_DBCostumer_To_pick {
+  margin: 0;
+  z-index: 10;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: default;
+}
+
+.DBCostumer_To_pick {
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 10;
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 7%;
+  left: 10%;
+}
+
+.DBCostumer_To_pick h1 {
+  color: #767777;
+  margin: 35px 0px 20px 20px;
+  font-size: 45px;
+  cursor: default;
+}
+
+.DBCostumer_To_pick .container {
+  width: auto;
+  margin-top: 0;
+  padding-top: 0;
+  height: 500px;
+  margin-left: 20px;
+  margin-right: 20px;
+  overflow: auto;
+  margin-top: 25px;
+}
+.DBCostumer_To_pick .table_CostumersDB {
+  width: 100%;
+  padding-top: 0;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 1.2em;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1em 1em 0 0;
+  font-family: Bradley Hand, cursive;
+  table-layout: fixed;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+.DBCostumer_To_pick .table_CostumersDB thead {
+  border-radius: 6px 6px 6px 6px;
+}
+
+.DBCostumer_To_pick .table_CostumersDB thead tr {
+  background: #76b7dd;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.DBCostumer_To_pick .table_CostumersDB th,
+.DBCostumer_To_pick .table_CostumersDB td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.DBCostumer_To_pick .table_CostumersDB tbody tr {
+  border-bottom: 1px solid #76b7dd;
+  cursor: pointer;
+}
+
+.DBCostumer_To_pick .table_CostumersDB tbody tr.active_row {
+  font-weight: bold;
+  color: #76b7dd;
+}
+.DBCostumer_To_pick .table_CostumersDB tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.DBCostumer_To_pick ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.DBCostumer_To_pick ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.DBCostumer_To_pick ::-webkit-scrollbar-thumb {
+  background: #76b7dd;
+}
+
+/* Handle on hover */
+.DBCostumer_To_pick ::-webkit-scrollbar-thumb:hover {
+  background: #5789a7;
+}
+
+.DBCostumer_To_pick .btnDBCostumer_To_pick {
+  display: block;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  background-color: #76b7dd;
+  padding: 20px 40px;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  outline: none;
+}
+
+.DBCostumer_To_pick .btnDBCostumer_To_pick:hover {
+  cursor: pointer;
+  background-color: rgb(41, 99, 133);
+}
