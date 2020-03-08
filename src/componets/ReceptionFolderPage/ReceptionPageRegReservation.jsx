@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./ReceptionPageRegReservationStyle.css";
 import MenuCostumer from "../CostumMenu/MenuCostumer";
 import AddCostumer from "../Costumer/AddCostumer";
-import DBCostumer_To_pick from "../Costumer/DBCostumer_To_pick";
+import DBCostumerToPick from "../Costumer/DBCostumer_To_pick";
 
 class ReceptionPageRegReservation extends Component {
   constructor(props) {
@@ -51,7 +51,7 @@ class ReceptionPageRegReservation extends Component {
   }
   Close_Dialog_Edit_Employee(e) {
     //console.log("epistrofi", e);
-    if (e != "") {
+    if (e !== "") {
       this.setState({
         show_add_costumer: false,
         costumer_id: e
@@ -65,7 +65,7 @@ class ReceptionPageRegReservation extends Component {
 
   Close_Dialog_Select_Employee(e) {
     //console.log("epistrofi", e);
-    if (e != "") {
+    if (e !== "") {
       this.setState({
         show_select_costumer: false,
         costumer_id: e
@@ -116,7 +116,7 @@ class ReceptionPageRegReservation extends Component {
     ) : null;
 
     const display_select_costumer = this.state.show_select_costumer ? (
-      <DBCostumer_To_pick get_costumer={this.Close_Dialog_Select_Employee} />
+      <DBCostumerToPick get_costumer={this.Close_Dialog_Select_Employee} />
     ) : null;
 
     return (

@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import "./RecLoginPageStyle.css";
+import axios from "axios";
+import cookie from "react-cookies";
 
 class RecLoginPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_name: "",
-      password: ""
+      user_name: "ioanna",
+      password: "1995"
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.LoginToAPi = this.LoginToAPi.bind(this);
+    this.Redirect_Page = this.Redirect_Page.bind(this);
   }
 
   handleChange(event) {
@@ -20,12 +24,43 @@ class RecLoginPage extends Component {
 
   handleSubmit(event) {
     const { user_name, password } = this.state;
-    console.log(user_name, password);
-    if (user_name === "") {
-      this.props.history.push("/receptionpage");
+    //console.log(user_name, password);
+    if (user_name.length > 3 && password.length > 3) {
+      this.LoginToAPi(user_name, password);
+    } else {
+      alert("pedia");
     }
   }
+  Redirect_Page() {
+    console.log("Redirect_Page");
+    window.location.href = "receptionpage";
+    //this.props.history.push("/receptionpage");
+    //let history = useHistory();
+    //history.push("/home");
+    //do something...
+    // browserHistory.push("/path");
+    //return <Redirect to="/adminlogin" />;
+    // return this.props.history.push("/adminlogin");
+  }
 
+  LoginToAPi(user_name, password) {
+    const data = {
+      user_name: user_name,
+      password: password
+    };
+    axios.post("http://localhost:5023/login/employee", { data }).then(res => {
+      console.log(res.data);
+      const result = res.data;
+      if (result.status !== "error") {
+        alert("Επιτυχής καταχώρηση");
+        cookie.save("access_token", result.access_token, { path: "/" });
+        cookie.save("refress_token", result.refress_token, { path: "/" });
+        window.location.href = "/receptionpage";
+      } else {
+        alert("Ανεπιτυχής καταχώρηση");
+      }
+    });
+  }
   render() {
     return (
       <div className="Rec_container">
@@ -34,23 +69,25 @@ class RecLoginPage extends Component {
         </div>
         <div className="container">
           <h3>Reception Login</h3>
-          <div>
-            <input
-              type="text"
-              name="user_name"
-              placeholder="Όνομα Χρήστη"
-              value={this.state.user_name}
-              onChange={this.handleChange}
-            ></input>
-          </div>
-          <div>
-            <input
-              type="password"
-              name="password"
-              placeholder="Κωδικός"
-              value={this.state.password}
-              onChange={this.handleChange}
-            ></input>
+          <div className="wrap">
+            <div>
+              <input
+                type="text"
+                name="user_name"
+                placeholder="Όνομα Χρήστη"
+                value={this.state.user_name}
+                onChange={this.handleChange}
+              ></input>
+            </div>
+            <div>
+              <input
+                type="password"
+                name="password"
+                placeholder="Κωδικός"
+                value={this.state.password}
+                onChange={this.handleChange}
+              ></input>
+            </div>
           </div>
           <button className="btnLogin" onClick={this.handleSubmit}>
             Είσοδος

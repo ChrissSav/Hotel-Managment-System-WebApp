@@ -30,11 +30,11 @@ class MenuCostumer extends Component {
           className="box"
           onClick={this.Select_Action.bind(this)}
         >
-          <img id="select" src={edit_svg} />
+          <img id="select" src={edit_svg} alt="edit_svg" />
           <label id="select">Επιλογή</label>
         </div>
         <div id="add" className="box" onClick={this.Select_Action.bind(this)}>
-          <img id="add" src={add_svg} />
+          <img id="add" src={add_svg} alt="add_svg" />
           <label id="add">Προσθήκη</label>
         </div>
       </div>
