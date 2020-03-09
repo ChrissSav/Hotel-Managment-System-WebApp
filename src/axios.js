@@ -4,22 +4,25 @@ import cookie from "react-cookies";
 let v = 0;
 axios.interceptors.request.use(
   async config => {
-    let token = cookie.load("access_token");
-    //console.log("access_token ", token);
-    if (token != null) {
-      token = parseJwt(cookie.load("access_token"));
+    console.log("interceptors");
+    //await cookie.save("access_token", "2", { path: "/" });
 
-      var current_time = new Date().getTime() / 1000;
-      // console.log("current_time", current_time);
-      //console.log("diafora", token - current_time);
-      if (current_time > token) {
-        //console.log(v++);
-        // console.log("expired ");
-        await UpdateToken();
-      } else {
-        // console.log("mpompxa ");
-      }
-    }
+    // let token = cookie.load("access_token");
+    // //console.log("access_token ", token);
+    // if (token != null) {
+    //   token = parseJwt(cookie.load("access_token"));
+
+    //   var current_time = new Date().getTime() / 1000;
+    //   // console.log("current_time", current_time);
+    //   //console.log("diafora", token - current_time);
+    //   if (current_time > token) {
+    //     //console.log(v++);
+    //     // console.log("expired ");
+    //     await UpdateToken();
+    //   } else {
+    //     // console.log("mpompxa ");
+    //   }
+    // }
     // Or when you don't need an HTTP request just resolve
     return config;
 
@@ -41,8 +44,9 @@ axios.interceptors.response.use(
     }
     return response;
   },
-  function(error) {
-    console.log("Do something with response error");
+  async function(error) {
+    console.log("Do something with response error", error);
+    await UpdateToken();
     // Do something with response error
     return Promise.reject(error);
   }
