@@ -24,7 +24,8 @@ function App() {
   const [adminpage_state, setAdminpage_state] = useState(false);
 
   useEffect(() => {
-    console.log("jbhuguihgtg", cookie.load("access_token"));
+    //console.log("jbhuguihgtg", cookie.load("access_token"));
+
     CheckRecLogin();
   });
   function wait(ms) {
@@ -42,15 +43,15 @@ function App() {
           "auth-token": token
         }
       })
-      .then(res => {
-        console.log("CheckRecLogin axios");
+      .then(async res => {
+        //console.log("CheckRecLogin axios");
         const result = res.data;
         //console.log("result", res);
         if (result.status === "error") {
-          console.log("error");
+          //console.log("error");
           //setReceptionpage_state(true);
         } else {
-          setReceptionpage_state(true);
+          await setReceptionpage_state(true);
         }
       })
       .catch(error => {});
@@ -59,7 +60,7 @@ function App() {
     var lastCookie = document.cookie; // 'static' memory between function calls
     return function() {
       var currentCookie = document.cookie;
-      if (currentCookie != lastCookie) {
+      if (currentCookie !== lastCookie) {
         // something useful like parse cookie, run a callback fn, etc.
         CheckRecLogin();
         lastCookie = currentCookie; // store latest cookie

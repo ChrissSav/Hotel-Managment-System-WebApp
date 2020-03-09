@@ -31,9 +31,10 @@ class RecLoginPage extends Component {
       alert("pedia");
     }
   }
+
   Redirect_Page() {
     console.log("Redirect_Page");
-    window.location.href = "receptionpage";
+    //window.location.href = "receptionpage";
     //this.props.history.push("/receptionpage");
     //let history = useHistory();
     //history.push("/home");
