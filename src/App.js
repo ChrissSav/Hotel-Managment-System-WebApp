@@ -14,6 +14,8 @@ import RecLoginPage from "./componets/LoginPages/RecLoginPage";
 import Edit_Room from "./componets/Edit_Components/Edit_Room";
 import Edit_Employee from "./componets/Edit_Components/Edit_Employee";
 import CostumMenu2 from "./componets/CostumMenu/MenuCostumer";
+import NotFound from "./componets/NotFound/NotFound";
+
 import DBCostumer_To_pick from "./componets/Costumer/DBCostumer_To_pick";
 import cookie from "react-cookies";
 //import axios from "axios";
@@ -75,18 +77,21 @@ function App() {
       <div className="App">
         <Switch>
           <Route
+            exact
             path="/adminpage"
             render={() =>
               adminpage_state ? <AdminPage /> : <Redirect to="/adminlogin" />
             }
           />
           <Route
+            exact
             path="/adminlogin"
             render={() =>
               adminpage_state ? <Redirect to="/adminpage" /> : <AdminLogin />
             }
           />
           <Route
+            exact
             path="/reclogin"
             render={() =>
               receptionpage_state ? (
@@ -97,6 +102,7 @@ function App() {
             }
           />
           <Route
+            exact
             path="/receptionpage"
             render={() =>
               receptionpage_state ? (
@@ -106,16 +112,22 @@ function App() {
               )
             }
           />
-          <Route path="/edit_room" component={Edit_Room} />
-          <Route path="/edit_employee" component={Edit_Employee} />
-          <Route path="/DBCostumer_To_pick" component={DBCostumer_To_pick} />
+          <Route exact path="/edit_room" component={Edit_Room} />
+          <Route exact path="/edit_employee" component={Edit_Employee} />
           <Route
+            exact
+            path="/DBCostumer_To_pick"
+            component={DBCostumer_To_pick}
+          />
+          <Route
+            exact
             path="/menu2"
             component={() => (
               <CostumMenu2 top_dist={0} left_dist={0} display={"block"} />
             )}
           />
-          <Route path="" component={WelcomePage} />
+          <Route exact path="/" component={WelcomePage} />
+          <Route path="/*" component={NotFound} />
         </Switch>
       </div>
     </Router>

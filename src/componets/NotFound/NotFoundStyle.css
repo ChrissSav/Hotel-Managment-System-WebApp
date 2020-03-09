@@ -1,0 +1,36 @@
+.NotFound {
+  height: 100vh;
+}
+
+.NotFound h2 {
+  margin: 0;
+  padding: 0;
+  color: #76b7dd;
+  font-weight: bold;
+  font-size: 100px;
+  font-family: Bradley Hand, cursive;
+}
+
+.NotFound h1 {
+  font-family: Bradley Hand, cursive;
+  margin: 0;
+  text-decoration: none;
+  font-size: 60px;
+  background-color: #76b7dd;
+  color: white;
+  cursor: default;
+}
+.NotFound .header_con {
+  background-color: #76b7dd;
+  color: #fff;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.NotFound .wrap {
+  height: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
