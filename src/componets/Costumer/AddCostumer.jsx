@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./AddCostumerStyle.css";
-import axios from "axios";
+//import axios from "axios";
+import axios from "../axios.js";
+
 class AddCostumer extends Component {
   constructor(props) {
     super(props);

@@ -19,7 +19,7 @@ import NotFound from "./componets/NotFound/NotFound";
 import DBCostumer_To_pick from "./componets/Costumer/DBCostumer_To_pick";
 import cookie from "react-cookies";
 //import axios from "axios";
-import axios from "./axios.js";
+import axios from "./componets/axios.js";
 
 function App() {
   const [receptionpage_state, setReceptionpage_state] = useState(false);

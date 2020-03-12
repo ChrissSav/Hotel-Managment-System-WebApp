@@ -9,7 +9,7 @@ axios.interceptors.request.use(
     const token = await cookie.load("access_token");
     //console.log("token", token);
     if (token != null) {
-      config.headers = { "auth-token": token };
+      config.headers = { auth_token: token };
     }
     // let token = cookie.load("access_token");
     // //console.log("access_token ", token);

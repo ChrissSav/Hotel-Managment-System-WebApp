@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./ReceptionPageDBCostumersStyle.css";
-import axios from "axios";
+//import axios from "axios";
+import axios from "../axios.js";
 
 class ReceptionPageDBCostumers extends Component {
   constructor(props) {
@@ -19,19 +20,20 @@ class ReceptionPageDBCostumers extends Component {
   }
   componentDidMount() {
     axios.get("http://localhost:5023/costumer/!").then(res => {
-      //console.log(res.data);
+      console.log(res.data);
       this.setState({
         costumers: res.data
       });
     });
   }
+
   getCostumer(e) {
     var id = e.target.value;
     if (e.target.value === "") {
       id = "!";
     }
     axios.get("http://localhost:5023/costumer/" + id).then(res => {
-      // console.log(res.data);
+      //console.log(res.data);
       this.setState({
         costumers: res.data
       });
