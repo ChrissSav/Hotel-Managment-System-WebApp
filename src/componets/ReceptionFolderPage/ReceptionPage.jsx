@@ -61,6 +61,11 @@ class ReceptionPage extends Component {
                 Κατάλογος Κρατήσεων
               </button>
             </li>
+            <li>
+              <button id="logout" className="logout">
+                Αποσύνδεση
+              </button>
+            </li>
           </ul>
         </nav>
         <div className="Views">

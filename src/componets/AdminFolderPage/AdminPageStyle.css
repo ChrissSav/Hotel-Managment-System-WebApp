@@ -66,3 +66,24 @@
 .AdminPage_container .Views .tab.active {
   display: block;
 }
+
+.AdminPage_container .logout {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 0;
+  margin-right: 0px;
+  border-radius: 0px 0px 0px 30px;
+  background-color: #76b7dd;
+  padding: 10px 30px;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  text-align: center;
+  outline: none;
+}
+
+.AdminPage_container .logout:hover {
+  cursor: pointer;
+  background: #9ac4db;
+}
