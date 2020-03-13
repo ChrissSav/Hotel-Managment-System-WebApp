@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./AdminTabRegisterRecStyle.css";
-import axios from "axios";
+import axios from "../axios.js";
 import password_show from "../SVG/password_show.svg";
 import password_hide from "../SVG/password_hide.svg";
 
@@ -198,7 +198,7 @@ class AdminTabRegisterRec extends Component {
     }
   }
   render() {
-    console.log("password_hide", password_hide);
+    //console.log("password_hide", password_hide);
     return (
       <div className="TabRegisterEmplo">
         <h1>Καταχώρηση Γραμματέα</h1>

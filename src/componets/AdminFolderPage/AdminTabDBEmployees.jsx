@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./AdminTabDBEmployeesStyle.css";
 import CostumMenu from "../CostumMenu/Menu";
 import UpdateEmployee from "../Edit_Components/Edit_Employee";
-import axios from "axios";
+import axios from "../axios.js";
 
 class AdminTabDBEmployees extends Component {
   constructor(props) {

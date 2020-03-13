@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./DBCostumer_To_pickStyle.css";
-import axios from "axios";
+import axios from "../axios.js";
 
 class DBCostumer_To_pick extends Component {
   constructor(props) {

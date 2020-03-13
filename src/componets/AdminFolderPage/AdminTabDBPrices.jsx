@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./AdminTabDBPricesStyle.css";
-import axios from "axios";
+import axios from "../axios.js";
 
 class AdminTabDBPrices extends Component {
   constructor() {

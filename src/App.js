@@ -17,7 +17,6 @@ import CostumMenu2 from "./componets/CostumMenu/MenuCostumer";
 import NotFound from "./componets/NotFound/NotFound";
 
 import DBCostumer_To_pick from "./componets/Costumer/DBCostumer_To_pick";
-import cookie from "react-cookies";
 //import axios from "axios";
 import axios from "./componets/axios.js";
 
@@ -28,43 +27,32 @@ function App() {
   useEffect(() => {
     //console.log("jbhuguihgtg", cookie.load("access_token"));
 
-    CheckRecLogin();
+    CheckLogin();
   });
-  function wait(ms) {
-    var start = new Date().getTime();
-    var end = start;
-    while (end < start + ms) {
-      end = new Date().getTime();
-    }
-  }
-  async function CheckRecLogin() {
-    const token = await cookie.load("access_token");
+
+  async function CheckLogin() {
     await axios
-      .get("http://localhost:5023/authCheck", {
-        headers: {
-          "auth-token": token
-        }
-      })
+      .get("http://localhost:5023/authCheck")
       .then(async res => {
-        //console.log("CheckRecLogin axios");
         const result = res.data;
-        //console.log("result", res);
-        if (result.status === "error") {
-          //console.log("error");
-          //setReceptionpage_state(true);
-        } else {
-          await setReceptionpage_state(true);
+        if (result.status === "success") {
+          if (result.msg === "admin") {
+            await setAdminpage_state(true);
+          } else if (result.msg === "reception") {
+            await setReceptionpage_state(true);
+          }
         }
       })
       .catch(error => {});
   }
+
   var checkCookie = (function() {
     var lastCookie = document.cookie; // 'static' memory between function calls
     return function() {
       var currentCookie = document.cookie;
       if (currentCookie !== lastCookie) {
         // something useful like parse cookie, run a callback fn, etc.
-        CheckRecLogin();
+        CheckLogin();
         lastCookie = currentCookie; // store latest cookie
       } else {
         //console.log("not");
@@ -72,6 +60,7 @@ function App() {
     };
   })();
   window.setInterval(checkCookie, 100);
+
   return (
     <Router>
       <div className="App">

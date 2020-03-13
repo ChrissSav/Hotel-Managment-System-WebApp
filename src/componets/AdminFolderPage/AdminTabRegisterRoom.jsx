@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./AdminTabRegisterRoomStyle.css";
-import axios from "axios";
+import axios from "../axios.js";
 
 class AdminTabDRegisterRoom extends Component {
   constructor() {

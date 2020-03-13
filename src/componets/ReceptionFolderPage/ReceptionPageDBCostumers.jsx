@@ -20,7 +20,7 @@ class ReceptionPageDBCostumers extends Component {
   }
   componentDidMount() {
     axios.get("http://localhost:5023/costumer/!").then(res => {
-      console.log(res.data);
+      //console.log(res.data);
       this.setState({
         costumers: res.data
       });

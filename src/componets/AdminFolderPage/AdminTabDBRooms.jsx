@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./AdminTabDBRoomsStyle.css";
-import axios from "axios";
+import axios from "../axios.js";
 import CostumMenu from "../CostumMenu/Menu";
 import UpdateRoom from "../Edit_Components/Edit_Room";
 

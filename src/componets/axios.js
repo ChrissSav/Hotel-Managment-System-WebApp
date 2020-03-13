@@ -76,28 +76,28 @@ async function UpdateToken() {
   //console.log("UpdateToken arxi");
   //console.log("UpdateToken ");
   const token = await cookie.load("refress_token");
-  //console.log("refress_token", v);
+  const flag = await cookie.load("flag");
+  const url = "http://localhost:5023/token_" + flag;
+  //console.log("url", url);
   if (v === 0) {
     v = 1;
-    await axios
-      .post("http://localhost:5023/token", { refress_token: token })
-      .then(async res => {
-        //console.log("UpdateToken axios");
-        //console.log(res.data);
-        const result = res.data;
-        if (result.status !== "error") {
-          // alert("Επιτυχής καταχώρηση");
-          await cookie.save("access_token", result.access_token, {
-            path: "/"
-          });
-          await cookie.save("refress_token", result.refress_token, {
-            path: "/"
-          });
-          //return;
-        } else {
-          //alert("Ανεπιτυχής καταχώρηση");
-        }
-      });
+    await axios.post(url, { refress_token: token }).then(async res => {
+      //console.log("UpdateToken axios");
+      //console.log(res.data);
+      const result = res.data;
+      if (result.status !== "error") {
+        // alert("Επιτυχής καταχώρηση");
+        await cookie.save("access_token", result.access_token, {
+          path: "/"
+        });
+        await cookie.save("refress_token", result.refress_token, {
+          path: "/"
+        });
+        //return;
+      } else {
+        //alert("Ανεπιτυχής καταχώρηση");
+      }
+    });
     //await sleep(2000);
   }
   //console.log("UpdateToken telos");

@@ -13,7 +13,6 @@ class RecLoginPage extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.LoginToAPi = this.LoginToAPi.bind(this);
-    this.Redirect_Page = this.Redirect_Page.bind(this);
   }
 
   handleChange(event) {
@@ -32,18 +31,6 @@ class RecLoginPage extends Component {
     }
   }
 
-  Redirect_Page() {
-    console.log("Redirect_Page");
-    //window.location.href = "receptionpage";
-    //this.props.history.push("/receptionpage");
-    //let history = useHistory();
-    //history.push("/home");
-    //do something...
-    // browserHistory.push("/path");
-    //return <Redirect to="/adminlogin" />;
-    // return this.props.history.push("/adminlogin");
-  }
-
   LoginToAPi(user_name, password) {
     const data = {
       user_name: user_name,
@@ -56,6 +43,8 @@ class RecLoginPage extends Component {
         alert("Επιτυχής καταχώρηση");
         cookie.save("access_token", result.access_token, { path: "/" });
         cookie.save("refress_token", result.refress_token, { path: "/" });
+        cookie.save("flag", "reception", { path: "/" });
+
         window.location.href = "/receptionpage";
       } else {
         alert("Ανεπιτυχής καταχώρηση");

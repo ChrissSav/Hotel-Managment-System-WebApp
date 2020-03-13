@@ -25,7 +25,7 @@ class Menu extends Component {
     return (
       <div className="Costum_Menu" style={this.state}>
         <div id="edit" className="box" onClick={this.Select_Action.bind(this)}>
-          <img id="edit" src={edit_svg} />
+          <img id="edit" src={edit_svg} alt="edit_svg" />
           <label id="edit">Επεξεργασία</label>
         </div>
         <div
@@ -33,7 +33,7 @@ class Menu extends Component {
           className="box"
           onClick={this.Select_Action.bind(this)}
         >
-          <img id="delete" src={delete_svg} />
+          <img id="delete" src={delete_svg} alt="delete_svg" />
           <label id="delete">Διαγραφή</label>
         </div>
       </div>
