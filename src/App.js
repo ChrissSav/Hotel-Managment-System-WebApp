@@ -12,6 +12,7 @@ import WelcomePage from "./componets/WelcomeFolder/WelcomePage";
 import AdminLogin from "./componets/LoginPages/AdminLoginPage";
 import RecLoginPage from "./componets/LoginPages/RecLoginPage";
 import Edit_Room from "./componets/Edit_Components/Edit_Room";
+import Edit_Costumer from "./componets/Edit_Components/Edit_Costumer";
 import Edit_Employee from "./componets/Edit_Components/Edit_Employee";
 import CostumMenu2 from "./componets/CostumMenu/MenuCostumer";
 import NotFound from "./componets/NotFound/NotFound";
@@ -104,8 +105,8 @@ function App() {
               )
             }
           />
-          <Route exact path="/edit_room" component={Edit_Room} />
-          <Route exact path="/edit_employee" component={Edit_Employee} />
+          {/* <Route exact path="/edit_room" component={Edit_Room} /> */}
+          {/* <Route exact path="/edit_employee" component={Edit_Employee} /> */}
           <Route
             exact
             path="/DBCostumer_To_pick"
@@ -118,6 +119,7 @@ function App() {
               <CostumMenu2 top_dist={0} left_dist={0} display={"block"} />
             )}
           />
+          <Route exact path="/Edit_Costumer" component={Edit_Costumer} />
           <Route exact path="/" component={WelcomePage} />
           <Route path="/*" component={NotFound} />
         </Switch>

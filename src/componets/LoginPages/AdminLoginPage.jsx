@@ -39,13 +39,13 @@ class AdminLoginPage extends Component {
       console.log(res.data);
       const result = res.data;
       if (result.status !== "error") {
-        alert("Επιτυχής καταχώρηση");
+        //alert("Επιτυχής καταχώρηση");
         cookie.save("access_token", result.access_token, { path: "/" });
         cookie.save("refress_token", result.refress_token, { path: "/" });
         cookie.save("flag", "admin", { path: "/" });
         window.location.href = "/adminpage";
       } else {
-        alert("Ανεπιτυχής καταχώρηση");
+        alert("Παρακαλώ ελέγξτε τα στοιχεία σας !");
       }
     });
   }

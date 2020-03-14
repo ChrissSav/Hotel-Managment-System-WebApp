@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import "./ReceptionPageDBCostumersStyle.css";
+import CostumMenu from "../CostumMenu/Menu";
+import Edit_Costumer from "../Edit_Components/Edit_Costumer";
+
 //import axios from "axios";
 import axios from "../axios.js";
 
@@ -17,6 +20,11 @@ class ReceptionPageDBCostumers extends Component {
       curren_costumer: []
     };
     this.getCostumer = this.getCostumer.bind(this);
+    this.Clear_Check = this.Clear_Check.bind(this);
+    this.Get_Selected_Action = this.Get_Selected_Action.bind(this);
+    this.Close_Dialog_Edit_Costumer = this.Close_Dialog_Edit_Costumer.bind(
+      this
+    );
   }
   componentDidMount() {
     axios.get("http://localhost:5023/costumer/!").then(res => {
@@ -39,9 +47,54 @@ class ReceptionPageDBCostumers extends Component {
       });
     });
   }
+
+  Clear_Check() {
+    this.setState({
+      active: 0,
+      show: false
+    });
+  }
+  Get_Selected_Action(id) {
+    //console.log("Selectedd : " + id);
+    if (id === "edit") {
+      this.setState({
+        show_edit_costumer: true
+      });
+    }
+  }
+
+  Close_Dialog_Edit_Costumer(e) {
+    //console.log("epistrofi", e);
+    if (e === 2) {
+      //console.log("epistrofi", e);
+      axios.get("http://localhost:5023/Costumer/!").then(res => {
+        //console.log(res.data);
+        this.setState({
+          costumers: res.data
+        });
+      });
+    }
+    this.setState({
+      show_edit_costumer: false
+    });
+  }
+
   render() {
+    const display_menu = this.state.show ? (
+      <CostumMenu
+        top_dist={this.state.top_dist}
+        left_dist={this.state.left_dist}
+        select_action={this.Get_Selected_Action}
+      />
+    ) : null;
+    const display_update_costumer = this.state.show_edit_costumer ? (
+      <Edit_Costumer
+        costumer={this.state.curren_costumer}
+        close_dialog={this.Close_Dialog_Edit_Costumer}
+      />
+    ) : null;
     const { costumers } = this.state;
-    const List_of_Employees = costumers.length ? (
+    const List_of_Costumers = costumers.length ? (
       costumers.map(costumer => {
         return (
           <tr
@@ -79,7 +132,7 @@ class ReceptionPageDBCostumers extends Component {
     return (
       <div
         className="DBCostumers_container"
-        onClick={() => this.setState({ active: 0 })}
+        onClick={() => this.setState({ active: 0, show: false })}
       >
         <h1>Κατάλογος Πελατών</h1>
         <div className="wrap_table">
@@ -94,7 +147,7 @@ class ReceptionPageDBCostumers extends Component {
                 <th>Α.Δ.Τ. / Διαβατήριο</th>
               </tr>
             </thead>
-            <tbody>{List_of_Employees}</tbody>
+            <tbody>{List_of_Costumers}</tbody>
           </table>
         </div>
         <div
@@ -105,6 +158,8 @@ class ReceptionPageDBCostumers extends Component {
           <br></br>
           <input type="text" onInput={this.getCostumer} />
         </div>
+        {display_menu}
+        {display_update_costumer}
       </div>
     );
   }
