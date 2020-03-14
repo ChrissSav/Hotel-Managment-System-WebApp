@@ -5,6 +5,8 @@ import AdminTabDBRooms from "./AdminTabDBRooms";
 import AdminTabDBPrices from "./AdminTabDBPrices";
 import AdminTabRegisterRec from "./AdminTabRegisterRec";
 import AdminTabRegisterRoom from "./AdminTabRegisterRoom";
+import axios from "../axios.js";
+import cookie from "react-cookies";
 
 class AdminPage extends Component {
   constructor(props) {
@@ -19,6 +21,7 @@ class AdminPage extends Component {
     };
 
     this.ActiveTab = this.ActiveTab.bind(this);
+    this.Logout = this.Logout.bind(this);
   }
 
   ActiveTab(event) {
@@ -29,6 +32,32 @@ class AdminPage extends Component {
     });
   }
 
+  //cookie.remove('userId', { path: '/' })
+  Logout() {
+    if (window.confirm("Θέλετε σιγουρά να αποσυνδεθείτε ;")) {
+      const refress_token = cookie.load("refress_token");
+      axios
+        .delete("http://localhost:5023/token_admin", {
+          refress_token: refress_token
+        })
+        .then(res => {
+          console.log(res);
+          const result = res.data;
+          if (result.status === "success") {
+            this.delete_all_cookies();
+          }
+        });
+    }
+  }
+
+  delete_all_cookies() {
+    const list_of_cookies = Object.keys(cookie.loadAll());
+    let item;
+    for (item in list_of_cookies) {
+      cookie.remove(list_of_cookies[item], { path: "/" });
+    }
+    window.location.href = "/";
+  }
   render() {
     return (
       <div className="AdminPage_container">
@@ -81,7 +110,7 @@ class AdminPage extends Component {
               </button>
             </li>
             <li>
-              <button id="logout" className="logout">
+              <button id="logout" className="logout" onClick={this.Logout}>
                 Αποσύνδεση
               </button>
             </li>
