@@ -3,6 +3,8 @@ import "./ReceptionPage1Style.css";
 import ReceptionPageDBCostumers from "./ReceptionPageDBCostumers";
 import ReceptionPageDBReservations from "./ReceptionPageDBReservations";
 import ReceptionPageRegReservation from "./ReceptionPageRegReservation";
+import axios from "../axios.js";
+import cookie from "react-cookies";
 
 class ReceptionPage extends Component {
   constructor(props) {
@@ -15,6 +17,7 @@ class ReceptionPage extends Component {
     };
     this._handleClckRigth = this._handleClckRigth.bind(this);
     this.ActiveTab = this.ActiveTab.bind(this);
+    this.Logout = this.Logout.bind(this);
   }
   ActiveTab(event) {
     this.setState({
@@ -28,6 +31,32 @@ class ReceptionPage extends Component {
   }
   _handleClckRigth(e) {
     e.preventDefault();
+  }
+
+  Logout() {
+    if (window.confirm("Θέλετε σιγουρά να αποσυνδεθείτε ;")) {
+      const refress_token = cookie.load("refress_token");
+      axios
+        .delete("http://localhost:5023/token_reception", {
+          refress_token: refress_token
+        })
+        .then(res => {
+          console.log(res);
+          const result = res.data;
+          if (result.status === "success") {
+            this.delete_all_cookies();
+          }
+        });
+    }
+  }
+
+  delete_all_cookies() {
+    const list_of_cookies = Object.keys(cookie.loadAll());
+    let item;
+    for (item in list_of_cookies) {
+      cookie.remove(list_of_cookies[item], { path: "/" });
+    }
+    window.location.href = "/";
   }
   render() {
     return (
@@ -62,7 +91,7 @@ class ReceptionPage extends Component {
               </button>
             </li>
             <li>
-              <button id="logout" className="logout">
+              <button id="logout" className="logout" onClick={this.Logout}>
                 Αποσύνδεση
               </button>
             </li>
