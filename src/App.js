@@ -18,6 +18,7 @@ import NotFound from "./componets/NotFound/NotFound";
 import DBCostumer_To_pick from "./componets/Costumer/DBCostumer_To_pick";
 //import axios from "axios";
 import axios from "./componets/axios.js";
+import cookie from "react-cookies";
 
 function App() {
   const [receptionpage_state, setReceptionpage_state] = useState(false);
@@ -30,19 +31,22 @@ function App() {
   });
 
   async function CheckLogin() {
-    await axios
-      .get("http://localhost:5023/authCheck")
-      .then(async res => {
-        const result = res.data;
-        if (result.status === "success") {
-          if (result.msg === "admin") {
-            await setAdminpage_state(true);
-          } else if (result.msg === "reception") {
-            await setReceptionpage_state(true);
+    const token = await cookie.load("access_token");
+    if (token != null) {
+      await axios
+        .get("http://localhost:5023/authCheck")
+        .then(async res => {
+          const result = res.data;
+          if (result.status === "success") {
+            if (result.msg === "admin") {
+              await setAdminpage_state(true);
+            } else if (result.msg === "reception") {
+              await setReceptionpage_state(true);
+            }
           }
-        }
-      })
-      .catch(error => {});
+        })
+        .catch(error => {});
+    }
   }
 
   var checkCookie = (function() {

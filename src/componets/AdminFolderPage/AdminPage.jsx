@@ -32,7 +32,6 @@ class AdminPage extends Component {
     });
   }
 
-  //cookie.remove('userId', { path: '/' })
   Logout() {
     if (window.confirm("Θέλετε σιγουρά να αποσυνδεθείτε ;")) {
       const refress_token = cookie.load("refress_token");
