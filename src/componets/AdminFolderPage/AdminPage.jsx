@@ -34,13 +34,19 @@ class AdminPage extends Component {
 
   Logout() {
     if (window.confirm("Θέλετε σιγουρά να αποσυνδεθείτε ;")) {
-      const refress_token = cookie.load("refress_token");
+      const refresstoken = cookie.load("refress_token");
+      let data = Object.assign(
+        {},
+        {
+          refress_token: refresstoken
+        }
+      );
       axios
         .delete("http://localhost:5023/token_admin", {
-          refress_token: refress_token
+          data
         })
         .then(res => {
-          console.log(res);
+          // console.log(res);
           const result = res.data;
           if (result.status === "success") {
             this.delete_all_cookies();

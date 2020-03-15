@@ -35,13 +35,19 @@ class ReceptionPage extends Component {
 
   Logout() {
     if (window.confirm("Θέλετε σιγουρά να αποσυνδεθείτε ;")) {
-      const refress_token = cookie.load("refress_token");
+      const refresstoken = cookie.load("refress_token");
+      let data = Object.assign(
+        {},
+        {
+          refress_token: refresstoken
+        }
+      );
       axios
         .delete("http://localhost:5023/token_reception", {
-          refress_token: refress_token
+          data
         })
         .then(res => {
-          console.log(res);
+          // console.log(res);
           const result = res.data;
           if (result.status === "success") {
             this.delete_all_cookies();
@@ -56,6 +62,7 @@ class ReceptionPage extends Component {
     for (item in list_of_cookies) {
       cookie.remove(list_of_cookies[item], { path: "/" });
     }
+    //alert("gtrgthtrhtrhtrhtrhrhrthrth");
     window.location.href = "/";
   }
   render() {
