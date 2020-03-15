@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./ReceptionPageDBCostumersStyle.css";
 import CostumMenu from "../CostumMenu/Menu";
-import Edit_Costumer from "../Edit_Components/Edit_Costumer";
+import EditCostumer from "../Edit_Components/Edit_Costumer";
 
 //import axios from "axios";
 import axios from "../axios.js";
@@ -88,7 +88,7 @@ class ReceptionPageDBCostumers extends Component {
       />
     ) : null;
     const display_update_costumer = this.state.show_edit_costumer ? (
-      <Edit_Costumer
+      <EditCostumer
         costumer={this.state.curren_costumer}
         close_dialog={this.Close_Dialog_Edit_Costumer}
       />

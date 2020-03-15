@@ -10,10 +10,10 @@ class ReceptionPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      RegReservation: " tab",
-      DBCostumers: "active tab",
+      RegReservation: "active tab",
+      DBCostumers: " tab",
       DBReservations: " tab",
-      active_tab: "DBCostumers"
+      active_tab: "RegReservation"
     };
     this._handleClckRigth = this._handleClckRigth.bind(this);
     this.ActiveTab = this.ActiveTab.bind(this);

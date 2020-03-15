@@ -11,9 +11,9 @@ import ReceptionPage from "./componets/ReceptionFolderPage/ReceptionPage";
 import WelcomePage from "./componets/WelcomeFolder/WelcomePage";
 import AdminLogin from "./componets/LoginPages/AdminLoginPage";
 import RecLoginPage from "./componets/LoginPages/RecLoginPage";
-import Edit_Room from "./componets/Edit_Components/Edit_Room";
+//import Edit_Room from "./componets/Edit_Components/Edit_Room";
 import Edit_Costumer from "./componets/Edit_Components/Edit_Costumer";
-import Edit_Employee from "./componets/Edit_Components/Edit_Employee";
+//import Edit_Employee from "./componets/Edit_Components/Edit_Employee";
 import CostumMenu2 from "./componets/CostumMenu/MenuCostumer";
 import NotFound from "./componets/NotFound/NotFound";
 import DBCostumer_To_pick from "./componets/Costumer/DBCostumer_To_pick";
@@ -46,7 +46,9 @@ function App() {
             }
           }
         })
-        .catch(error => {});
+        .catch(error => {
+          //console.log("");
+        });
     }
   }
 
