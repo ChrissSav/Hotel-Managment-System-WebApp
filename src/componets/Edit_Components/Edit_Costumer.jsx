@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Edit_CostumerStyle.css";
-import axios from "axios";
+import axios from "../axios";
+import cookie from "react-cookies";
 
 class Edit_Costumer extends Component {
   constructor(prop) {
@@ -19,7 +20,7 @@ class Edit_Costumer extends Component {
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.PhoneValidation = this.PhoneValidation.bind(this);
     this.ChangeFromat = this.ChangeFromat.bind(this);
-    this.RegisetCostumer = this.RegisetCostumer.bind(this);
+    this.UpadetCostumer = this.UpadetCostumer.bind(this);
   }
   componentDidMount() {
     // console.log("componentDidMount");
@@ -81,7 +82,7 @@ class Edit_Costumer extends Component {
     }
   }
 
-  RegisetCostumer() {
+  UpadetCostumer() {
     let data = Object.assign({}, this.state);
     delete data.type;
     delete data.background_Image;
@@ -90,7 +91,6 @@ class Edit_Costumer extends Component {
       //alert("Επιτυχής καταχώρηση");
       //console.log("true");
       axios.put("http://localhost:5023/costumer", { data }).then(res => {
-        //console.log(res.data);
         const result = res.data;
         if (result.status === "success") {
           alert("Επιτυχής καταχώρηση");
@@ -203,7 +203,7 @@ class Edit_Costumer extends Component {
               </tbody>
             </table>
           </div>
-          <button className="btnAddEmploye" onClick={this.RegisetCostumer}>
+          <button className="btnAddEmploye" onClick={this.UpadetCostumer}>
             Καταχώρηση
           </button>
         </div>

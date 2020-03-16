@@ -4,14 +4,15 @@ import cookie from "react-cookies";
 let v = 0;
 axios.interceptors.request.use(
   async config => {
-    const token = await cookie.load("access_token");
-    if (token != null) {
-      config.headers = { auth_token: token };
-      //console.log("config.headers ", config.headers);
-      if (IsExpired()) {
-        // console.log("IsExpired");
+    let token_token = await cookie.load("access_token");
+    if (token_token != null) {
+      config.headers = { auth_token: token_token };
+      if (IsExpired(token_token)) {
         await UpdateToken();
+        token_token = cookie.load("access_token");
       }
+      //console.log("access_token", cookie.load("access_token"));
+      config.headers = { auth_token: token_token };
     }
 
     // Or when you don't need an HTTP request just resolve
@@ -20,7 +21,7 @@ axios.interceptors.request.use(
     // Do something before request is sent
   },
   error => {
-    console.log("Do something with request error");
+    //console.log("Do something with request error");
     // Do something with request error
     return Promise.reject(error);
   }
@@ -29,14 +30,14 @@ axios.interceptors.request.use(
 // Add a response interceptor
 axios.interceptors.response.use(
   async function(response) {
-    //console.log("Do something with response data", response);
-    // if (response.data.status === "error") {
-    //  await UpdateToken();
-    //}
+    // Do something with response data
+    /*if (response.data.status === "error") {
+      await UpdateToken();
+    }*/
     return response;
   },
   async function(error) {
-    // console.log("Do something with response error", error);
+    //console.log("Do something with response error", error);
     //await UpdateToken();
     // Do something with response error
     return Promise.reject(error);
@@ -44,59 +45,29 @@ axios.interceptors.response.use(
 );
 
 async function UpdateToken() {
-  const token = await cookie.load("refress_token");
-  const flag = await cookie.load("flag");
+  const token = cookie.load("refress_token");
+  const flag = cookie.load("flag");
   const url = "http://localhost:5023/token_" + flag;
-  if (v === 0) {
-    v = 1;
-    /*await axios
-      .post(url, { refress_token: token })
-      .then(async res => {
-        const result = res.data;
-        if (result.status !== "error") {
-          console.log("save");
-          await cookie.save("access_token", result.access_token, {
-            path: "/"
-          });
-          await cookie.save("refress_token", result.refress_token, {
-            path: "/"
-          });
-          console.log("result.access_token", result.access_token);
-          console.log("save1");
-        }
-      })
-      .catch(error => {
-        console.log("goirhj9itrhuttr");
-      });*/
-    await ConnectToAPI(token, url);
-    // console.log("ConnectToAPI UpdateToken", p);
-  }
-}
+  //console.log("foierhg0regregh0yer98gergreg", v);
 
-function ConnectToAPI(token, url) {
-  //console.log(username,password)
-  return new Promise(async (resolve, reject) => {
-    await axios
-      .post(url, { refress_token: token })
-      .then(async res => {
-        const result = res.data;
-        if (result.status !== "error") {
-          //console.log("save");
-          await cookie.save("access_token", result.access_token, {
-            path: "/"
-          });
-          await cookie.save("refress_token", result.refress_token, {
-            path: "/"
-          });
-          //console.log("result.access_token", result.access_token);
-          // console.log("save1");
-          //resolve("true");
-        }
-      })
-      .catch(error => {
-        resolve("error");
-      });
-  });
+  if (v === 0) {
+    v++;
+    // console.log("foierhg0regregh0yer98gergreg");
+    await axios.post(url, { refress_token: token }).then(async res => {
+      const result = res.data;
+      if (result.status !== "error") {
+        await cookie.save("access_token", result.access_token, {
+          path: "/"
+        });
+        await cookie.save("refress_token", result.refress_token, {
+          path: "/"
+        });
+      } else {
+        //console.log("errrroorrr");
+      }
+    });
+  }
+  v = 0;
 }
 
 function parseJwt(token) {
@@ -113,17 +84,17 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload).exp;
 }
 
-function IsExpired() {
-  const token = parseJwt(cookie.load("access_token"));
+function IsExpired(token1) {
+  const token = parseJwt(token1);
   var current_time = new Date().getTime() / 1000;
   // console.log("current_time", current_time);
   //console.log("diafora", token - current_time);
   if (current_time > token) {
     //console.log(v++);
-    //console.log("expired ");
+    console.log("expired ");
     return true;
   } else {
-    //console.log("mpompxa ");
+    console.log("mpompxa ");
     return false;
   }
 }
