@@ -7,7 +7,9 @@ axios.interceptors.request.use(
     const token = await cookie.load("access_token");
     if (token != null) {
       config.headers = { auth_token: token };
+      //console.log("config.headers ", config.headers);
       if (IsExpired()) {
+        // console.log("IsExpired");
         await UpdateToken();
       }
     }
@@ -18,7 +20,7 @@ axios.interceptors.request.use(
     // Do something before request is sent
   },
   error => {
-    //console.log("Do something with request error");
+    console.log("Do something with request error");
     // Do something with request error
     return Promise.reject(error);
   }
@@ -27,14 +29,14 @@ axios.interceptors.request.use(
 // Add a response interceptor
 axios.interceptors.response.use(
   async function(response) {
-    // Do something with response data
+    //console.log("Do something with response data", response);
     // if (response.data.status === "error") {
     //  await UpdateToken();
     //}
     return response;
   },
   async function(error) {
-    //console.log("Do something with response error", error);
+    // console.log("Do something with response error", error);
     //await UpdateToken();
     // Do something with response error
     return Promise.reject(error);
@@ -47,18 +49,54 @@ async function UpdateToken() {
   const url = "http://localhost:5023/token_" + flag;
   if (v === 0) {
     v = 1;
-    await axios.post(url, { refress_token: token }).then(async res => {
-      const result = res.data;
-      if (result.status !== "error") {
-        await cookie.save("access_token", result.access_token, {
-          path: "/"
-        });
-        await cookie.save("refress_token", result.refress_token, {
-          path: "/"
-        });
-      }
-    });
+    /*await axios
+      .post(url, { refress_token: token })
+      .then(async res => {
+        const result = res.data;
+        if (result.status !== "error") {
+          console.log("save");
+          await cookie.save("access_token", result.access_token, {
+            path: "/"
+          });
+          await cookie.save("refress_token", result.refress_token, {
+            path: "/"
+          });
+          console.log("result.access_token", result.access_token);
+          console.log("save1");
+        }
+      })
+      .catch(error => {
+        console.log("goirhj9itrhuttr");
+      });*/
+    await ConnectToAPI(token, url);
+    // console.log("ConnectToAPI UpdateToken", p);
   }
+}
+
+function ConnectToAPI(token, url) {
+  //console.log(username,password)
+  return new Promise(async (resolve, reject) => {
+    await axios
+      .post(url, { refress_token: token })
+      .then(async res => {
+        const result = res.data;
+        if (result.status !== "error") {
+          //console.log("save");
+          await cookie.save("access_token", result.access_token, {
+            path: "/"
+          });
+          await cookie.save("refress_token", result.refress_token, {
+            path: "/"
+          });
+          //console.log("result.access_token", result.access_token);
+          // console.log("save1");
+          //resolve("true");
+        }
+      })
+      .catch(error => {
+        resolve("error");
+      });
+  });
 }
 
 function parseJwt(token) {

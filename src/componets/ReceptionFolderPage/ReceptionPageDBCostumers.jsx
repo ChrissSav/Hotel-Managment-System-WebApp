@@ -104,7 +104,8 @@ class ReceptionPageDBCostumers extends Component {
         axios.get("http://localhost:5023/costumer/!").then(res => {
           //console.log(res.data);
           this.setState({
-            costumers: res.data
+            costumers: res.data,
+            curren_costumer: []
           });
         });
       } else {

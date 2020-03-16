@@ -34,9 +34,18 @@ function App() {
   async function CheckLogin() {
     const token = await cookie.load("access_token");
     if (token != null) {
+      await ConnectToAPi();
+    }
+  }
+
+  function ConnectToAPi() {
+    //console.log(username,password)
+    return new Promise(async (resolve, reject) => {
+      // console.log("ConnectToAPi", await cookie.load("access_token"));
       await axios
         .get("http://localhost:5023/authCheck")
         .then(async res => {
+          //console.log("resresresresres");
           const result = res.data;
           if (result.status === "success") {
             if (result.msg === "admin") {
@@ -46,10 +55,8 @@ function App() {
             }
           }
         })
-        .catch(error => {
-          //console.log("");
-        });
-    }
+        .catch(error => {});
+    });
   }
 
   var checkCookie = (function() {
@@ -58,7 +65,8 @@ function App() {
       var currentCookie = document.cookie;
       if (currentCookie !== lastCookie) {
         // something useful like parse cookie, run a callback fn, etc.
-        CheckLogin();
+        //console.log("\n\n", currentCookie);
+        ConnectToAPi();
         lastCookie = currentCookie; // store latest cookie
       } else {
         //console.log("not");

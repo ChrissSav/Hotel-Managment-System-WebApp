@@ -52,6 +52,21 @@ class AdminTabDBEmployees extends Component {
       this.setState({
         show_edit_employee: true
       });
+    } else if (id === "delete") {
+      const curren_employee = this.state.curren_employee;
+      // console.log("Selectedd : ", this.state.curren_costumer);
+      if (
+        window.confirm(
+          "Θέλετε σιγουρά να διαγράψετε τον υπάλληλο " +
+            `"` +
+            curren_employee.first_name +
+            " " +
+            curren_employee.last_name +
+            `" ;`
+        )
+      ) {
+        this.DeleteEmployee(curren_employee);
+      }
     }
   }
 
@@ -76,6 +91,27 @@ class AdminTabDBEmployees extends Component {
       show: false
     });
   }
+
+  DeleteEmployee(employee) {
+    let data = employee;
+    axios.delete("http://localhost:5023/employee", { data }).then(res => {
+      //console.log(res.data);
+      const result = res.data;
+      //console.log(result);
+      if (result.status === "success") {
+        axios.get("http://localhost:5023/employee/!").then(res => {
+          //console.log(res.data);
+          this.setState({
+            employees: res.data,
+            curren_employee: []
+          });
+        });
+      } else {
+        alert("Κατι πήγε στραβά!");
+      }
+    });
+  }
+
   // ? true : false
   render() {
     const display_menu = this.state.show ? (
