@@ -15,6 +15,7 @@ class ReceptionPageRegReservation extends Component {
       room_id: "",
       //booking
       costumer_id: "",
+      current_costumer: null,
       arrival: "",
       departure: "",
       diet: "",
@@ -54,7 +55,8 @@ class ReceptionPageRegReservation extends Component {
     if (e !== "") {
       this.setState({
         show_add_costumer: false,
-        costumer_id: e
+        costumer_id: e.first_name + " " + e.first_name,
+        current_costumer: e
       });
     } else {
       this.setState({
@@ -68,7 +70,8 @@ class ReceptionPageRegReservation extends Component {
     if (e !== "") {
       this.setState({
         show_select_costumer: false,
-        costumer_id: e
+        costumer_id: e.last_name + " " + e.first_name,
+        current_costumer: e
       });
     } else {
       this.setState({
@@ -93,7 +96,7 @@ class ReceptionPageRegReservation extends Component {
     }
   }
   Get_Selected_Costumer(e) {
-    console.log(e);
+    //console.log(e);
     if (e === "select") {
       this.setState({
         show_select_costumer: true
@@ -303,7 +306,7 @@ class ReceptionPageRegReservation extends Component {
               </th>
               <th align="right">
                 <input
-                  id="costumer_id"
+                  id="UpadetCostumer"
                   type="text"
                   readOnly
                   onChange={this.handleChangeInput}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Edit_RoomStyle.css";
-import axios from "axios";
+import axios from "../axios";
 
 class Edit_Room extends Component {
   constructor(prop) {

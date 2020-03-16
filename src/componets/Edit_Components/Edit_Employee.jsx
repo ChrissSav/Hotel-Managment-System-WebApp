@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Edit_EmployeeStyle.css";
 import password_show from "../SVG/password_show.svg";
 import password_hide from "../SVG/password_hide.svg";
-import axios from "axios";
+import axios from "../axios";
 
 class Edit_Employee extends Component {
   constructor(prop) {

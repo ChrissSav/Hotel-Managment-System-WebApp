@@ -83,7 +83,7 @@ class DBCostumer_To_pick extends Component {
               if (this.state.curren_costumer == null) {
                 this.props.get_costumer("");
               } else {
-                this.props.get_costumer(this.state.curren_costumer.id);
+                this.props.get_costumer(this.state.curren_costumer);
               }
             }}
           >

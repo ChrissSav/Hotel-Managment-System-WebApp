@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Edit_CostumerStyle.css";
 import axios from "../axios";
-import cookie from "react-cookies";
 
 class Edit_Costumer extends Component {
   constructor(prop) {

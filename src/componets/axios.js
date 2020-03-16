@@ -91,10 +91,10 @@ function IsExpired(token1) {
   //console.log("diafora", token - current_time);
   if (current_time > token) {
     //console.log(v++);
-    console.log("expired ");
+    //console.log("expired ");
     return true;
   } else {
-    console.log("mpompxa ");
+    //console.log("mpompxa ");
     return false;
   }
 }
