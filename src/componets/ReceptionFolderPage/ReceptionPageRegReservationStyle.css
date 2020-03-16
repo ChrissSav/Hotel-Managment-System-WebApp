@@ -7,7 +7,7 @@
 
 .ReceptionRe_container .btnregBook {
   display: block;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
@@ -75,11 +75,14 @@
 .ReceptionRe_container .table_reception_info {
   border: 4px solid #76b7dd;
   font-size: 27px;
+  padding: 15px 0px;
+  margin-bottom: 15px;
 }
 
 .ReceptionRe_container .table_cost_info {
   border-top: 4px solid #76b7dd;
   font-size: 27px;
+  margin-top: 15px;
 }
 
 .ReceptionRe_container .table_reservation_info {

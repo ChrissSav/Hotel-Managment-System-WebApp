@@ -158,26 +158,6 @@ class ReceptionPageRegReservation extends Component {
                 />
               </th>
             </tr>
-            <tr>
-              <th align="left">
-                <label>Ημερ/νια κράτησης</label>
-              </th>
-              <th align="right">
-                <input
-                  id="book_date"
-                  type="text"
-                  value={this.state.book_date}
-                  //  onChange={this.handleChangeInput}
-                  readOnly
-                />
-              </th>
-              <th align="left">
-                <label></label>
-              </th>
-              <th align="right">
-                <label></label>
-              </th>
-            </tr>
           </tbody>
         </table>
         <table className="table_reservation_info">
