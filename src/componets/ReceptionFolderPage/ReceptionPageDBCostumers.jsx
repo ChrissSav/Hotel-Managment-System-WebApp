@@ -60,6 +60,21 @@ class ReceptionPageDBCostumers extends Component {
       this.setState({
         show_edit_costumer: true
       });
+    } else if (id === "delete") {
+      const curren_costumer = this.state.curren_costumer;
+      // console.log("Selectedd : ", this.state.curren_costumer);
+      if (
+        window.confirm(
+          "Θέλετε σιγουρά να διαγράψετε τον πελάτη " +
+            `"` +
+            curren_costumer.first_name +
+            " " +
+            curren_costumer.last_name +
+            `" ;`
+        )
+      ) {
+        this.DeleteCostumer(curren_costumer);
+      }
     }
   }
 
@@ -76,6 +91,25 @@ class ReceptionPageDBCostumers extends Component {
     }
     this.setState({
       show_edit_costumer: false
+    });
+  }
+
+  DeleteCostumer(costumer) {
+    let data = costumer;
+    axios.delete("http://localhost:5023/costumer", { data }).then(res => {
+      //console.log(res.data);
+      const result = res.data;
+      //console.log(result);
+      if (result.status === "success") {
+        axios.get("http://localhost:5023/costumer/!").then(res => {
+          //console.log(res.data);
+          this.setState({
+            costumers: res.data
+          });
+        });
+      } else {
+        alert("Κατι πήγε στραβά!");
+      }
     });
   }
 
