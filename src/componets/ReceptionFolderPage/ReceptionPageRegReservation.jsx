@@ -3,6 +3,8 @@ import "./ReceptionPageRegReservationStyle.css";
 import MenuCostumer from "../CostumMenu/MenuCostumer";
 import AddCostumer from "../Costumer/AddCostumer";
 import DBCostumerToPick from "../Costumer/DBCostumer_To_pick";
+import PickRoom from "../PickRoom/PickRoom";
+import axios from "../axios.js";
 
 class ReceptionPageRegReservation extends Component {
   constructor(props) {
@@ -30,16 +32,19 @@ class ReceptionPageRegReservation extends Component {
       parking_cost: 20,
       diet_cost: 0,
       //for room
-      wifi: "",
-      pool: "",
-      a_c: "",
+      room_type: "Μονόκλινο",
+      wifi: "wifi = 'no'",
+      pool: "pool = 'no'",
+      air_condition: "air_condition = 'no'",
 
       //costum menus
       show_context_menu: false,
       top_dist: 0,
       left_dist: 0,
       show_select_costumer: false,
-      show_add_costumer: false
+      show_add_costumer: false,
+      show_pick_room: false,
+      filter: null
     };
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.Get_Selected_Costumer = this.Get_Selected_Costumer.bind(this);
@@ -49,6 +54,8 @@ class ReceptionPageRegReservation extends Component {
     this.Close_Dialog_Select_Employee = this.Close_Dialog_Select_Employee.bind(
       this
     );
+    this.Show_Pick_Room = this.Show_Pick_Room.bind(this);
+    this.Get_Selected_Room = this.Get_Selected_Room.bind(this);
   }
   Close_Dialog_Edit_Employee(e) {
     //console.log("epistrofi", e);
@@ -79,6 +86,7 @@ class ReceptionPageRegReservation extends Component {
       });
     }
   }
+
   handleChangeInput(event) {
     // console.log(event.target, event.target.value);
     //console.log(event.target.type);
@@ -86,7 +94,9 @@ class ReceptionPageRegReservation extends Component {
       //console.log("1");
 
       this.setState({
-        [event.target.id]: event.target.checked ? "yes" : "no"
+        [event.target.id]: event.target.checked
+          ? event.target.id + " = 'yes'"
+          : event.target.id + " = 'no'"
       });
     } else {
       //console.log("2");
@@ -105,6 +115,34 @@ class ReceptionPageRegReservation extends Component {
       this.setState({ show_add_costumer: true });
     }
   }
+
+  Get_Selected_Room(e) {
+    //console.log(e);
+    if (e === -1) {
+      this.setState({
+        show_pick_room: false
+      });
+    } else {
+      this.setState({
+        show_pick_room: false,
+        room_id: e
+      });
+    }
+  }
+
+  Show_Pick_Room() {
+    let final =
+      this.state.wifi +
+      " and " +
+      this.state.pool +
+      " and " +
+      this.state.air_condition +
+      " and type = '" +
+      this.state.room_type +
+      "'";
+    //console.log(final);
+    this.setState({ show_pick_room: true, filter: final });
+  }
   render() {
     const display_context_menu = this.state.show_context_menu ? (
       <MenuCostumer
@@ -120,6 +158,10 @@ class ReceptionPageRegReservation extends Component {
 
     const display_select_costumer = this.state.show_select_costumer ? (
       <DBCostumerToPick get_costumer={this.Close_Dialog_Select_Employee} />
+    ) : null;
+
+    const display_pick_room = this.state.show_pick_room ? (
+      <PickRoom filter={this.state.filter} select={this.Get_Selected_Room} />
     ) : null;
 
     return (
@@ -203,7 +245,7 @@ class ReceptionPageRegReservation extends Component {
               <th align="left">
                 <label className="check">
                   <input
-                    id="a_c"
+                    id="air_condition"
                     type="checkbox"
                     onChange={this.handleChangeInput}
                   />
@@ -308,7 +350,10 @@ class ReceptionPageRegReservation extends Component {
               </th>
               <th align="right" className="wrap_room">
                 <input type="room_id" value={this.state.room_id} readOnly />
-                <button className="Search_room"></button>
+                <button
+                  className="Search_room"
+                  onClick={this.Show_Pick_Room}
+                ></button>
               </th>
             </tr>
           </tbody>
@@ -369,17 +414,11 @@ class ReceptionPageRegReservation extends Component {
             </tr>
           </tbody>
         </table>
-        <button
-          className="btnregBook"
-          onClick={() => {
-            console.log(this.state);
-          }}
-        >
-          Καταχώρηση
-        </button>
+        <button className="btnregBook">Καταχώρηση</button>
         {display_context_menu}
         {display_add_costumer}
         {display_select_costumer}
+        {display_pick_room}
       </div>
     );
   }

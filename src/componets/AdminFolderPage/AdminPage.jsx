@@ -41,6 +41,7 @@ class AdminPage extends Component {
           refress_token: refresstoken
         }
       );
+      console.log("refresstoken admin page", refresstoken);
       axios
         .delete("http://localhost:5023/token_admin", {
           data
@@ -50,6 +51,8 @@ class AdminPage extends Component {
           const result = res.data;
           if (result.status === "success") {
             this.delete_all_cookies();
+          } else {
+            console.log(result);
           }
         });
     }
