@@ -5,6 +5,7 @@ import AddCostumer from "../Costumer/AddCostumer";
 import DBCostumerToPick from "../Costumer/DBCostumer_To_pick";
 import PickRoom from "../PickRoom/PickRoom";
 import axios from "../axios.js";
+import cookie from "react-cookies";
 
 class ReceptionPageRegReservation extends Component {
   constructor(props) {
@@ -56,6 +57,42 @@ class ReceptionPageRegReservation extends Component {
     );
     this.Show_Pick_Room = this.Show_Pick_Room.bind(this);
     this.Get_Selected_Room = this.Get_Selected_Room.bind(this);
+  }
+
+  componentDidMount() {
+    var today = new Date(),
+      date =
+        today.getHours() +
+        "" +
+        today.getMinutes() +
+        "" +
+        today.getSeconds() +
+        "" +
+        today.getDate() +
+        "" +
+        (today.getMonth() + 1) +
+        "" +
+        today.getFullYear();
+
+    this.setState({
+      book_id: date,
+      employee_id: this.parseJwt(cookie.load("refress_token")).user.id
+    });
+  }
+
+  parseJwt(token) {
+    var base64Url = token.split(".")[1];
+    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    var jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split("")
+        .map(function(c) {
+          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join("")
+    );
+
+    return JSON.parse(jsonPayload);
   }
   Close_Dialog_Edit_Employee(e) {
     //console.log("epistrofi", e);

@@ -30,6 +30,7 @@ axios.interceptors.request.use(
 // Add a response interceptor
 axios.interceptors.response.use(
   async function(response) {
+    //console.log("Do something with response error", response);
     // Do something with response data
     /*if (response.data.status === "error") {
       await UpdateToken();
@@ -37,9 +38,11 @@ axios.interceptors.response.use(
     return response;
   },
   async function(error) {
-    //console.log("Do something with response error", error);
     //await UpdateToken();
     // Do something with response error
+    if (error.config && error.response && error.response.status === 401) {
+      console.log("Do something with response error", error);
+    }
     return Promise.reject(error);
   }
 );
