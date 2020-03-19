@@ -26,11 +26,11 @@ class ReceptionPageRegReservation extends Component {
       num_of_minors: "",
       parking: "",
       //cost
-      room_cost: "",
-      tax: "",
-      cost_of_benefits: "",
-      cost_total: "",
-      parking_cost: 20,
+      room_cost: 0,
+      tax: 0,
+      cost_of_benefits: 0,
+      cost_total: 0,
+      cost_tax: 0,
       diet_cost: 0,
       //for room
       room_type: "Μονόκλινο",
@@ -45,9 +45,18 @@ class ReceptionPageRegReservation extends Component {
       show_select_costumer: false,
       show_add_costumer: false,
       show_pick_room: false,
-      filter: null
+      filter: null,
+
+      //costs from api
+      parking_cost: null,
+      without_diet: 0,
+      only_breakfast: null,
+      half_board: null,
+      full_diet: null
     };
+
     this.handleChangeInput = this.handleChangeInput.bind(this);
+    this.getPricesFromApi = this.getPricesFromApi.bind(this);
     this.Get_Selected_Costumer = this.Get_Selected_Costumer.bind(this);
     this.Close_Dialog_Edit_Employee = this.Close_Dialog_Edit_Employee.bind(
       this
@@ -57,6 +66,24 @@ class ReceptionPageRegReservation extends Component {
     );
     this.Show_Pick_Room = this.Show_Pick_Room.bind(this);
     this.Get_Selected_Room = this.Get_Selected_Room.bind(this);
+    this.totalCostCal = this.totalCostCal.bind(this);
+  }
+
+  totalCostCal() {
+    //console.log("totalCostCal");
+    let room_cost = this.state.room_cost;
+    let cost_of_benefits = this.state.cost_of_benefits 
+    let diet_cost = this.state.diet_cost;
+    const total = room_cost + cost_of_benefits + diet_cost;
+    let tax = 0;
+    if (total !== 0) {
+      tax = (total * this.state.tax).toFixed(2);
+    }
+    //console.log(tax, "total", total);
+    this.setState({
+      cost_total: total,
+      cost_tax: tax
+    });
   }
 
   componentDidMount() {
@@ -73,13 +100,34 @@ class ReceptionPageRegReservation extends Component {
         (today.getMonth() + 1) +
         "" +
         today.getFullYear();
+    this.getPricesFromApi();
 
     this.setState({
       book_id: date,
       employee_id: this.parseJwt(cookie.load("refress_token")).user.id
     });
+    //console.log(this.state);
   }
 
+  getPricesFromApi() {
+    axios.get("http://localhost:5023/prices/reception").then(res => {
+      let result = res.data;
+
+      if (result.status === "success") {
+        result = result.msg;
+
+        //console.log(result);
+        this.setState({
+          parking_cost: result.parking,
+          only_breakfast: result.only_breakfast,
+          half_board: result.half_board,
+          full_diet: result.full_diet,
+          tax: result.tax / 100
+        });
+      }
+      // console.log(res.data);
+    });
+  }
   parseJwt(token) {
     var base64Url = token.split(".")[1];
     var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
@@ -124,23 +172,46 @@ class ReceptionPageRegReservation extends Component {
     }
   }
 
-  handleChangeInput(event) {
+  async handleChangeInput(event) {
     // console.log(event.target, event.target.value);
-    //console.log(event.target.type);
     if (event.target.type === "checkbox") {
-      //console.log("1");
 
-      this.setState({
-        [event.target.id]: event.target.checked
-          ? event.target.id + " = 'yes'"
-          : event.target.id + " = 'no'"
-      });
-    } else {
-      //console.log("2");
+      if (event.target.id === "parking") {
+        const parking_cost = this.state.parking_cost;
+        const current_cost_of_benefits = this.state.cost_of_benefits;
+        //console.log(ben);
+        await this.setState({
+          cost_of_benefits: event.target.checked
+            ? parking_cost + current_cost_of_benefits
+            : 0
+        });
+      } else {
+        this.setState({
+          [event.target.id]: event.target.checked
+            ? event.target.id + " = 'yes'"
+            : event.target.id + " = 'no'"
+        });
+      }
+    }
+    else {
+      //console.log("2",event.target.type);
       this.setState({
         [event.target.id]: event.target.value
       });
+      if (event.target.type === "select-one") {
+        if (event.target.id === "diet") {
+          const item = event.target.value
+          await this.setState({
+            diet_cost: this.state[item]
+          })
+        }
+      }
     }
+    
+  
+
+    
+    this.totalCostCal();
   }
   Get_Selected_Costumer(e) {
     //console.log(e);
@@ -153,17 +224,19 @@ class ReceptionPageRegReservation extends Component {
     }
   }
 
-  Get_Selected_Room(e) {
+  async Get_Selected_Room(e) {
     //console.log(e);
     if (e === -1) {
       this.setState({
         show_pick_room: false
       });
     } else {
-      this.setState({
+      await this.setState({
         show_pick_room: false,
-        room_id: e
+        room_id: e.id,
+        room_cost: e.price
       });
+      this.totalCostCal();
     }
   }
 
@@ -261,10 +334,10 @@ class ReceptionPageRegReservation extends Component {
                   className="diet"
                   onChange={this.handleChangeInput}
                 >
-                  <option value="Χωρίς διατροφή">Χωρίς διατροφή</option>
-                  <option value="Μόνο πρωινό">Μόνο πρωινό</option>
-                  <option value="Ημιδιατροφή">Ημιδιατροφή</option>
-                  <option value="Πλήρης διατροφή">Πλήρης διατροφή</option>
+                  <option value="without_diet">Χωρίς διατροφή</option>
+                  <option value="only_breakfast">Μόνο πρωινό</option>
+                  <option value="half_board">Ημιδιατροφή</option>
+                  <option value="full_diet">Πλήρης διατροφή</option>
                 </select>
               </th>
             </tr>
@@ -404,23 +477,25 @@ class ReceptionPageRegReservation extends Component {
               <th align="right">
                 <input
                   id="room_cost"
-                  type="number"
+                  type="text"
                   onChange={this.handleChangeInput}
                   value={this.state.room_cost}
                   readOnly
                 />
+                €
               </th>
               <th align="left">
                 <label>Φ.Π.Α.</label>
               </th>
               <th align="right">
                 <input
-                  id="tax"
-                  type="number"
+                  id="cost_tax"
+                  type="text"
                   onChange={this.handleChangeInput}
-                  value={this.state.tax}
+                  value={this.state.cost_tax}
                   readOnly
                 />
+                €
               </th>
             </tr>
             <tr>
@@ -430,11 +505,12 @@ class ReceptionPageRegReservation extends Component {
               <th align="right">
                 <input
                   id="cost_of_benefits"
-                  type="number"
+                  type="text"
                   onChange={this.handleChangeInput}
                   value={this.state.cost_of_benefits}
                   readOnly
                 />
+                €
               </th>
               <th align="left">
                 <label>Τελικό Κόστος</label>
@@ -442,16 +518,25 @@ class ReceptionPageRegReservation extends Component {
               <th align="right">
                 <input
                   id="cost_total"
-                  type="number"
+                  className="makis"
+                  type="text"
                   value={this.state.cost_total}
                   onChange={this.handleChangeInput}
                   readOnly
                 />
+                €
               </th>
             </tr>
           </tbody>
         </table>
-        <button className="btnregBook">Καταχώρηση</button>
+        <button
+          className="btnregBook"
+          onClick={() => {
+            console.log(this.state);
+          }}
+        >
+          Καταχώρηση
+        </button>
         {display_context_menu}
         {display_add_costumer}
         {display_select_costumer}

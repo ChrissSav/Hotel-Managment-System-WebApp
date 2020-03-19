@@ -31,7 +31,7 @@ class PickRoom extends Component {
     if (this.state.curren_room === null) {
       this.props.select(-1);
     } else {
-      this.props.select(this.state.curren_room.id);
+      this.props.select(this.state.curren_room);
     }
   }
 
