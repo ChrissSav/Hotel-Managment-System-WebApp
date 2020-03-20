@@ -27,7 +27,6 @@ class ReceptionPageRegReservation extends Component {
       parking: "",
       //cost
       room_cost: 0,
-      tax: 0,
       cost_of_benefits: 0,
       cost_total: 0,
       cost_tax: 0,
@@ -48,7 +47,8 @@ class ReceptionPageRegReservation extends Component {
       filter: null,
 
       //costs from api
-      parking_cost: null,
+      tax: 0,
+      parking_cost_api: null,
       without_diet: 0,
       only_breakfast: null,
       half_board: null,
@@ -58,9 +58,7 @@ class ReceptionPageRegReservation extends Component {
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.getPricesFromApi = this.getPricesFromApi.bind(this);
     this.Get_Selected_Costumer = this.Get_Selected_Costumer.bind(this);
-    this.Close_Dialog_Edit_Employee = this.Close_Dialog_Edit_Employee.bind(
-      this
-    );
+    this.Close_Dialog_Add_Employee = this.Close_Dialog_Add_Employee.bind(this);
     this.Close_Dialog_Select_Employee = this.Close_Dialog_Select_Employee.bind(
       this
     );
@@ -72,9 +70,8 @@ class ReceptionPageRegReservation extends Component {
   totalCostCal() {
     //console.log("totalCostCal");
     let room_cost = this.state.room_cost;
-    let cost_of_benefits = this.state.cost_of_benefits 
-    let diet_cost = this.state.diet_cost;
-    const total = room_cost + cost_of_benefits + diet_cost;
+    let cost_of_benefits = this.state.diet_cost + this.state.parking_cost;
+    const total = room_cost + cost_of_benefits;
     let tax = 0;
     if (total !== 0) {
       tax = (total * this.state.tax).toFixed(2);
@@ -82,7 +79,8 @@ class ReceptionPageRegReservation extends Component {
     //console.log(tax, "total", total);
     this.setState({
       cost_total: total,
-      cost_tax: tax
+      cost_tax: tax,
+      cost_of_benefits: cost_of_benefits
     });
   }
 
@@ -118,7 +116,7 @@ class ReceptionPageRegReservation extends Component {
 
         //console.log(result);
         this.setState({
-          parking_cost: result.parking,
+          parking_cost_api: result.parking,
           only_breakfast: result.only_breakfast,
           half_board: result.half_board,
           full_diet: result.full_diet,
@@ -142,7 +140,7 @@ class ReceptionPageRegReservation extends Component {
 
     return JSON.parse(jsonPayload);
   }
-  Close_Dialog_Edit_Employee(e) {
+  Close_Dialog_Add_Employee(e) {
     //console.log("epistrofi", e);
     if (e !== "") {
       this.setState({
@@ -175,15 +173,11 @@ class ReceptionPageRegReservation extends Component {
   async handleChangeInput(event) {
     // console.log(event.target, event.target.value);
     if (event.target.type === "checkbox") {
-
       if (event.target.id === "parking") {
-        const parking_cost = this.state.parking_cost;
-        const current_cost_of_benefits = this.state.cost_of_benefits;
+        const parking_cost_api = this.state.parking_cost_api;
         //console.log(ben);
         await this.setState({
-          cost_of_benefits: event.target.checked
-            ? parking_cost + current_cost_of_benefits
-            : 0
+          parking_cost: event.target.checked ? parking_cost_api : 0
         });
       } else {
         this.setState({
@@ -192,25 +186,21 @@ class ReceptionPageRegReservation extends Component {
             : event.target.id + " = 'no'"
         });
       }
-    }
-    else {
+    } else {
       //console.log("2",event.target.type);
       this.setState({
         [event.target.id]: event.target.value
       });
       if (event.target.type === "select-one") {
         if (event.target.id === "diet") {
-          const item = event.target.value
+          const item = event.target.value;
           await this.setState({
             diet_cost: this.state[item]
-          })
+          });
         }
       }
     }
-    
-  
 
-    
     this.totalCostCal();
   }
   Get_Selected_Costumer(e) {
@@ -263,7 +253,7 @@ class ReceptionPageRegReservation extends Component {
     ) : null;
 
     const display_add_costumer = this.state.show_add_costumer ? (
-      <AddCostumer get_costumer={this.Close_Dialog_Edit_Employee} />
+      <AddCostumer get_costumer={this.Close_Dialog_Add_Employee} />
     ) : null;
 
     const display_select_costumer = this.state.show_select_costumer ? (
