@@ -16,12 +16,13 @@ class ReceptionPageRegReservation extends Component {
       employee_id: "",
       book_date: "",
       room_id: "",
+      current_room: null,
       //booking
       costumer_id: "",
       current_costumer: null,
-      arrival: "",
-      departure: "",
-      diet: "",
+      arrival: undefined,
+      departure: undefined,
+      diet: "without_diet",
       num_of_adults: "",
       num_of_minors: "",
       parking: "",
@@ -30,6 +31,7 @@ class ReceptionPageRegReservation extends Component {
       cost_of_benefits: 0,
       cost_total: 0,
       cost_tax: 0,
+      parking_cost: 0,
       diet_cost: 0,
       //for room
       room_type: "Μονόκλινο",
@@ -65,13 +67,16 @@ class ReceptionPageRegReservation extends Component {
     this.Show_Pick_Room = this.Show_Pick_Room.bind(this);
     this.Get_Selected_Room = this.Get_Selected_Room.bind(this);
     this.totalCostCal = this.totalCostCal.bind(this);
+    this.checkFieldsroReg = this.checkFieldsroReg.bind(this);
+    this.CheckArrivalAndDeparture = this.CheckArrivalAndDeparture.bind(this);
+    this.CheckTheConstituents = this.CheckTheConstituents.bind(this);
   }
 
   totalCostCal() {
-    //console.log("totalCostCal");
     let room_cost = this.state.room_cost;
     let cost_of_benefits = this.state.diet_cost + this.state.parking_cost;
     const total = room_cost + cost_of_benefits;
+    //console.log("totalCostCal", room_cost, cost_of_benefits);
     let tax = 0;
     if (total !== 0) {
       tax = (total * this.state.tax).toFixed(2);
@@ -171,7 +176,7 @@ class ReceptionPageRegReservation extends Component {
   }
 
   async handleChangeInput(event) {
-    // console.log(event.target, event.target.value);
+    //console.log(event.target, event.target.value);
     if (event.target.type === "checkbox") {
       if (event.target.id === "parking") {
         const parking_cost_api = this.state.parking_cost_api;
@@ -187,7 +192,7 @@ class ReceptionPageRegReservation extends Component {
         });
       }
     } else {
-      //console.log("2",event.target.type);
+      //console.log("2", event.target.type);
       this.setState({
         [event.target.id]: event.target.value
       });
@@ -224,7 +229,8 @@ class ReceptionPageRegReservation extends Component {
       await this.setState({
         show_pick_room: false,
         room_id: e.id,
-        room_cost: e.price
+        room_cost: e.price,
+        current_room: e
       });
       this.totalCostCal();
     }
@@ -242,6 +248,169 @@ class ReceptionPageRegReservation extends Component {
       "'";
     //console.log(final);
     this.setState({ show_pick_room: true, filter: final });
+  }
+
+  // arrival: "",
+  // departure: "",
+  // diet: "",
+  // num_of_adults: "",
+  // num_of_minors: "",
+  checkFieldsroReg() {
+    /* const arrival = this.state.arrival;
+    const departure = this.state.departure;
+    const num_of_adults = this.state.num_of_adults;
+    const num_of_minors = this.state.num_of_minors;
+    const costumer = this.state.current_costumer;
+    const room = this.state.current_room;
+    const diet = this.state.diet;
+    const parking = this.state.parking_cost;*/
+
+    /*console.log(
+      "arrival",
+      arrival,
+      "\ndeparture",
+      departure,
+      "\nnum_of_adults",
+      num_of_adults,
+      "\nnum_of_minors",
+      num_of_minors,
+      "\ndiet",
+      diet,
+      "\ncostumer",
+      costumer,
+      "\nroom",
+      room,
+      "\nparking",
+      parking
+    );*/ //&& this.CheckArrivalAndDeparture()
+    //CheckRoomAndCostumer this.CheckArrivalAndDeparture() && this.CheckTheConstituents() && this.CheckRoomAndCostumer()
+    if (
+      this.CheckRecInfo() &&
+      this.CheckArrivalAndDeparture() &&
+      this.CheckTheConstituents() &&
+      this.CheckRoomAndCostumer()
+    ) {
+      console.log("ok");
+    } else {
+      console.log("lathos");
+    }
+  }
+
+  CheckArrivalAndDeparture() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    var yyyy = today.getFullYear();
+    var flag = false;
+    today = mm + "/" + dd + "/" + yyyy;
+    let arrival = this.state.arrival;
+    let departure = this.state.departure;
+    //console.log(departure, "departure");
+    if (arrival === undefined || arrival === "") {
+      alert("Κενη ημερ/νια αφιξης");
+      flag = false;
+      //console.log("kenom ariv");
+    } else if (arrival !== undefined && arrival !== "") {
+      //console.log("oxi keno ariv");
+      arrival = this.ChangeFormatTocheck(arrival);
+      flag = true;
+      if (this.CheckDiffBetweenDates(today, arrival, 0)) {
+        //console.log("ok ariv");
+        if (departure !== undefined && departure !== "") {
+          departure = this.ChangeFormatTocheck(departure);
+          const res = this.CheckDiffBetweenDates(arrival, departure, 1);
+          if (res) {
+            flag = true;
+          } else {
+            alert("Λαθος ημερ/νια αναχωρησης");
+            flag = false;
+          }
+        }
+      } else {
+        //console.log("error today ariv");
+        alert("Λαθος ημερ/νια αφιξης");
+        flag = false;
+      }
+    }
+
+    //console.log("\n\nflag", flag);
+    //this.CheckDiffBetweenDates(date, "08/10/2010");
+  }
+
+  CheckDiffBetweenDates(date11, date22, num) {
+    //yyyy/dd/mm
+    //date11 = this.ChangeFormatTocheck(date11);
+    // date22 = this.ChangeFormatTocheck(date22);
+    //console.log(date11, date22);
+    //mm/dd/yyyy
+    var date1 = new Date(date11);
+    var date2 = new Date(date22);
+    var diffDays = parseInt((date2 - date1) / (1000 * 60 * 60 * 24), 10);
+    //console.log(date11, date22, diffDays);
+    return diffDays >= num ? true : false;
+  }
+
+  ChangeFormatTocheck(date1) {
+    //console.log(date1);
+    const new_date =
+      date1[5] +
+      date1[6] +
+      "/" +
+      date1[8] +
+      date1[9] +
+      "/" +
+      date1[0] +
+      date1[1] +
+      date1[2] +
+      date1[3];
+    //console.log(date1, "\n" + new_date);
+    return new_date;
+  }
+
+  CheckTheConstituents() {
+    const num_of_adults = this.state.num_of_adults;
+    const num_of_minors = this.state.num_of_minors;
+
+    if (
+      (num_of_adults < 1 || num_of_adults === "") &&
+      (num_of_minors < 1 || num_of_minors === "")
+    ) {
+      alert("ελεξγε τους απαρτίζοντες");
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  CheckRoomAndCostumer() {
+    const costumer = this.state.current_costumer;
+    const room = this.state.current_room;
+    if (costumer !== null) {
+      if (room !== null) {
+        return true;
+      } else {
+        alert("ελεξγε το δωματιο");
+        return false;
+      }
+    } else {
+      alert("ελεξγε τον πελατη");
+      return false;
+    }
+  }
+  CheckRecInfo() {
+    const rec = this.state.employee_id;
+    const book_date = this.state.book_date;
+    if (rec !== null) {
+      if (book_date !== null) {
+        return true;
+      } else {
+        alert("Ελεξτε τα πεδια");
+        return false;
+      }
+    } else {
+      alert("Κατι πηγε στραβα");
+      return false;
+    }
   }
   render() {
     const display_context_menu = this.state.show_context_menu ? (
@@ -519,12 +688,7 @@ class ReceptionPageRegReservation extends Component {
             </tr>
           </tbody>
         </table>
-        <button
-          className="btnregBook"
-          onClick={() => {
-            console.log(this.state);
-          }}
-        >
+        <button className="btnregBook" onClick={this.checkFieldsroReg}>
           Καταχώρηση
         </button>
         {display_context_menu}
