@@ -7,8 +7,8 @@ class RecLoginPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_name: "ioanna",
-      password: "1995"
+      user_name: "kostas1985",
+      password: "1985"
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);

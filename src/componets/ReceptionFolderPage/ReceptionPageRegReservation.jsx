@@ -20,8 +20,8 @@ class ReceptionPageRegReservation extends Component {
       //booking
       costumer_id: "",
       current_costumer: null,
-      arrival: undefined,
-      departure: undefined,
+      arrival: "",
+      departure: "",
       diet: "without_diet",
       num_of_adults: "",
       num_of_minors: "",
@@ -200,7 +200,8 @@ class ReceptionPageRegReservation extends Component {
         if (event.target.id === "diet") {
           const item = event.target.value;
           await this.setState({
-            diet_cost: this.state[item]
+            diet_cost: this.state[item],
+            diet: item
           });
         }
       }
@@ -250,40 +251,7 @@ class ReceptionPageRegReservation extends Component {
     this.setState({ show_pick_room: true, filter: final });
   }
 
-  // arrival: "",
-  // departure: "",
-  // diet: "",
-  // num_of_adults: "",
-  // num_of_minors: "",
   checkFieldsroReg() {
-    /* const arrival = this.state.arrival;
-    const departure = this.state.departure;
-    const num_of_adults = this.state.num_of_adults;
-    const num_of_minors = this.state.num_of_minors;
-    const costumer = this.state.current_costumer;
-    const room = this.state.current_room;
-    const diet = this.state.diet;
-    const parking = this.state.parking_cost;*/
-
-    /*console.log(
-      "arrival",
-      arrival,
-      "\ndeparture",
-      departure,
-      "\nnum_of_adults",
-      num_of_adults,
-      "\nnum_of_minors",
-      num_of_minors,
-      "\ndiet",
-      diet,
-      "\ncostumer",
-      costumer,
-      "\nroom",
-      room,
-      "\nparking",
-      parking
-    );*/ //&& this.CheckArrivalAndDeparture()
-    //CheckRoomAndCostumer this.CheckArrivalAndDeparture() && this.CheckTheConstituents() && this.CheckRoomAndCostumer()
     if (
       this.CheckRecInfo() &&
       this.CheckArrivalAndDeparture() &&
@@ -291,9 +259,40 @@ class ReceptionPageRegReservation extends Component {
       this.CheckRoomAndCostumer()
     ) {
       console.log("ok");
+      this.SendResToAPI();
     } else {
       console.log("lathos");
+      //this.SendResToAPI();
     }
+  }
+
+  SendResToAPI() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    var yyyy = today.getFullYear();
+    today = dd + "/" + mm + "/" + yyyy;
+    console.log(this.state.num_of_minors.length);
+    let data = {
+      id: this.state.book_id,
+      date: today,
+      rec_id: this.state.employee_id,
+      costumer_id: this.state.current_costumer.id,
+      room_id: this.state.current_room.id,
+      arrival: this.state.arrival,
+      departure: this.state.departure,
+      num_of_adults: parseInt(this.state.num_of_adults),
+      num_of_minors:
+        this.state.num_of_minors.length === 0
+          ? 0
+          : parseInt(this.state.num_of_minors),
+      parking_space: this.state.parking_cost === 0 ? "no" : "yes",
+      diet: this.state.diet,
+      cost: this.state.cost_total
+    };
+    axios.post("http://localhost:5023/reservation", { data }).then(res => {
+      //console.log(res.data);
+    });
   }
 
   CheckArrivalAndDeparture() {
@@ -325,6 +324,9 @@ class ReceptionPageRegReservation extends Component {
             alert("Λαθος ημερ/νια αναχωρησης");
             flag = false;
           }
+        } else {
+          flag = false;
+          alert("Κενη ημερ/νια αναχωρησης");
         }
       } else {
         //console.log("error today ariv");
@@ -332,6 +334,7 @@ class ReceptionPageRegReservation extends Component {
         flag = false;
       }
     }
+    return flag;
 
     //console.log("\n\nflag", flag);
     //this.CheckDiffBetweenDates(date, "08/10/2010");
