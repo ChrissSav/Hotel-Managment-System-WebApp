@@ -9,15 +9,41 @@ class ReceptionPageDBReservations extends Component {
     this.state = {
       reservations: []
     };
+    this.GetAllReservations = this.GetAllReservations.bind(this);
+    this.GetReservationsById = this.GetReservationsById.bind(this);
+    this.getReservation = this.getReservation.bind(this);
   }
 
   componentDidMount() {
+    this.GetAllReservations();
+  }
+
+  GetAllReservations() {
     axios.get("http://localhost:5023/reservation/0").then(res => {
-      console.log(res.data);
+      //console.log(res.data);
       this.setState({
         reservations: res.data
       });
     });
+  }
+
+  GetReservationsById(id) {
+    console.log(id, "id");
+    axios.get("http://localhost:5023/reservation/" + id).then(res => {
+      //console.log(res.data);
+      this.setState({
+        reservations: res.data
+      });
+    });
+  }
+
+  getReservation(e) {
+    console.log(e.target.value);
+    if (e.target.value === "") {
+      this.GetAllReservations();
+    } else {
+      this.GetReservationsById(e.target.value);
+    }
   }
   render() {
     const { reservations } = this.state;
@@ -71,7 +97,7 @@ class ReceptionPageDBReservations extends Component {
           <label>Αναζήτηση με βάση τον κωδικό κράτησης ή πελάτη</label>
           <br></br>
 
-          <input type="text" />
+          <input type="text" onInput={this.getReservation} />
         </div>
       </div>
     );

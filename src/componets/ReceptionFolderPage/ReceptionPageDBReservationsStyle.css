@@ -1,6 +1,6 @@
 .DBReservations_container {
   width: 100%;
-  cursor: pointer;
+  cursor: default;
 }
 
 .DBReservations_container h1 {
